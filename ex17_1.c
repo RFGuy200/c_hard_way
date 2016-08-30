@@ -55,3 +55,6 @@ int main(int argc, char *argv[])
 		default:
 			die("Inavlid action:c=create, s=set, g=get, d=delete, l=list");
 	}
+
+	return 0;
+}
