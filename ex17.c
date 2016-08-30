@@ -1,4 +1,4 @@
-/*This is an exercise to learn about memory locations heap and stack*/
+/*Added these words...This is an exercise to learn about memory locations heap and stack*/
 
 #include <stdio.h>
 #include <stdlib.h>
