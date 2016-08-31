@@ -6,7 +6,7 @@ added these comments*/
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include <errno.h>
 
 #define MAX_DATA 500
 #define MAX_ROWS 100
@@ -15,7 +15,7 @@ typedef struct Address{
 	int id;
 	int set;
 	char name[MAX_DATA];
-	chare email[MAX_DATA];
+	char email[MAX_DATA];
 }address;
 
 typedef struct Database{
@@ -27,31 +27,40 @@ typedef struct Connection{
 	database *db;
 }connection;
 
+void die(char *message)
+{
+	if(errno){
+		perror("ERROR");
+	}else{ printf("%s\n", message);	
+	}
+}
+
 
 
 int main(int argc, char *argv[])
 {
 	char filename = argv[1];
 	char action  = argv[2];
+	errno = 2;
 
 	int i = 0;
-	connection *con = Datbase_open( filename, action);
+	//connection *con = Datbase_open( filename, action);
 
 	switch(action){
 		case'c':
-			Database_create(conn);
+			//Database_create(conn);
 			break;
 		case's':
-			Database_set(conn, id, argv[4], argv[5]);
+			//Database_set(conn, id, argv[4], argv[5]);
 			break;
 		case'g':
-			Database_get(conn, id);
+			//Database_get(conn, id);
 			break;
 		case'l':
-			Database_list(conn);
+			//Database_list(conn);
 			break;
 		case'd':
-			Database_delete(conn);
+			//Database_delete(conn);
 			break;
 		default:
 			die("Inavlid action:c=create, s=set, g=get, d=delete, l=list");
