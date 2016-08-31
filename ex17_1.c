@@ -1,5 +1,6 @@
 /*this is a small steps ex17
-actions: c=create, s=set, g=get, d=delete, l=list*/
+actions: c=create, s=set, g=get, d=delete, l=list
+added these comments*/
 
 #include <stdio.h>
 #include <assert.h>
