@@ -19,7 +19,7 @@ typedef struct Address{
 }address;
 
 typedef struct Database{
-	address db[MAX_ROWS];
+	address rows[MAX_ROWS];
 }database;
 
 typedef struct Connection{
@@ -31,9 +31,41 @@ void die(char *message)
 {
 	if(errno){
 		perror("ERROR");
-	}else{ printf("%s\n", message);	
+	}else{ printf("ERROR: %s\n", message);	
 	}
 }
+
+connection* Database_open(const char *filename, char mode)
+{
+	connection* conn = malloc(sizeof(connection));
+	conn->db = malloc(sizeof(database));	
+	
+	
+	if(mode == 'c'){
+		conn->filename = fopen(filename, "w");
+	}else{
+		conn->filename = fopen(filename , "r+");
+	}
+	return conn;
+}
+
+
+void Database_create(connection *conn)
+{
+	int i =0;
+	address addr = {.set=0, .id=i};
+	for(i = 0; i <MAX_ROWS; i++){
+		conn->db->rows[i] = addr;
+	}
+}
+
+void Database_write(connection *conn)
+{
+	rewind(conn->filename);
+	int rc = fwrite(conn->db, sizeof(database), 1, conn->filename);
+	rc = fflush(conn->filename);
+}
+
 
 
 
@@ -41,14 +73,16 @@ int main(int argc, char *argv[])
 {
 	char filename = argv[1];
 	char action  = argv[2];
-	errno = 2;
+
+	
 
 	int i = 0;
-	//connection *con = Datbase_open( filename, action);
+	connection *conn = Database_open( filename, action);//creates db in RAM and opens file
 
 	switch(action){
 		case'c':
-			//Database_create(conn);
+			Database_create(conn);//populates db in RAM
+			Database_write(conn);//populates file
 			break;
 		case's':
 			//Database_set(conn, id, argv[4], argv[5]);
