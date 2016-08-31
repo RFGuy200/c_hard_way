@@ -67,7 +67,39 @@ void Database_write(connection *conn)
 }
 
 
+void Database_set(connection *conn, int id, char name, char email)
+{
+	address *addr = conn->db->rows[id];
+	addr->set = 1;
+	char rc = strcpy(addr->name, name, MAX_DATA);
+	char rc = strcpy(addr->email, email, MAX_DATA);
+}
 
+void Database_get(connection *conn, int id)
+{
+	address *addr = conn->db->rows[id];
+	Address_print(addr);
+}
+
+void Address_print(address *addr)
+{
+	printf("%s, %s, %i, %i\n", addr->name, addr->email, addr->set, addr->id);
+} 
+
+void Database_list(connection *conn)
+{
+	database *db = conn->db;
+	int i =0;
+
+	for(i = 0; i < MAX_DATA; i++){
+		address *addr = &conn->db->rows[i];
+		if(addr->set)
+			Address_print(addr);
+	}
+}
+
+
+	
 
 int main(int argc, char *argv[])
 {
