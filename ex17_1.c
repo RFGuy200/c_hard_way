@@ -67,18 +67,19 @@ void Database_write(connection *conn)
 }
 
 
-void Database_set(connection *conn, int id, char name, char email)
+void Database_set(connection *conn, int id, const char *name, const char *email)
 {
-	address *addr = conn->db->rows[id];
+	address *addr = &conn->db->rows[id];
 	addr->set = 1;
-	char rc = strcpy(addr->name, name, MAX_DATA);
-	char rc = strcpy(addr->email, email, MAX_DATA);
-}
+	addr->id = id;
+	char *rc = strcpy(addr->name, name);
+	int length = strlen(addr->name);
+	addr->name[length] = '\0';
+	rc = strcpy(addr->email, email);
+	length = strlen(addr->email);
+	addr->email[length] = '\0';
+	printf("%s, %s, %i, %i\n", addr->name, addr->email, addr->set, addr->id);
 
-void Database_get(connection *conn, int id)
-{
-	address *addr = conn->db->rows[id];
-	Address_print(addr);
 }
 
 void Address_print(address *addr)
@@ -86,13 +87,21 @@ void Address_print(address *addr)
 	printf("%s, %s, %i, %i\n", addr->name, addr->email, addr->set, addr->id);
 } 
 
+
+void Database_get(connection *conn, int id)
+{
+	address *addr = &conn->db->rows[id];
+	Address_print(addr);
+}
+
+
 void Database_list(connection *conn)
 {
 	database *db = conn->db;
 	int i =0;
 
 	for(i = 0; i < MAX_DATA; i++){
-		address *addr = &conn->db->rows[i];
+		address *addr = &db->rows[i];
 		if(addr->set)
 			Address_print(addr);
 	}
@@ -103,12 +112,14 @@ void Database_list(connection *conn)
 
 int main(int argc, char *argv[])
 {
-	char filename = argv[1];
-	char action  = argv[2];
+	char *filename = argv[1];
+	char action  = argv[2][0];
+	int id = 0;
+	printf("%d\n",atoi(argv[3]));
 
-	
+	if (argc > 3)
+		id = atoi(argv[3]);
 
-	int i = 0;
 	connection *conn = Database_open( filename, action);//creates db in RAM and opens file
 
 	switch(action){
@@ -117,13 +128,13 @@ int main(int argc, char *argv[])
 			Database_write(conn);//populates file
 			break;
 		case's':
-			//Database_set(conn, id, argv[4], argv[5]);
+			Database_set(conn, id, argv[4], argv[5]);
 			break;
 		case'g':
-			//Database_get(conn, id);
+			Database_get(conn, id);
 			break;
 		case'l':
-			//Database_list(conn);
+			Database_list(conn);
 			break;
 		case'd':
 			//Database_delete(conn);
