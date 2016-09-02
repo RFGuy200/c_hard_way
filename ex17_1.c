@@ -33,23 +33,34 @@ void die(char *message)
 		perror("ERROR");
 	}else{ printf("ERROR: %s\n", message);	
 	}
+	exit(1);
 }
 
 void Database_load(connection *conn)
 {
-	int rc = fread(conn->db, sizeof(database), 1 , conn->filename);
+	int rc = fread(conn->db, sizeof(database), 1 ,conn->filename);
+	if(rc!=1)
+		die("Failed to load database");
 }
 
 connection* Database_open(const char *filename, char mode)
 {
 	connection* conn = malloc(sizeof(connection));
+	if(!conn)
+		die("Failed to allocate memory for database");
 	conn->db = malloc(sizeof(database));	
+	if(!conn->db)
+		die("Failed to allocate memory for database");
 	
 	
 	if(mode == 'c'){
 		conn->filename = fopen(filename, "w");
+	if(!conn->filename)
+		die("Failed to create database file");
 	}else{
 		conn->filename = fopen(filename , "r+");
+		if(!conn->filename)
+			die("Failed to open database file for update");
 		if(conn->filename)
 			Database_load(conn);
 	}
@@ -70,19 +81,27 @@ void Database_write(connection *conn)
 {
 	rewind(conn->filename);
 	int rc = fwrite(conn->db, sizeof(database), 1, conn->filename);
+	if(rc != 1)
+		die("Error writing the file");
 	rc = fflush(conn->filename);
+	if(rc == -1)
+		die("Error flushing the file");
 }
 
 
 void Database_set(connection *conn, int id, const char *name, const char *email)
 {
 	address *addr = &conn->db->rows[id];
+	if(addr->set)
+		die("id already exists, delete it first");
 	addr->set = 1;
 	addr->id = id;
 	char *rc = strcpy(addr->name, name);
+	if(!rc)
+		die("Error copying name");
 	rc = strcpy(addr->email, email);
-
-
+	if(!rc)
+		die("Error copying email");
 
 }
 
@@ -95,6 +114,8 @@ void Address_print(address *addr)
 void Database_get(connection *conn, int id)
 {
 	address *addr = &conn->db->rows[id];
+	if(!addr->set)
+		die("id does not exist");
 	Address_print(addr);
 }
 
@@ -122,14 +143,23 @@ void Database_close(connection *conn)
 	}
 }
 
+void Database_delete( connection *conn, int id)
+{
+	address addr = {.id=id, .set=0};
+	conn->db->rows[id] = addr;
 
+}
 	
 
 int main(int argc, char *argv[])
 {
+	if(argc < 3)
+		die("Too few arguments");
 	char *filename = argv[1];
 	char action  = argv[2][0];
 	int id = 0;
+
+
 
 	if (argc > 3)
 		id = atoi(argv[3]);
@@ -142,17 +172,24 @@ int main(int argc, char *argv[])
 			Database_write(conn);//populates file
 			break;
 		case's':
+			if(argc < 6)
+				die("Not enough arguments, need id, name, email");
 			Database_set(conn, id, argv[4], argv[5]);
 			Database_write(conn);
 			break;
 		case'g':
+			if(argc < 4)
+				die("Need id");
 			Database_get(conn, id);
 			break;
 		case'l':
 			Database_list(conn);
 			break;
 		case'd':
-			//Database_delete(conn);
+			if(argc < 4)
+				die("Need id");
+			Database_delete(conn, id);
+			Database_write(conn);
 			break;
 		default:
 			die("Inavlid action:c=create, s=set, g=get, d=delete, l=list");
