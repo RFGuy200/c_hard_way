@@ -8,7 +8,7 @@ added these comments*/
 #include <stdlib.h>
 #include <errno.h>
 
-#define MAX_DATA 500
+#define MAX_DATA 100
 #define MAX_ROWS 100
 
 typedef struct Address{
@@ -35,6 +35,11 @@ void die(char *message)
 	}
 }
 
+void Database_load(connection *conn)
+{
+	int rc = fread(conn->db, sizeof(database), 1 , conn->filename);
+}
+
 connection* Database_open(const char *filename, char mode)
 {
 	connection* conn = malloc(sizeof(connection));
@@ -45,6 +50,8 @@ connection* Database_open(const char *filename, char mode)
 		conn->filename = fopen(filename, "w");
 	}else{
 		conn->filename = fopen(filename , "r+");
+		if(conn->filename)
+			Database_load(conn);
 	}
 	return conn;
 }
@@ -73,12 +80,9 @@ void Database_set(connection *conn, int id, const char *name, const char *email)
 	addr->set = 1;
 	addr->id = id;
 	char *rc = strcpy(addr->name, name);
-	int length = strlen(addr->name);
-	addr->name[length] = '\0';
 	rc = strcpy(addr->email, email);
-	length = strlen(addr->email);
-	addr->email[length] = '\0';
-	printf("%s, %s, %i, %i\n", addr->name, addr->email, addr->set, addr->id);
+
+
 
 }
 
@@ -107,6 +111,17 @@ void Database_list(connection *conn)
 	}
 }
 
+void Database_close(connection *conn)
+{
+	if(conn){
+		if(conn->filename)
+			fclose(conn->filename);
+		if(conn->db)
+			free(conn->db);
+		free(conn);
+	}
+}
+
 
 	
 
@@ -115,7 +130,6 @@ int main(int argc, char *argv[])
 	char *filename = argv[1];
 	char action  = argv[2][0];
 	int id = 0;
-	printf("%d\n",atoi(argv[3]));
 
 	if (argc > 3)
 		id = atoi(argv[3]);
@@ -129,6 +143,7 @@ int main(int argc, char *argv[])
 			break;
 		case's':
 			Database_set(conn, id, argv[4], argv[5]);
+			Database_write(conn);
 			break;
 		case'g':
 			Database_get(conn, id);
@@ -142,6 +157,8 @@ int main(int argc, char *argv[])
 		default:
 			die("Inavlid action:c=create, s=set, g=get, d=delete, l=list");
 	}
+	
+	Database_close(conn);
 
 	return 0;
 }
