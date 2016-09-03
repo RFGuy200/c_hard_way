@@ -16,6 +16,7 @@ typedef struct Address{
 	int set;
 	char name[MAX_DATA];
 	char email[MAX_DATA];
+	char last_name[MAX_DATA];
 }address;
 
 typedef struct Database{
@@ -89,7 +90,7 @@ void Database_write(connection *conn)
 }
 
 
-void Database_set(connection *conn, int id, const char *name, const char *email)
+void Database_set(connection *conn, int id, const char *name,  const char *last_name, const char *email)
 {
 	address *addr = &conn->db->rows[id];
 	if(addr->set)
@@ -102,12 +103,15 @@ void Database_set(connection *conn, int id, const char *name, const char *email)
 	rc = strcpy(addr->email, email);
 	if(!rc)
 		die("Error copying email");
+	rc = strcpy(addr->last_name, last_name);
+	if(!rc)
+		die("Error copying last name");
 
 }
 
 void Address_print(address *addr)
 {
-	printf("%s, %s, %i, %i\n", addr->name, addr->email, addr->set, addr->id);
+	printf("%s, %s, %s, %i, %i\n", addr->name, addr->last_name, addr->email, addr->set, addr->id);
 } 
 
 
@@ -149,6 +153,22 @@ void Database_delete( connection *conn, int id)
 	conn->db->rows[id] = addr;
 
 }
+
+void Database_find(connection *conn, const char *name)
+{
+	int i = 0;
+	int found = 0;
+	for(i = 0; i < MAX_ROWS; i++){
+		address *addr = &conn->db->rows[i];
+		if(strstr(addr->name, name)||strstr(addr->last_name, name)){
+			Address_print(addr);
+			found = 1;
+		}
+	}
+	if(found == 0)
+		puts("Entry does not exists");
+
+}
 	
 
 int main(int argc, char *argv[])
@@ -172,9 +192,9 @@ int main(int argc, char *argv[])
 			Database_write(conn);//populates file
 			break;
 		case's':
-			if(argc < 6)
-				die("Not enough arguments, need id, name, email");
-			Database_set(conn, id, argv[4], argv[5]);
+			if(argc < 7)
+				die("Not enough arguments, need id, name, last name, email");
+			Database_set(conn, id, argv[4], argv[5], argv[6]);
 			Database_write(conn);
 			break;
 		case'g':
@@ -190,6 +210,9 @@ int main(int argc, char *argv[])
 				die("Need id");
 			Database_delete(conn, id);
 			Database_write(conn);
+			break;
+		case'f':
+			Database_find(conn, argv[3]);
 			break;
 		default:
 			die("Inavlid action:c=create, s=set, g=get, d=delete, l=list");
