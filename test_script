@@ -1,0 +1,11 @@
+#!/bin/bash
+# My script to test ex17_1 program
+
+make ex17_1
+./ex17_1 test c
+./ex17_1 test s 0 alex kornishev alex@gmail.com
+./ex17_1 test s 1 rob salmond rob@gmail.com
+./ex17_1 test s 2 andi mihut andi@gmail.com
+./ex17_1 test s 3 inesa kornishev inesa@gmail.com
+./ex17_1 test l
+./ex17_1 test f kornishev

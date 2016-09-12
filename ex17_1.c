@@ -161,9 +161,7 @@ void Database_find(connection *conn, const char *name)
 	for(i = 0; i < MAX_ROWS; i++){
 		address *addr = &conn->db->rows[i];
 		if(strstr(addr->name, name)||strstr(addr->last_name, name)){
-			Address_print(addr);
-			found = 1;
-		}
+			Address_print(addr)
 	}
 	if(found == 0)
 		puts("Entry does not exists");
