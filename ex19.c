@@ -40,6 +40,18 @@ error:
 	if(input) fclose(input);
 	return -1;
 }
+
+int test_sentinel(int code)
+{
+	switch(code){
+		case 1:
+			log_info("It worked");
+		default:
+			sentinel("I should not run");
+error:
+	return -1;
+	}	
+}
 	
 
 
@@ -47,11 +59,13 @@ error:
 int main( int argc, char *argv[])
 {
 	debug_test();
-	errno = 2;
+	errno = 0;
 	log_error_test();
 	log_warn_test();
 	log_info_test();
-	check(test_check("ex19.c") == 1, "failed with ex19.c");
+	test_sentinel(0);
+	check(test_check("ex18.c") == 0, "failed with ex19.c");
+
 	
 
 	return 0;
