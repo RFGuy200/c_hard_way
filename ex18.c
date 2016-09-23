@@ -49,7 +49,7 @@ int sorted_order (int a, int b)
 	return a - b;
 }
 
-int reversed_order(int a, int b)
+int reversed_order(int a, int )
 {
 	return b - a;
 }
@@ -86,7 +86,7 @@ void test_sorted(int *number, int count, compare_cb comp)
 int main(int argc, char *argv[])
 {
 	if(argc < 2)
-		die("Usage: ex18 4 3 1 5 6");
+		die("Need to give some arguments. Usage: ex18 4 3 1 5 6");
 	
 	int count = argc - 1;
 	char **inputs = argv + 1;
