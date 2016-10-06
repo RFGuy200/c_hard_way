@@ -89,6 +89,8 @@ int main(int argc, char *argv[])
 	printf("Your age: %d\n", you.age);
 	printf("Your eye color: %s\n", EYE_COLOR_NAMES[you.eyes]);
 	printf("Your income is: %f\n", you.income);
+	printf("Your income is: %f\n", you.income);
+
 
 
 
