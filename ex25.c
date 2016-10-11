@@ -102,6 +102,27 @@ error:
 	return -1;
 }
 
+void prt_scr(const char *string, ...)
+{
+
+	char *out_string = NULL;
+
+	va_list(argp);
+	va_start(argp, string);
+	printf("%s ", string);
+
+	while(1){
+		out_string = va_arg(argp, char*);
+		if(out_string == NULL) break;
+		printf("%s\n", out_string);
+	}
+
+	va_end(argp);
+		
+}
+					
+		
+
 
 int main( int argc, char *argv[])
 {
@@ -132,6 +153,8 @@ int main( int argc, char *argv[])
 	printf("Initials: %c\n", initial);
 	printf("Last name: %s\n", last_name);
 	printf("Age: %d\n", age);
+
+	prt_scr("The list: ", last_name, first_name, first_name);
 	
 	free(first_name);
 	free(last_name);
