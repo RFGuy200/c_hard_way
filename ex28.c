@@ -9,7 +9,7 @@ glob_t* list_create(const char *exp) //function creates glob list with search pa
 	glob_t *pnt = malloc(sizeof(glob_t));
 	check_mem(pnt);
 
-	glob(exp, GLOB_PERIOD, NULL, pnt);	
+	glob(exp, GLOB_BRACE | GLOB_TILDE, NULL, pnt);	
 
 	return pnt;
 error:
@@ -24,6 +24,7 @@ void match(glob_t *globlist, int argc, char *string[]) //function checks if ALL 
 	FILE *fp = NULL;
 	int match = 0;
 	int match_all = 0;
+	int match_num = 0;
 	
 		for(i = 0; globlist->gl_pathv[i] != NULL; i++){
 			fp = fopen(globlist->gl_pathv[i], "r");
@@ -39,6 +40,7 @@ void match(glob_t *globlist, int argc, char *string[]) //function checks if ALL 
 				while(fgets(line, 999, fp) != NULL){
 					if(strstr(line, string[j])){
 						match = 1;
+						match_num++;
 						break;
 					}
 				} 
@@ -51,6 +53,7 @@ void match(glob_t *globlist, int argc, char *string[]) //function checks if ALL 
 
 			fclose(fp);
 		}	
+		if(match_num == 0) printf("No match found\n");
 error:
 	exit(1);
 
@@ -96,7 +99,7 @@ int main(int argc, char *argv[])
 	check(!(argc < 2 || ((strstr(argv[1], "-o")) && argc<3)),\
 		 "Need at least one search parameter\n");
 	
-	globlist = list_create( "*.c");
+	globlist = list_create( "{~/workspace/c_hard_way/*.c,~/workspace/c_hard_way/*.h}");
 	if(strstr(argv[1], "-o")){
 		match_or(globlist, argc, argv);
 	}else{ match(globlist, argc, argv); }
