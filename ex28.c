@@ -3,9 +3,11 @@
 #include <string.h>
 #include <glob.h>
 #include "dbg.h"
+#include <assert.h>
 
 glob_t* list_create(const char *exp) //function creates glob list with search parameters defined in main
 {
+	assert(exp != NULL && "Search pattern for Glob() function can't be NULL");
 	glob_t *pnt = malloc(sizeof(glob_t));
 	check_mem(pnt);
 
@@ -18,7 +20,7 @@ error:
 	exit(EXIT_FAILURE);
 }
 
-void match(glob_t *globlist, int argc, char *string[]) //function checks if ALL search parameters are met
+int match(glob_t *globlist, int argc, char *string[]) //function checks if ALL search parameters are met
 {
 	int i = 0;
 	int j = 0;
@@ -27,66 +29,83 @@ void match(glob_t *globlist, int argc, char *string[]) //function checks if ALL 
 	int match = 0;
 	int match_all = 0;
 	int match_num = 0;
+
+	assert(globlist != NULL &&  "File list returned by Glob function can't be NULL");
+	assert(argc > 1 && argc < 100 && "Number of search parameters has to be more\
+		 than 0 and less than 100");
 	
-		for(i = 0; globlist->gl_pathv[i] != NULL; i++){
-			fp = fopen(globlist->gl_pathv[i], "r");
-			check(fp != NULL,"Failed to open the file");
+	for(i = 0; globlist->gl_pathv[i] != NULL; i++){
+		fp = fopen(globlist->gl_pathv[i], "r");
+		check(fp != NULL,"Failed to open the file");
 
-			match_all = 0;
-			
-			for(j = 1; j < argc; j++){
+		match_all = 0;
+		
+		for(j = 1; j < argc; j++){
 
-				match = 0;
+			match = 0;
 
+			while(fgets(line, 999, fp) != NULL){
+				if(strstr(line, string[j])){
+					match = 1;
+					match_num++;
+					break;
+				}
+			} 
+			if(match == 0) break;
+			else match_all++;
+		}
 
-				while(fgets(line, 999, fp) != NULL){
-					if(strstr(line, string[j])){
-						match = 1;
-						match_num++;
-						break;
-					}
-				} 
-				if(match == 0) break;
-				else match_all++;
-			}
+		if(match_all == argc-1)
+			printf("%s\n", globlist->gl_pathv[i]);
 
-			if(match_all == argc-1)
-				printf("%s\n", globlist->gl_pathv[i]);
+		fclose(fp);
+	}	
+	if(match_num == 0) printf("No match found\n");
 
-			fclose(fp);
-		}	
-		if(match_num == 0) printf("No match found\n");
+	return match_num;
 error:
 	exit(EXIT_FAILURE);
 
 }
 
-void match_or(glob_t *globlist, int argc, char *string[])  //function checks if ANY of search parameters are met
+int match_or(glob_t *globlist, int argc, char *string[])  //function checks if ANY of search parameters are met
 {
 	int i = 0;
 	int j = 0;
 	char line[1000];
 	FILE *fp = NULL;
 	int match = 0;
+	int match_num = 0;
+
+	check(globlist != NULL, "File list returned by Glob function can't be NULL");
+	check(argc > 2 && argc < 100, "Number of search parameters should be more\
+		 than 0 and less than 100");
 	
-		for(i = 0; globlist->gl_pathv[i] != NULL; i++){
-			fp = fopen(globlist->gl_pathv[i], "r");
-			check(fp != NULL, "Failed to open the file");
+	for(i = 0; globlist->gl_pathv[i] != NULL; i++){
+		fp = fopen(globlist->gl_pathv[i], "r");
+		check(fp != NULL, "Failed to open the file");
 
-			for(j = 2; j < argc; j++){
+		for(j = 2; j < argc; j++){
 
-				while(fgets(line, 999, fp) != NULL){
-					if(strstr(line, string[j])){
-						printf("%s\n", globlist->gl_pathv[i]);
-						match = 1;
-						break;
-					}
-				} 
-				if(match == 1) break;
+			while(fgets(line, 999, fp) != NULL){
+				if(strstr(line, string[j])){
+					printf("%s\n", globlist->gl_pathv[i]);
+					match = 1;
+					break;
+				}
+			} 
+			if(match == 1) 
+				match_num++;
+				break;
 				
-			}	
-			fclose(fp);
-		}	
+		}
+	
+		fclose(fp);
+	}
+	
+	if(match_num == 0) printf("No match found\n");
+	
+	return match_num;	
 error:
 	exit(EXIT_FAILURE);
 
