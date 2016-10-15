@@ -9,11 +9,13 @@ glob_t* list_create(const char *exp) //function creates glob list with search pa
 	glob_t *pnt = malloc(sizeof(glob_t));
 	check_mem(pnt);
 
-	glob(exp, GLOB_BRACE | GLOB_TILDE, NULL, pnt);	
-
+	int rc = glob(exp, GLOB_BRACE | GLOB_TILDE, NULL, pnt);	
+	check(rc !=  GLOB_ABORTED || GLOB_NOSPACE || GLOB_ERR, "Glob function failed");
+	check(rc != GLOB_NOMATCH, "There are no *.c or *.h files in this directory");
+	
 	return pnt;
 error:
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 void match(glob_t *globlist, int argc, char *string[]) //function checks if ALL search parameters are met
@@ -55,7 +57,7 @@ void match(glob_t *globlist, int argc, char *string[]) //function checks if ALL 
 		}	
 		if(match_num == 0) printf("No match found\n");
 error:
-	exit(1);
+	exit(EXIT_FAILURE);
 
 }
 
@@ -86,7 +88,7 @@ void match_or(glob_t *globlist, int argc, char *string[])  //function checks if 
 			fclose(fp);
 		}	
 error:
-	exit(1);
+	exit(EXIT_FAILURE);
 
 }
 
