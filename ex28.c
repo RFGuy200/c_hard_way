@@ -77,8 +77,8 @@ int match_or(glob_t *globlist, int argc, char *string[])  //function checks if A
 	int match = 0;
 	int match_num = 0;
 
-	check(globlist != NULL, "File list returned by Glob function can't be NULL");
-	check(argc > 2 && argc < 100, "Number of search parameters should be more\
+	assert(globlist != NULL && "File list returned by Glob function can't be NULL");
+	assert(argc > 2 && argc < 100 && "Number of search parameters should be more\
 		 than 0 and less than 100");
 	
 	for(i = 0; globlist->gl_pathv[i] != NULL; i++){
