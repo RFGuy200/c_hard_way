@@ -7,16 +7,13 @@ typedef int (*lib_function) (const char *data);
 int main(int argc, char *argv[])
 {
 	int rc = 0;
-	check(argc == 4, "USAGE: ex29 libex29.so function data");
+	check(argc == 3, "USAGE: ex29 libex29.so function data");
 
-	char *lib_file = argv[1];
-	char *func_to_run = argv[2];
-	char *data = argv[3];
+	char *lib_file = "libex29.so";
+	char *func_to_run = argv[1];
+	char *data = argv[2];
 
-	int func_length = sizeof(*argv[2]);
-	printf("Length of argv[2]): %d\n", func_length);
-
-	void *lib = dlopen(lib_file, RTLD_NOW);
+	void *lib = dlopen("../build/libex29.so", RTLD_NOW);
 	check(lib != NULL, "Failed to open the library %s: %s\n", lib_file, dlerror());
 
 	lib_function func = dlsym(lib, func_to_run);
