@@ -1,6 +1,7 @@
 CFLAGS=-g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG $(OPTFLAGS)
 LIBS=-ldl $(OPTLIBS)
 PREFIX?=/usr/local
+CC= gcc
 
 SOURCES=$(wildcard src/**/*.c src/*.c)
 OBJECTS=$(patsubst %.c,%.o,$(SOURCES))
@@ -19,7 +20,7 @@ dev: all
 
 $(TARGET): CFLAGS += -fPIC
 $(TARGET): build $(OBJECTS)
-	ar -rcs $@ $(OBJECTS)
+	ar rcs $@ $(OBJECTS)
 	ranlib $@
 
 $(SO_TARGET): $(TARGET) $(OBJECTS)
@@ -29,7 +30,11 @@ build:
 	@mkdir -p build
 	@mkdir -p bin
 
-# The Unit Tests
+# The Unit TestsA
+TEST_DEPS=$(wildcard tests/*.h)
+$(TESTS): $(TEST_SRC) $(TEST_DEPS)
+	$(CC) $(CFLAGS) -o $@ $(TEST_SRC) $(LIBS) 
+
 .PHONY: tests
 tests: CFLAGS += $(TARGET)
 tests: $(TESTS)

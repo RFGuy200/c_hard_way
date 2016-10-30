@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#include "dbg.h"
 
 int print_a_message(const char *msg)
 {
@@ -8,12 +9,12 @@ int print_a_message(const char *msg)
 	return 0;
 }
 
-int uppercase(const char *msg)
+int upper_case(const char *msg)
 {
 	int i = 0;
 
 	//BUG \0 termination problem
-	for(i=0; msg[i]!='\0'; i++){
+	for(i=0; i!='\0'; i++){
 		printf("%c", toupper(msg[i]));
 	}
 
@@ -22,12 +23,12 @@ int uppercase(const char *msg)
 	return 0;
 }
 
-int lowercase(const char *msg)
+int lower_case(const char *msg)
 {
 	int i = 0;
 
 	//BUG \0 termination problem
-	for(i=0; msg[i]!='\0'; i++){
+	for(i=0; i!='\0'; i++){
 		printf("%c", tolower(msg[i]));
 	}
 

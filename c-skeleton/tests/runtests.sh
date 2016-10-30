@@ -1,12 +1,12 @@
 echo "Running Unit Tests"
 
-for i in tests/*_tests
+for i in ../tests/*_tests
 do
-	if tests -f $i
+	if test -f $i
 	then
 		if $VALGRIND ./$i 2>> tests/tests.log
-		then
-			echo $i PASS
+			then
+				echo $i PASS
 		else
 			echo "Error in test $i: here's tests/tests.log"
 			echo "------------"
