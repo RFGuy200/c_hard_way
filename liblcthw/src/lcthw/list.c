@@ -15,7 +15,7 @@ void List_destroy(List *list)
 		}
 	}
 	
-	free_list(last);
+	free(list->last);
 	free(list);
 }
 
@@ -34,7 +34,7 @@ void List_clear_destroy(List *list)
 
 void List_push(List *list, void *value)
 {
-	ListNode node = calloc(1, sizeof(ListNode));
+	ListNode *node = calloc(1, sizeof(ListNode));
 	check_mem(node);
 
 	node->value = value;
@@ -84,12 +84,13 @@ void List_shift(List *list)
 {
 	ListNode *node = list->first;
 	return node != NULL ? List_remove(list, node) : NULL;
+}
 
 void List_remove(List *list, ListNode *node)
 {
 	void *result = NULL;
 
-	check(list-first && list->last, "List is empty");
+	check(list->first && list->last, "List is empty");
 	check(node, "Node can't ne NULL");
 
 	if(node == list->first && node == list->last){
@@ -99,13 +100,13 @@ void List_remove(List *list, ListNode *node)
 		list->first = node->next;
 		check(list->first != NULL, "Invalid list, somehow got a first that is NULL");
 		list->first->prev = NULL;
-	}else if(node = list->last){
+	}else if(node == list->last){
 		list->last = node->prev;
 		check(list->last != NULL, "Invalid list, somehow got a next that is NULL");
 		list->last->next = NULL;
 	}else{
 		ListNode *before = node->prev;
-		ListNode *after = node->after;
+		ListNode *after = node->next;
 		after->prev = before;
 		before->next = after;
 	}
