@@ -115,7 +115,7 @@ void *List_remove(List *list, ListNode *node)
 	result = node->value;
 	free(node);
 	
-	return result;
+
 error:
 	return result;
 }
