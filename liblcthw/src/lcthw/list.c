@@ -1,5 +1,5 @@
-#include <lcthw/list.h>
-#include <lcthw/dbg.h>
+#include <list.h>
+#include <dbg.h>
 
 List *List_create()
 {
@@ -53,7 +53,7 @@ error:
 	return;
 }
 
-void List_pop(List *list)
+void *List_pop(List *list)
 {
 	ListNode *node = list->last;
 	return node != NULL ? List_remove(list, node) : NULL;
@@ -80,13 +80,13 @@ error:
 	return;
 }
 
-void List_shift(List *list)
+void *List_shift(List *list)
 {
 	ListNode *node = list->first;
 	return node != NULL ? List_remove(list, node) : NULL;
 }
 
-void List_remove(List *list, ListNode *node)
+void *List_remove(List *list, ListNode *node)
 {
 	void *result = NULL;
 
@@ -114,6 +114,8 @@ void List_remove(List *list, ListNode *node)
 	list->count--;
 	result = node->value;
 	free(node);
+	
+	return result;
 error:
 	return result;
 }
