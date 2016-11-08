@@ -1,5 +1,6 @@
 #include <list.h>
 #include <dbg.h>
+#include <assert.h>
 
 List *List_create()
 {
@@ -9,6 +10,8 @@ List *List_create()
 
 void List_destroy(List *list)
 {
+	assert(list != NULL && "Nothing to destroy, List is NULL");
+	
 	LIST_FOREACH(list, first, next, cur) {
 		if(cur->prev){
 			free(cur->prev);
@@ -21,15 +24,20 @@ void List_destroy(List *list)
 
 void List_clear(List *list)
 {
+	assert(list != NULL && "Nothing to clear, List is NULL");
+	
 	LIST_FOREACH(list, first, next, cur){
-	free( cur->value);
+	cur->value = NULL;
 	}
 }
 
 void List_clear_destroy(List *list)
 {
+	assert(list != NULL && "Nothing to clear and destroy, List is NULL");
+
 	List_clear(list);
 	List_destroy(list);
+
 }
 
 void List_push(List *list, void *value)
@@ -88,6 +96,8 @@ void *List_shift(List *list)
 
 void *List_remove(List *list, ListNode *node)
 {
+	assert(list != NULL && "Can't remove from NULL list");
+
 	void *result = NULL;
 
 	check(list->first && list->last, "List is empty");
@@ -119,3 +129,38 @@ void *List_remove(List *list, ListNode *node)
 error:
 	return result;
 }
+
+List *List_copy(List *list)
+{
+	assert(list != NULL && "Nohing to copy, the list does not exist");
+	
+	List *new_list = calloc(1, sizeof(List));
+	check(new_list != NULL, "Error creating a new list");
+
+	ListNode *new_node = calloc(1, sizeof(ListNode));
+	check(new_node != NULL, "Error creating the first node");
+
+	new_list->first = new_node;
+	new_list->count++;
+
+	LIST_FOREACH(list, first, next, cur){
+		new_node->value = cur->value;		
+		if(cur->next){
+			ListNode *next = calloc(1, sizeof(ListNode));
+			check(next != NULL, "Error creating next node");
+			new_node->next = next;
+			next->prev = new_node;
+			new_node = next;
+			new_list->count++;
+		}
+	}
+	
+	new_list->last = new_node;
+	
+	return new_list;
+error:
+	return NULL;
+
+}
+		
+		

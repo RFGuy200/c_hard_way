@@ -17,7 +17,10 @@ char *test_create()
 
 char *test_destroy()
 {
+
 	List_clear_destroy(list);
+	
+//	List_clear_destroy(list);
 	
 	return NULL;
 }
@@ -92,6 +95,28 @@ char *test_shift()
 	return NULL;
 }
 
+char *test_copy()
+{
+	List_push(list, test1);
+	List_push(list, test2);
+	List_push(list, test3);
+	
+	List *copy = NULL;
+	copy = List_copy(list);
+
+	mu_assert(copy != NULL && List_count(copy) == List_count(list)\
+		&& List_first(copy) == List_first(list) && \
+		List_last(copy) == List_last(list), "Failed to copy the list");
+
+	LIST_FOREACH(copy, first, next, cur){
+		debug("%s\n", cur->value);
+	}
+	
+	List_clear_destroy(copy);	
+
+	return NULL;
+}
+
 char *all_tests()
 {
 	mu_suite_start();
@@ -101,7 +126,9 @@ char *all_tests()
 	mu_run_test(test_unshift);
 	mu_run_test(test_remove);
 	mu_run_test(test_shift);
+	mu_run_test(test_copy);
 	mu_run_test(test_destroy);
+
 
 	return NULL;
 }
