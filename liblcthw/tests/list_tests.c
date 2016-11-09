@@ -3,6 +3,8 @@
 #include <list.h>
 
 static List *list = NULL;
+static List *copy = NULL;
+static List *split = NULL;
 char *test1 = "test1 data";
 char *test2 = "test2 data";
 char *test3 = "test3 data";
@@ -19,8 +21,7 @@ char *test_destroy()
 {
 
 	List_clear_destroy(list);
-	
-//	List_clear_destroy(list);
+	List_clear_destroy(split);
 	
 	return NULL;
 }
@@ -101,18 +102,33 @@ char *test_copy()
 	List_push(list, test2);
 	List_push(list, test3);
 	
-	List *copy = NULL;
 	copy = List_copy(list);
 
 	mu_assert(copy != NULL && List_count(copy) == List_count(list)\
 		&& List_first(copy) == List_first(list) && \
 		List_last(copy) == List_last(list), "Failed to copy the list");
 
-	LIST_FOREACH(copy, first, next, cur){
-		debug("%s\n", cur->value);
-	}
-	
-	List_clear_destroy(copy);	
+	return NULL;
+}
+
+char *test_join()
+{
+	int count = List_count(list) + List_count(copy);
+	void *first_value = List_first(list);
+	void *last_value = List_last(copy);
+
+	List_join(list, copy);
+	mu_assert(list->count == count &&\ 
+		  List_last(list) == last_value, "Failed to join lists");
+
+	return NULL;
+}
+
+char *test_split()
+{
+	split = List_split(list, 2);
+	mu_assert(List_count(list) == 2 && List_count(split) == 4\
+		, "Failed to split the list");
 
 	return NULL;
 }
@@ -127,6 +143,8 @@ char *all_tests()
 	mu_run_test(test_remove);
 	mu_run_test(test_shift);
 	mu_run_test(test_copy);
+	mu_run_test(test_join);
+	mu_run_test(test_split);
 	mu_run_test(test_destroy);
 
 

@@ -1,0 +1,20 @@
+DEBUG: tests/list_tests.c:154:main 
+--------Running: ./tests/list_tests
+DEBUG: tests/list_tests.c:140:all_tests 
+--------test_create---------
+DEBUG: tests/list_tests.c:141:all_tests 
+--------test_push_pop---------
+DEBUG: tests/list_tests.c:142:all_tests 
+--------test_unshift---------
+DEBUG: tests/list_tests.c:143:all_tests 
+--------test_remove---------
+DEBUG: tests/list_tests.c:144:all_tests 
+--------test_shift---------
+DEBUG: tests/list_tests.c:145:all_tests 
+--------test_copy---------
+DEBUG: tests/list_tests.c:146:all_tests 
+--------test_join---------
+DEBUG: tests/list_tests.c:147:all_tests 
+--------test_split---------
+DEBUG: tests/list_tests.c:148:all_tests 
+--------test_destroy---------

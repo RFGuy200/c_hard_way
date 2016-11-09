@@ -162,5 +162,47 @@ error:
 	return NULL;
 
 }
-		
-		
+	
+void List_join(List *list, List *next)
+{
+	assert(list != NULL && next != NULL && "Can't join, one or both lists are empty");
+
+	list->last->next = next->first;
+	next->first->prev = list->last;
+	list->last = next->last;
+	list->count += next->count;
+	free(next);
+}
+
+List *List_split(List *list, int split)
+{
+	assert(list != NULL && "Can't split NULL list");
+	assert(split > 0 && split < List_count(list) && "USAGE: 0 < split < list count");
+
+	List *new_list = calloc(1, sizeof(List));
+	check_mem(new_list);
+
+	ListNode *split_node = list->first;
+	ListNode *split_prev = NULL;
+	int i = 0;
+	
+	for(i = 0; i < split; i++){
+		split_prev = split_node;
+		split_node = split_prev->next;
+	}
+	
+	new_list->first = split_node;
+	new_list->first->prev = NULL;
+	new_list->last = list->last;
+	new_list->count = List_count(list) - split;
+	list->last = split_prev;
+	list->last->next = NULL;
+	list->count = split;
+
+	return new_list;
+
+error:
+
+	return NULL;
+}
+	
