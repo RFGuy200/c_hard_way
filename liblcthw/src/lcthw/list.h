@@ -20,6 +20,8 @@ List *List_create ();
 void List_destroy( List *list );
 void List_clear( List *list );	
 void List_clear_destroy( List *list);
+void List_join(List *list, List *next);
+List *List_split(List *list, int split);
 
 #define List_count(A) ((A)->count)
 #define List_first(A) ((A)->first != NULL ? (A)->first->value : NULL)

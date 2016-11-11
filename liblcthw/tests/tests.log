@@ -1,20 +1,27 @@
-DEBUG: tests/list_tests.c:154:main 
+DEBUG: tests/list_tests.c:210:main 
 --------Running: ./tests/list_tests
-DEBUG: tests/list_tests.c:140:all_tests 
+DEBUG: tests/list_tests.c:192:all_tests 
 --------test_create---------
-DEBUG: tests/list_tests.c:141:all_tests 
+DEBUG: tests/list_tests.c:193:all_tests 
 --------test_push_pop---------
-DEBUG: tests/list_tests.c:142:all_tests 
+DEBUG: tests/list_tests.c:194:all_tests 
 --------test_unshift---------
-DEBUG: tests/list_tests.c:143:all_tests 
+DEBUG: tests/list_tests.c:195:all_tests 
 --------test_remove---------
-DEBUG: tests/list_tests.c:144:all_tests 
+DEBUG: tests/list_tests.c:196:all_tests 
 --------test_shift---------
-DEBUG: tests/list_tests.c:145:all_tests 
+DEBUG: tests/list_tests.c:197:all_tests 
 --------test_copy---------
-DEBUG: tests/list_tests.c:146:all_tests 
+DEBUG: tests/list_tests.c:198:all_tests 
 --------test_join---------
-DEBUG: tests/list_tests.c:147:all_tests 
+DEBUG: tests/list_tests.c:199:all_tests 
 --------test_split---------
-DEBUG: tests/list_tests.c:148:all_tests 
+DEBUG: tests/list_tests.c:200:all_tests 
 --------test_destroy---------
+DEBUG: tests/list_tests.c:202:all_tests 
+--------create_list---------
+DEBUG: tests/list_tests.c:203:all_tests 
+--------bubble_test---------
+DEBUG: tests/list_tests.c:204:all_tests 
+--------destroy_list---------
+Aborted (core dumped)

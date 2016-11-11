@@ -13,11 +13,12 @@ int bubble_sort(List *list)
 	for(i = 0; i < list->count; i++){
 		LIST_FOREACH(list, first, next, cur) {
 			next = cur->next;
-			if(next != NULL && cur->value > next->value){
+			if(next != NULL && (cur->value - next->value > 0)){
 				next->prev = cur->prev;
 				cur->next = next->next;
 				cur->prev = next;
 				next->next = cur;
+				cur = next;
 			}
 		}
 	}

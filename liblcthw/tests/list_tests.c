@@ -1,6 +1,7 @@
 #include "minunit.h"
 #include <assert.h>
 #include <list.h>
+#include <list_algos.h>
 
 static List *list = NULL;
 static List *copy = NULL;
@@ -8,6 +9,58 @@ static List *split = NULL;
 char *test1 = "test1 data";
 char *test2 = "test2 data";
 char *test3 = "test3 data";
+
+static List *bubble;
+static List *merge;
+int *array = (int[]){9,1,8,2,7,3,6,4,5};
+
+
+void display_list(List *display)
+{
+	printf("List values:\n");		
+
+	LIST_FOREACH(display, first, next, cur)
+		printf("%d, ", cur->value);
+	printf("\n");
+}
+
+char *create_list()
+{
+	bubble = List_create();
+	merge = List_create();
+	int i = 0;
+
+	for(i = 0; i < 9; i++){
+		List_push(bubble, *array);
+		List_push(merge, *array);
+		array++;
+	}
+
+	display_list(bubble);
+	display_list(merge);
+
+	return NULL;
+}
+
+
+
+
+char *destroy_list()
+{
+	List_clear_destroy(bubble);
+	List_clear_destroy(merge);
+
+	return NULL;
+}
+
+char *bubble_test()
+{
+	bubble_sort(bubble);
+	display_list(bubble);
+
+	return NULL;
+}
+
 
 char *test_create()
 {
@@ -114,11 +167,10 @@ char *test_copy()
 char *test_join()
 {
 	int count = List_count(list) + List_count(copy);
-	void *first_value = List_first(list);
 	void *last_value = List_last(copy);
 
 	List_join(list, copy);
-	mu_assert(list->count == count &&\ 
+	mu_assert(list->count == count &&\
 		  List_last(list) == last_value, "Failed to join lists");
 
 	return NULL;
@@ -146,6 +198,10 @@ char *all_tests()
 	mu_run_test(test_join);
 	mu_run_test(test_split);
 	mu_run_test(test_destroy);
+
+	mu_run_test(create_list);
+	mu_run_test(bubble_test);
+	mu_run_test(destroy_list);
 
 
 	return NULL;
