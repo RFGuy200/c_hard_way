@@ -20,7 +20,12 @@ void display_list(List *display)
 	printf("List values:\n");		
 
 	LIST_FOREACH(display, first, next, cur)
-		printf("%d, ", cur->value);
+		if(cur->next != NULL){
+			printf("%d, ", cur->value);
+		}else{
+			printf("%d", cur->value);
+		}
+		
 	printf("\n");
 }
 

@@ -4,6 +4,7 @@
 #include <list.h>
 
 int bubble_sort(List *list);
+void node_swap(List *list);
 
 
 #endif
