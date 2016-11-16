@@ -4,6 +4,7 @@
 #include <list.h>
 
 
+
 void node_swap(List *list){
 
 	ListNode *next_node = NULL;
@@ -35,3 +36,38 @@ int bubble_sort(List *list)
 }
 
 
+void merge_sort(List *list)
+{
+
+	List *left = NULL;
+	List *right = NULL;
+	int i = 0;
+	int left_count = list->count/2;
+	printf("count left = %d\n", left_count);
+	printf("count right = %d\n", list->count - left_count);
+
+
+	if (left_count > 1 || left_count == 1){
+		left = List_create();
+		right = List_create();
+		left->first = list->first;
+		right->last = list->last;
+		left->count = left_count;
+		right->count = list->count - left_count;
+		LIST_FOREACH(list, first, next, cur){
+			i++;
+			if(i == left_count){
+				right->first = cur->next;
+				left->last = cur;
+			}
+		}
+		merge_sort(left);
+		merge_sort(right);
+
+
+	}
+}
+		
+	
+			
+		

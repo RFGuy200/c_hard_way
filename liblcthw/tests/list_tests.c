@@ -12,7 +12,7 @@ char *test3 = "test3 data";
 
 static List *bubble;
 static List *merge;
-int *array = (int[]){9,1,8,2,7,3,6,4,5};
+int *array = (int[]){9,1,8,2,7,3,6,4};
 
 
 void display_list(List *display)
@@ -35,7 +35,7 @@ char *create_list()
 	merge = List_create();
 	int i = 0;
 
-	for(i = 0; i < 9; i++){
+	for(i = 0; i < 8; i++){
 		List_push(bubble, *array);
 		List_push(merge, *array);
 		array++;
@@ -65,6 +65,14 @@ char *bubble_test()
 
 	return NULL;
 }
+
+char *merge_test()
+{
+	merge_sort(merge);
+
+	return NULL;
+}
+
 
 
 char *test_create()
@@ -206,6 +214,7 @@ char *all_tests()
 
 	mu_run_test(create_list);
 	mu_run_test(bubble_test);
+	mu_run_test(merge_test);
 	mu_run_test(destroy_list);
 
 
