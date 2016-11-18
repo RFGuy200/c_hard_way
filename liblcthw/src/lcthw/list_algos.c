@@ -38,19 +38,15 @@ int bubble_sort(List *list)
 void merge_sort(List *list)
 {
 	List *sorted = List_create();
-	merge_split(list, sorted);
+	merge_split(list);
 
-	LIST_FOREACH(sorted, first, next, cur){
-		printf("%d, ", cur->value);
-	}
 
 }
 	
 
 
-void merge_split(List *list, List *sorted)
+void merge_split(List *list)
 {
-
 	List *left = NULL;
 	List *right = NULL;
 	int i = 0;
@@ -59,43 +55,72 @@ void merge_split(List *list, List *sorted)
 	if (left_count > 0){
 		left = List_create();
 		right = List_create();
+		left->first = list->first;
+		right->last = list->last;
+		left->count = left_count;
+		right->count = list->count - left_count;
 
 		LIST_FOREACH(list, first, next, cur){
-
-			if(i < left_count){
-				 List_push(left, cur->value);
-			}else{ 
-				List_push(right, cur->value);
-			}		
 			i++;
-		}
-			
-		printf("left->first: %d, left->last: %d, right->first: %d, right->last: %d\n", left->first->value,\
-			left->last->value, right->first->value, right->last->value);
-		merge_split(left, sorted);
-		merge_split(right, sorted);
-		merge_list(left, right, sorted);
+			if(i == left_count){
+				left->last = cur;
+				right->first = cur->next;	
+			}		
+		}			
+		printf("left->count: %d, left->first: %d, left->last: %d\nright->count: %d,\
+right->first: %d, right->last: %d\n",left->count,  left->first->value,\
+			left->last->value, right->count,  right->first->value, right->last->value);
+
+		merge_split(left);
+		merge_split(right);
+		merge_list(left, right);
 	}
 }
+
 
 
 		
 	
 			
-List *merge_list(List *left, List *right, List *sorted)
+List *merge_list(List *left, List *right)
 {
+	ListNode *cur_left = left->first;
+	ListNode *cur_right = right->first;
+	List *temp = List_create();
+	int i = left->count;
+	int j = right->count; 
 
 	do{
-		if(left->first->value < right->first->value){
-			List_push(sorted, left->first->value);
-			List_shift(left);
+		if(cur_left->value < cur_right->value){
+			List_push(temp, cur_left->value);
+			cur_left = cur_left->next;
+			i--;
 		}else{
-			List_push(sorted, right->first->value);
-			List_shift(right);
+			List_push(temp, cur_right->value);
+			cur_right = cur_right->next;
+			j--;
 		}
-	}while(left->count > 1 &&  right->count > 1);
+	}while(i > 0 && j > 0);
 
-	return sorted;
+	while(j == 0 && i > 0){
+		List_push(temp, cur_left->value);
+		cur_left = cur_left->next;	
+		i--;
+	}
+
+	while(i == 0 && j > 0){
+		List_push(temp, cur_right->value);
+		cur_right = cur_right->next;	
+		j--;
+	}
+
+	cur_left = left->first;
+
+	LIST_FOREACH(temp, first, next, cur){
+		cur_left->value = cur->value;
+		cur_left = cur_left->next;
+	}
+	
 }
 
 

@@ -125,7 +125,7 @@ void *List_remove(List *list, ListNode *node)
 	list->count--;
 	result = node->value;
 	free(node);
-	return result;	
+
 
 error:
 	return result;

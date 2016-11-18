@@ -69,7 +69,7 @@ char *bubble_test()
 char *merge_test()
 {
 	merge_sort(merge);
-//	display_list(merge);
+	display_list(merge);
 	return NULL;
 }
 
