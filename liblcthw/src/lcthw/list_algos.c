@@ -35,8 +35,20 @@ int bubble_sort(List *list)
 	return 0;
 }
 
-
 void merge_sort(List *list)
+{
+	List *sorted = List_create();
+	merge_split(list, sorted);
+
+	LIST_FOREACH(sorted, first, next, cur){
+		printf("%d, ", cur->value);
+	}
+
+}
+	
+
+
+void merge_split(List *list, List *sorted)
 {
 
 	List *left = NULL;
@@ -47,64 +59,42 @@ void merge_sort(List *list)
 	if (left_count > 0){
 		left = List_create();
 		right = List_create();
-		left->first = list->first;
-		right->last = list->last;
-		left->count = left_count;
-		right->count = list->count - left_count;
+
 		LIST_FOREACH(list, first, next, cur){
+
+			if(i < left_count){
+				 List_push(left, cur->value);
+			}else{ 
+				List_push(right, cur->value);
+			}		
 			i++;
-			if(i == left_count){
-				right->first = cur->next;
-				left->last = cur;
-			}
 		}
-		printf("count left = %d\n", left->count);
-		printf("count right = %d\n", right->count);
-		merge_sort(left);
-		merge_sort(right);
+			
+		printf("left->first: %d, left->last: %d, right->first: %d, right->last: %d\n", left->first->value,\
+			left->last->value, right->first->value, right->last->value);
+		merge_split(left, sorted);
+		merge_split(right, sorted);
+		merge_list(left, right, sorted);
 	}
 }
+
+
 		
 	
 			
-List *merge_list(List *left, List *right)
+List *merge_list(List *left, List *right, List *sorted)
 {
-	List *sorted = List_create();
-	ListNode *cur_left = left->first;
-	ListNode *cur_right = right->first;
-	sorted->first = malloc(sizeof(ListNode));
-	ListNode *cur_sorted = sorted->first;
-	Listnode *next = NULL;
 
 	do{
-		if(cur_left->value < cur_right->value){
-			cur_sorted->value = cur_left->value;
-			cur_left = cur_left->next;
+		if(left->first->value < right->first->value){
+			List_push(sorted, left->first->value);
+			List_shift(left);
 		}else{
-			cur_sorted->value = cur_right->value;
-			cur_right = cur_right->next;
+			List_push(sorted, right->first->value);
+			List_shift(right);
 		}
-		next = malloc(sizeof(ListNode));
-		cur_sorted->next = next;
-	}while(cur_left != left->last && cur_right != right->last);
+	}while(left->count > 1 &&  right->count > 1);
 
-	if(cur_left == left->last){
-		do{
-			cur_sorted->value = cur_right->value;
-			cur_right = cur_right->next;	
-			next = malloc(sizeof(ListNode));
-			cur_sorted->next = next;
-		}while(cur_right != right->last);
-	}
-
-	if(cur_right == right->last){
-		do{
-			cur_sorted->value = cur_left->value;
-			cur_left = cur_left->next;	
-			next = malloc(sizeof(ListNode));
-			cur_sorted->next = next;
-		}while(cur_left != left->last);
-	}
 	return sorted;
 }
 

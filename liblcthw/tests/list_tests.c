@@ -61,7 +61,7 @@ char *destroy_list()
 char *bubble_test()
 {
 	bubble_sort(bubble);
-	display_list(bubble);
+
 
 	return NULL;
 }
@@ -69,7 +69,7 @@ char *bubble_test()
 char *merge_test()
 {
 	merge_sort(merge);
-
+//	display_list(merge);
 	return NULL;
 }
 
