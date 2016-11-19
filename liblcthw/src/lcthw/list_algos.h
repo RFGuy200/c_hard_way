@@ -9,5 +9,6 @@ void node_swap(List *list);
 void merge_sort(List *list);
 void merge_split(List *list);
 List *merge_list(List *left, List *right);
+int already_sorted(List *list);
 
 #endif

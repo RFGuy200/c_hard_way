@@ -22,28 +22,47 @@ void node_swap(List *list){
 }
 
 
+int already_sorted(List *list)
+{
+	int sorted = 1;
+	int node_num = 0;
+	ListNode *cur_node = list->first;
+
+	for(node_num = 1; node_num < list->count; node_num++){
+		if(cur_node->next->value < cur_node->value){
+			sorted = 0;
+		}
+		cur_node = cur_node->next;
+	}
+	return sorted;
+}
+	
+
 int bubble_sort(List *list)
 {
 	assert(list != NULL && "Can't sort NULL list");	
 
 	int i = 0;
 
-	for(i = 0; i < list->count; i++){
-		 node_swap(list);
+	if(already_sorted(list)){
+		printf("Bubble list is already sorted\n");
+	}else{
+		for(i = 0; i < list->count; i++){
+			 node_swap(list);
+		}
 	}
-	
 	return 0;
 }
 
 void merge_sort(List *list)
 {
-	List *sorted = List_create();
-	merge_split(list);
-
+	if(already_sorted(list)){
+		printf("Merge list is already sorted\n");
+	}else{
+		merge_split(list);
+	}
 
 }
-	
-
 
 void merge_split(List *list)
 {
@@ -67,13 +86,12 @@ void merge_split(List *list)
 				right->first = cur->next;	
 			}		
 		}			
-		printf("left->count: %d, left->first: %d, left->last: %d\nright->count: %d,\
-right->first: %d, right->last: %d\n",left->count,  left->first->value,\
-			left->last->value, right->count,  right->first->value, right->last->value);
 
 		merge_split(left);
 		merge_split(right);
 		merge_list(left, right);
+		free(left);
+		free(right);
 	}
 }
 
@@ -120,6 +138,8 @@ List *merge_list(List *left, List *right)
 		cur_left->value = cur->value;
 		cur_left = cur_left->next;
 	}
+	
+	List_clear_destroy(temp);
 	
 }
 
