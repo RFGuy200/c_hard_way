@@ -60,8 +60,10 @@ void merge_sort(List *list)
 		printf("Merge list is already sorted\n");
 	}else{
 		merge_split(list);
+		if(already_sorted(list)){
+			printf("List was successfully sorted!\n");
+		}
 	}
-
 }
 
 void merge_split(List *list)
@@ -94,13 +96,8 @@ void merge_split(List *list)
 		free(right);
 	}
 }
-
-
-
-		
-	
 			
-List *merge_list(List *left, List *right)
+void merge_list(List *left, List *right)
 {
 	ListNode *cur_left = left->first;
 	ListNode *cur_right = right->first;
@@ -143,7 +140,35 @@ List *merge_list(List *left, List *right)
 	
 }
 
+void bu_merge(List *list)
+{
+	List *temp = List_create();
+	int i = 0;
+	int width = 0;
+		
+	for( width = 1; width < list->count; width *= 2){
+		printf("width: %d\n", width);
+		for( i = 0; i < list->count; i += 2*width){
+			printf("i: %d\n", i);	
+			bu_sort(list, temp, i, width);
+		}
+	}
+}  
+	
+void bu_sort(List *list, List *temp, int i, int width){
 
+	List *left = List_create();
+	List *right = List_create();
+	ListNode *cur_left = NULL;
+	ListNode *cur_right = NULL;
+	int counter = 0;
+
+	for(counter = i; counter < i+2*width; counter++)
+		printf("%d, ", counter);
+
+	printf("\n");
+	
+}	
 
 			
 			

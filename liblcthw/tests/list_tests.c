@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <list.h>
 #include <list_algos.h>
+#include <stdint.h>
 
 static List *list = NULL;
 static List *copy = NULL;
@@ -12,6 +13,7 @@ char *test3 = "test3 data";
 
 static List *bubble;
 static List *merge;
+static List *bu;
 int *array = (int[]){9,1,8,2,7,3,6,4,5};
 //int *array = (int[]){1,2,3,4,5,6,7,8,9};
 int array_mem = 9;
@@ -19,9 +21,10 @@ int array_mem = 9;
 
 void display_list(List *display)
 {
-	printf("List values:\n");		
+//	printf("List values:\n");		
 
 	LIST_FOREACH(display, first, next, cur)
+	
 		if(cur->next != NULL){
 			printf("%d, ", cur->value);
 		}else{
@@ -35,16 +38,22 @@ char *create_list()
 {
 	bubble = List_create();
 	merge = List_create();
+	bu = List_create();
 	int i = 0;
 
 	for(i = 0; i < array_mem; i++){
 		List_push(bubble, *array);
 		List_push(merge, *array);
+		List_push(bu, *array);
 		array++;
 	}
 
+	printf("bubble list values:\n");
 	display_list(bubble);
+	printf("merge list values:\n");
 	display_list(merge);
+	printf("bottom up list values:\n");
+	display_list(bu);
 
 	return NULL;
 }
@@ -60,6 +69,7 @@ char *destroy_list()
 char *bubble_test()
 {
 	bubble_sort(bubble);
+	printf("bubble after sorting:\n");
 	display_list(bubble);
 
 	return NULL;
@@ -68,9 +78,19 @@ char *bubble_test()
 char *merge_test()
 {
 	merge_sort(merge);
+	printf("merge after sorting:\n");
 	display_list(merge);
 	return NULL;
 }
+
+char *bu_test()
+{
+	bu_merge(bu);
+	printf("bottom up after sorting:\n");
+	display_list(bu);
+	return NULL;
+}
+
 
 char *test_create()
 {
@@ -212,6 +232,7 @@ char *all_tests()
 	mu_run_test(create_list);
 	mu_run_test(bubble_test);
 	mu_run_test(merge_test);
+	mu_run_test(bu_test);
 	mu_run_test(destroy_list);
 
 

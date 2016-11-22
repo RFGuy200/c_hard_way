@@ -1,54 +1,93 @@
-==4811== Memcheck, a memory error detector
-==4811== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==4811== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==4811== Command: ./tests/list_tests
-==4811== 
-DEBUG: tests/list_tests.c:221:main 
+==13927== Memcheck, a memory error detector
+==13927== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==13927== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==13927== Command: ./tests/list_tests
+==13927== 
+DEBUG: tests/list_tests.c:242:main 
 --------Running: ./tests/list_tests
-DEBUG: tests/list_tests.c:202:all_tests 
+DEBUG: tests/list_tests.c:222:all_tests 
 --------test_create---------
-DEBUG: tests/list_tests.c:203:all_tests 
+DEBUG: tests/list_tests.c:223:all_tests 
 --------test_push_pop---------
-DEBUG: tests/list_tests.c:204:all_tests 
+DEBUG: tests/list_tests.c:224:all_tests 
 --------test_unshift---------
-DEBUG: tests/list_tests.c:205:all_tests 
+DEBUG: tests/list_tests.c:225:all_tests 
 --------test_remove---------
-DEBUG: tests/list_tests.c:206:all_tests 
+DEBUG: tests/list_tests.c:226:all_tests 
 --------test_shift---------
-DEBUG: tests/list_tests.c:207:all_tests 
+DEBUG: tests/list_tests.c:227:all_tests 
 --------test_copy---------
-DEBUG: tests/list_tests.c:208:all_tests 
+DEBUG: tests/list_tests.c:228:all_tests 
 --------test_join---------
-DEBUG: tests/list_tests.c:209:all_tests 
+DEBUG: tests/list_tests.c:229:all_tests 
 --------test_split---------
-DEBUG: tests/list_tests.c:210:all_tests 
+DEBUG: tests/list_tests.c:230:all_tests 
 --------test_destroy---------
-DEBUG: tests/list_tests.c:212:all_tests 
+DEBUG: tests/list_tests.c:232:all_tests 
 --------create_list---------
-DEBUG: tests/list_tests.c:213:all_tests 
+DEBUG: tests/list_tests.c:233:all_tests 
 --------bubble_test---------
-DEBUG: tests/list_tests.c:214:all_tests 
+DEBUG: tests/list_tests.c:234:all_tests 
 --------merge_test---------
-DEBUG: tests/list_tests.c:215:all_tests 
+DEBUG: tests/list_tests.c:235:all_tests 
+--------bu_test---------
+DEBUG: tests/list_tests.c:236:all_tests 
 --------destroy_list---------
 --------------------
 Running: ./tests/list_tests
-List values:
+bubble list values:
 9, 1, 8, 2, 7, 3, 6, 4, 5
-List values:
+merge list values:
 9, 1, 8, 2, 7, 3, 6, 4, 5
-List values:
+bottom up list values:
+9, 1, 8, 2, 7, 3, 6, 4, 5
+bubble after sorting:
 1, 2, 3, 4, 5, 6, 7, 8, 9
-List values:
+List was successfully sorted!
+merge after sorting:
 1, 2, 3, 4, 5, 6, 7, 8, 9
+width: 1
+i: 0
+0, 1, 
+i: 2
+2, 3, 
+i: 4
+4, 5, 
+i: 6
+6, 7, 
+i: 8
+8, 9, 
+width: 2
+i: 0
+0, 1, 2, 3, 
+i: 4
+4, 5, 6, 7, 
+i: 8
+8, 9, 10, 11, 
+width: 4
+i: 0
+0, 1, 2, 3, 4, 5, 6, 7, 
+i: 8
+8, 9, 10, 11, 12, 13, 14, 15, 
+width: 8
+i: 0
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 
+bottom up after sorting:
+9, 1, 8, 2, 7, 3, 6, 4, 5
 ALL TESTS PASSED
-Tests run: 13
-==4811== 
-==4811== HEAP SUMMARY:
-==4811==     in use at exit: 0 bytes in 0 blocks
-==4811==   total heap usage: 89 allocs, 89 frees, 6,208 bytes allocated
-==4811== 
-==4811== All heap blocks were freed -- no leaks are possible
-==4811== 
-==4811== For counts of detected and suppressed errors, rerun with: -v
-==4811== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Tests run: 14
+==13927== 
+==13927== HEAP SUMMARY:
+==13927==     in use at exit: 792 bytes in 33 blocks
+==13927==   total heap usage: 122 allocs, 89 frees, 7,000 bytes allocated
+==13927== 
+==13927== LEAK SUMMARY:
+==13927==    definitely lost: 552 bytes in 23 blocks
+==13927==    indirectly lost: 0 bytes in 0 blocks
+==13927==      possibly lost: 0 bytes in 0 blocks
+==13927==    still reachable: 240 bytes in 10 blocks
+==13927==         suppressed: 0 bytes in 0 blocks
+==13927== Rerun with --leak-check=full to see details of leaked memory
+==13927== 
+==13927== For counts of detected and suppressed errors, rerun with: -v
+==13927== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
