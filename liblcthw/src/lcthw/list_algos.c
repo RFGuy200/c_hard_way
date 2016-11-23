@@ -50,6 +50,9 @@ int bubble_sort(List *list)
 		for(i = 0; i < list->count; i++){
 			 node_swap(list);
 		}
+		if(already_sorted(list)){
+			printf("Bubble list was successfully sorted!\n");
+		}
 	}
 	return 0;
 }
@@ -61,7 +64,7 @@ void merge_sort(List *list)
 	}else{
 		merge_split(list);
 		if(already_sorted(list)){
-			printf("List was successfully sorted!\n");
+			printf("Merge list was successfully sorted!\n");
 		}
 	}
 }
@@ -96,80 +99,28 @@ void merge_split(List *list)
 		free(right);
 	}
 }
-			
-void merge_list(List *left, List *right)
+
+void  merge_list(List *left, List *right)
 {
-	ListNode *cur_left = left->first;
-	ListNode *cur_right = right->first;
-	List *temp = List_create();
-	int i = left->count;
-	int j = right->count; 
+	assert(left && right && "Can't merge two empty lists");
 
-	do{
-		if(cur_left->value < cur_right->value){
-			List_push(temp, cur_left->value);
-			cur_left = cur_left->next;
-			i--;
-		}else{
-			List_push(temp, cur_right->value);
-			cur_right = cur_right->next;
-			j--;
-		}
-	}while(i > 0 && j > 0);
-
-	while(j == 0 && i > 0){
-		List_push(temp, cur_left->value);
-		cur_left = cur_left->next;	
-		i--;
-	}
-
-	while(i == 0 && j > 0){
-		List_push(temp, cur_right->value);
-		cur_right = cur_right->next;	
-		j--;
-	}
-
-	cur_left = left->first;
-
-	LIST_FOREACH(temp, first, next, cur){
-		cur_left->value = cur->value;
-		cur_left = cur_left->next;
-	}
-	
-	List_clear_destroy(temp);
-	
-}
-
-void bu_merge(List *list)
-{
-	List *temp = List_create();
-	int i = 0;
-	int width = 0;
-		
-	for( width = 1; width < list->count; width *= 2){
-
-		for( i = 0; i < list->count; i += 2*width){
-
-			bu_sort(list, temp, i, width);
-		}
-	}
-}  
-
-
-void  bu_merge_list(List *left, List *right)
-{
-	ListNode *cur_left = left->first;
+	ListNode *cur_left = NULL;
 	ListNode *cur_right = NULL;
-	if(right)
-		cur_right = right->first;
-	List *temp = List_create();
-	int i = left->count;
 	int j = 0;
-	if(right)
-		j = right->count;
-	else
-		j = 0;	 
+	int i = 0;
 
+	if(left){
+		cur_left = left->first;
+		i = left->count;
+	}
+
+	if(right){
+		cur_right = right->first;
+		j = right->count;
+	}
+
+	List *temp = List_create(); 
+	
 	if(i > 0 && j > 0){
 		do{
 			if(cur_left->value < cur_right->value){
@@ -206,14 +157,34 @@ void  bu_merge_list(List *left, List *right)
 	List_clear_destroy(temp);
 	
 }
+			
+void bu_merge(List *list)
+{
+	assert(list && "Can't sort empty list");
 
-	
-void bu_sort(List *list, List *temp, int i, int width){
+	if(already_sorted(list)){
+		printf("Bottom-up merge list is already sorted\n");
+	}else{
+		int i = 0;
+		int width = 0;
+		
+		for( width = 1; width < list->count; width *= 2){
+
+			for( i = 0; i < list->count; i += 2*width){
+
+				bu_sort(list, i, width);
+			}
+		}
+		if(already_sorted(list)){
+			printf("Bottom-up list was successfully sorted!\n");
+		}
+	}
+}  
+
+void bu_sort(List *list, int i, int width){
 
 	List *left = List_create();
 	List *right = List_create();
-	ListNode *cur_left = NULL;
-	ListNode *cur_right = NULL;
 	ListNode *cur_list = list->first;
 	int counter = 0;
 	int left_stop = i + width - 1;
@@ -223,13 +194,13 @@ void bu_sort(List *list, List *temp, int i, int width){
 	
 		if(counter == i)
 			left->first = cur_list;
-		if(counter == i+width-1){
+		if(counter == left_stop){
 			left->last = cur_list;
 			right->first = cur_list->next;
 		}
-		if(counter ==  i+width*2-1)
+		if(counter ==  right_stop)
 			right->last = cur_list;
-		if(cur_list == list->last && right->first){
+		if(cur_list == list->last && right->first){ //set right->last if right->first actually exists
 			right->last = list->last;
 			break;
 		}else if(cur_list == list->last && left->first){
@@ -237,7 +208,6 @@ void bu_sort(List *list, List *temp, int i, int width){
 			break;
 		}
 		cur_list = cur_list->next;
-	
 	}
 
 	if(i + width < list->count)
@@ -249,7 +219,10 @@ void bu_sort(List *list, List *temp, int i, int width){
 	else if(right)
 		right->count = list->count - i - width;
 
-		bu_merge_list(left, right);
+	merge_list(left, right);
+	free(left);
+	free(right);
+		
 }	
 
 			

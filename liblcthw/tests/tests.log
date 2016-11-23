@@ -1,30 +1,30 @@
-DEBUG: tests/list_tests.c:242:main 
+DEBUG: tests/list_tests.c:243:main 
 --------Running: ./tests/list_tests
-DEBUG: tests/list_tests.c:222:all_tests 
---------test_create---------
 DEBUG: tests/list_tests.c:223:all_tests 
---------test_push_pop---------
+--------test_create---------
 DEBUG: tests/list_tests.c:224:all_tests 
---------test_unshift---------
+--------test_push_pop---------
 DEBUG: tests/list_tests.c:225:all_tests 
---------test_remove---------
+--------test_unshift---------
 DEBUG: tests/list_tests.c:226:all_tests 
---------test_shift---------
+--------test_remove---------
 DEBUG: tests/list_tests.c:227:all_tests 
---------test_copy---------
+--------test_shift---------
 DEBUG: tests/list_tests.c:228:all_tests 
---------test_join---------
+--------test_copy---------
 DEBUG: tests/list_tests.c:229:all_tests 
---------test_split---------
+--------test_join---------
 DEBUG: tests/list_tests.c:230:all_tests 
+--------test_split---------
+DEBUG: tests/list_tests.c:231:all_tests 
 --------test_destroy---------
-DEBUG: tests/list_tests.c:232:all_tests 
---------create_list---------
 DEBUG: tests/list_tests.c:233:all_tests 
---------bubble_test---------
+--------create_list---------
 DEBUG: tests/list_tests.c:234:all_tests 
---------merge_test---------
+--------bubble_test---------
 DEBUG: tests/list_tests.c:235:all_tests 
---------bu_test---------
+--------merge_test---------
 DEBUG: tests/list_tests.c:236:all_tests 
+--------bu_test---------
+DEBUG: tests/list_tests.c:237:all_tests 
 --------destroy_list---------

@@ -62,6 +62,7 @@ char *destroy_list()
 {
 	List_clear_destroy(bubble);
 	List_clear_destroy(merge);
+	List_clear_destroy(bu);
 
 	return NULL;
 }

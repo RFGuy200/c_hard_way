@@ -1,1 +1,63 @@
-./tests/runtests.sh: 2: ./tests/runtests.sh: valgrind: not found
+==9637== Memcheck, a memory error detector
+==9637== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==9637== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==9637== Command: ./tests/list_tests
+==9637== 
+DEBUG: tests/list_tests.c:243:main 
+--------Running: ./tests/list_tests
+DEBUG: tests/list_tests.c:223:all_tests 
+--------test_create---------
+DEBUG: tests/list_tests.c:224:all_tests 
+--------test_push_pop---------
+DEBUG: tests/list_tests.c:225:all_tests 
+--------test_unshift---------
+DEBUG: tests/list_tests.c:226:all_tests 
+--------test_remove---------
+DEBUG: tests/list_tests.c:227:all_tests 
+--------test_shift---------
+DEBUG: tests/list_tests.c:228:all_tests 
+--------test_copy---------
+DEBUG: tests/list_tests.c:229:all_tests 
+--------test_join---------
+DEBUG: tests/list_tests.c:230:all_tests 
+--------test_split---------
+DEBUG: tests/list_tests.c:231:all_tests 
+--------test_destroy---------
+DEBUG: tests/list_tests.c:233:all_tests 
+--------create_list---------
+DEBUG: tests/list_tests.c:234:all_tests 
+--------bubble_test---------
+DEBUG: tests/list_tests.c:235:all_tests 
+--------merge_test---------
+DEBUG: tests/list_tests.c:236:all_tests 
+--------bu_test---------
+DEBUG: tests/list_tests.c:237:all_tests 
+--------destroy_list---------
+--------------------
+Running: ./tests/list_tests
+bubble list values:
+9, 1, 8, 2, 7, 3, 6, 4, 5
+merge list values:
+9, 1, 8, 2, 7, 3, 6, 4, 5
+bottom up list values:
+9, 1, 8, 2, 7, 3, 6, 4, 5
+Bubble list was successfully sorted!
+bubble after sorting:
+1, 2, 3, 4, 5, 6, 7, 8, 9
+Merge list was successfully sorted!
+merge after sorting:
+1, 2, 3, 4, 5, 6, 7, 8, 9
+Bottom-up list was successfully sorted!
+bottom up after sorting:
+1, 2, 3, 4, 5, 6, 7, 8, 9
+ALL TESTS PASSED
+Tests run: 14
+==9637== 
+==9637== HEAP SUMMARY:
+==9637==     in use at exit: 0 bytes in 0 blocks
+==9637==   total heap usage: 166 allocs, 166 frees, 8,056 bytes allocated
+==9637== 
+==9637== All heap blocks were freed -- no leaks are possible
+==9637== 
+==9637== For counts of detected and suppressed errors, rerun with: -v
+==9637== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
