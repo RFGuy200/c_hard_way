@@ -147,13 +147,66 @@ void bu_merge(List *list)
 	int width = 0;
 		
 	for( width = 1; width < list->count; width *= 2){
-		printf("width: %d\n", width);
+
 		for( i = 0; i < list->count; i += 2*width){
-			printf("i: %d\n", i);
+
 			bu_sort(list, temp, i, width);
 		}
 	}
 }  
+
+
+void  bu_merge_list(List *left, List *right)
+{
+	ListNode *cur_left = left->first;
+	ListNode *cur_right = NULL;
+	if(right)
+		cur_right = right->first;
+	List *temp = List_create();
+	int i = left->count;
+	int j = 0;
+	if(right)
+		j = right->count;
+	else
+		j = 0;	 
+
+	if(i > 0 && j > 0){
+		do{
+			if(cur_left->value < cur_right->value){
+				List_push(temp, cur_left->value);
+				cur_left = cur_left->next;
+				i--;
+			}else{
+				List_push(temp, cur_right->value);
+			cur_right = cur_right->next;
+				j--;
+			}
+		}while(i > 0 && j > 0);
+	}
+
+	while(j == 0 && i > 0){
+		List_push(temp, cur_left->value);
+		cur_left = cur_left->next;	
+		i--;
+	}
+
+	while(i == 0 && j > 0){
+		List_push(temp, cur_right->value);
+		cur_right = cur_right->next;	
+		j--;
+	}
+
+	cur_left = left->first;
+
+	LIST_FOREACH(temp, first, next, cur){
+		cur_left->value = cur->value;
+		cur_left = cur_left->next;
+	}
+	
+	List_clear_destroy(temp);
+	
+}
+
 	
 void bu_sort(List *list, List *temp, int i, int width){
 
@@ -166,15 +219,37 @@ void bu_sort(List *list, List *temp, int i, int width){
 	int left_stop = i + width - 1;
 	int right_stop = i + width * 2 - 1;
 
-	for(counter = 0; counter < i+2*width; counter++){
-		cur_list = cur_list->next;
-		printf("counter: %d, l_stop: %d, r_stop: %d \n", counter, left_stop, right_stop);
-
+	for(counter = 0; counter < (i+2*width) && counter < list->count; counter++){
+	
+		if(counter == i)
+			left->first = cur_list;
+		if(counter == i+width-1){
+			left->last = cur_list;
+			right->first = cur_list->next;
 		}
+		if(counter ==  i+width*2-1)
+			right->last = cur_list;
+		if(cur_list == list->last && right->first){
+			right->last = list->last;
+			break;
+		}else if(cur_list == list->last && left->first){
+			left->last = list->last;
+			break;
+		}
+		cur_list = cur_list->next;
+	
+	}
 
-	printf("\n");
+	if(i + width < list->count)
+		left->count = width;
+	else left->count = list->count - i;
 
+	if(i + 2*width < list->count)
+		right->count = width;
+	else if(right)
+		right->count = list->count - i - width;
 
+		bu_merge_list(left, right);
 }	
 
 			
