@@ -11,5 +11,6 @@ void merge_split(List *list);
 void merge_list(List *left, List *right);
 int already_sorted(List *list);
 void bu_merge(List *list);
+void bu_sort(List *list, List *temp, int i, int width);
 
 #endif

@@ -1,8 +1,8 @@
-==13927== Memcheck, a memory error detector
-==13927== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==13927== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==13927== Command: ./tests/list_tests
-==13927== 
+==5759== Memcheck, a memory error detector
+==5759== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==5759== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==5759== Command: ./tests/list_tests
+==5759== 
 DEBUG: tests/list_tests.c:242:main 
 --------Running: ./tests/list_tests
 DEBUG: tests/list_tests.c:222:all_tests 
@@ -48,46 +48,140 @@ merge after sorting:
 1, 2, 3, 4, 5, 6, 7, 8, 9
 width: 1
 i: 0
-0, 1, 
+counter: 0, l_stop: 0, r_stop: 1 
+counter: 1, l_stop: 0, r_stop: 1 
+
 i: 2
-2, 3, 
+counter: 0, l_stop: 2, r_stop: 3 
+counter: 1, l_stop: 2, r_stop: 3 
+counter: 2, l_stop: 2, r_stop: 3 
+counter: 3, l_stop: 2, r_stop: 3 
+
 i: 4
-4, 5, 
+counter: 0, l_stop: 4, r_stop: 5 
+counter: 1, l_stop: 4, r_stop: 5 
+counter: 2, l_stop: 4, r_stop: 5 
+counter: 3, l_stop: 4, r_stop: 5 
+counter: 4, l_stop: 4, r_stop: 5 
+counter: 5, l_stop: 4, r_stop: 5 
+
 i: 6
-6, 7, 
+counter: 0, l_stop: 6, r_stop: 7 
+counter: 1, l_stop: 6, r_stop: 7 
+counter: 2, l_stop: 6, r_stop: 7 
+counter: 3, l_stop: 6, r_stop: 7 
+counter: 4, l_stop: 6, r_stop: 7 
+counter: 5, l_stop: 6, r_stop: 7 
+counter: 6, l_stop: 6, r_stop: 7 
+counter: 7, l_stop: 6, r_stop: 7 
+
 i: 8
-8, 9, 
+counter: 0, l_stop: 8, r_stop: 9 
+counter: 1, l_stop: 8, r_stop: 9 
+counter: 2, l_stop: 8, r_stop: 9 
+counter: 3, l_stop: 8, r_stop: 9 
+counter: 4, l_stop: 8, r_stop: 9 
+counter: 5, l_stop: 8, r_stop: 9 
+counter: 6, l_stop: 8, r_stop: 9 
+counter: 7, l_stop: 8, r_stop: 9 
+counter: 8, l_stop: 8, r_stop: 9 
+counter: 9, l_stop: 8, r_stop: 9 
+
 width: 2
 i: 0
-0, 1, 2, 3, 
+counter: 0, l_stop: 1, r_stop: 3 
+counter: 1, l_stop: 1, r_stop: 3 
+counter: 2, l_stop: 1, r_stop: 3 
+counter: 3, l_stop: 1, r_stop: 3 
+
 i: 4
-4, 5, 6, 7, 
+counter: 0, l_stop: 5, r_stop: 7 
+counter: 1, l_stop: 5, r_stop: 7 
+counter: 2, l_stop: 5, r_stop: 7 
+counter: 3, l_stop: 5, r_stop: 7 
+counter: 4, l_stop: 5, r_stop: 7 
+counter: 5, l_stop: 5, r_stop: 7 
+counter: 6, l_stop: 5, r_stop: 7 
+counter: 7, l_stop: 5, r_stop: 7 
+
 i: 8
-8, 9, 10, 11, 
+counter: 0, l_stop: 9, r_stop: 11 
+counter: 1, l_stop: 9, r_stop: 11 
+counter: 2, l_stop: 9, r_stop: 11 
+counter: 3, l_stop: 9, r_stop: 11 
+counter: 4, l_stop: 9, r_stop: 11 
+counter: 5, l_stop: 9, r_stop: 11 
+counter: 6, l_stop: 9, r_stop: 11 
+counter: 7, l_stop: 9, r_stop: 11 
+counter: 8, l_stop: 9, r_stop: 11 
+counter: 9, l_stop: 9, r_stop: 11 
+counter: 10, l_stop: 9, r_stop: 11 
+counter: 11, l_stop: 9, r_stop: 11 
+
 width: 4
 i: 0
-0, 1, 2, 3, 4, 5, 6, 7, 
+counter: 0, l_stop: 3, r_stop: 7 
+counter: 1, l_stop: 3, r_stop: 7 
+counter: 2, l_stop: 3, r_stop: 7 
+counter: 3, l_stop: 3, r_stop: 7 
+counter: 4, l_stop: 3, r_stop: 7 
+counter: 5, l_stop: 3, r_stop: 7 
+counter: 6, l_stop: 3, r_stop: 7 
+counter: 7, l_stop: 3, r_stop: 7 
+
 i: 8
-8, 9, 10, 11, 12, 13, 14, 15, 
+counter: 0, l_stop: 11, r_stop: 15 
+counter: 1, l_stop: 11, r_stop: 15 
+counter: 2, l_stop: 11, r_stop: 15 
+counter: 3, l_stop: 11, r_stop: 15 
+counter: 4, l_stop: 11, r_stop: 15 
+counter: 5, l_stop: 11, r_stop: 15 
+counter: 6, l_stop: 11, r_stop: 15 
+counter: 7, l_stop: 11, r_stop: 15 
+counter: 8, l_stop: 11, r_stop: 15 
+counter: 9, l_stop: 11, r_stop: 15 
+counter: 10, l_stop: 11, r_stop: 15 
+counter: 11, l_stop: 11, r_stop: 15 
+counter: 12, l_stop: 11, r_stop: 15 
+counter: 13, l_stop: 11, r_stop: 15 
+counter: 14, l_stop: 11, r_stop: 15 
+counter: 15, l_stop: 11, r_stop: 15 
+
 width: 8
 i: 0
-0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 
+counter: 0, l_stop: 7, r_stop: 15 
+counter: 1, l_stop: 7, r_stop: 15 
+counter: 2, l_stop: 7, r_stop: 15 
+counter: 3, l_stop: 7, r_stop: 15 
+counter: 4, l_stop: 7, r_stop: 15 
+counter: 5, l_stop: 7, r_stop: 15 
+counter: 6, l_stop: 7, r_stop: 15 
+counter: 7, l_stop: 7, r_stop: 15 
+counter: 8, l_stop: 7, r_stop: 15 
+counter: 9, l_stop: 7, r_stop: 15 
+counter: 10, l_stop: 7, r_stop: 15 
+counter: 11, l_stop: 7, r_stop: 15 
+counter: 12, l_stop: 7, r_stop: 15 
+counter: 13, l_stop: 7, r_stop: 15 
+counter: 14, l_stop: 7, r_stop: 15 
+counter: 15, l_stop: 7, r_stop: 15 
+
 bottom up after sorting:
 9, 1, 8, 2, 7, 3, 6, 4, 5
 ALL TESTS PASSED
 Tests run: 14
-==13927== 
-==13927== HEAP SUMMARY:
-==13927==     in use at exit: 792 bytes in 33 blocks
-==13927==   total heap usage: 122 allocs, 89 frees, 7,000 bytes allocated
-==13927== 
-==13927== LEAK SUMMARY:
-==13927==    definitely lost: 552 bytes in 23 blocks
-==13927==    indirectly lost: 0 bytes in 0 blocks
-==13927==      possibly lost: 0 bytes in 0 blocks
-==13927==    still reachable: 240 bytes in 10 blocks
-==13927==         suppressed: 0 bytes in 0 blocks
-==13927== Rerun with --leak-check=full to see details of leaked memory
-==13927== 
-==13927== For counts of detected and suppressed errors, rerun with: -v
-==13927== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==5759== 
+==5759== HEAP SUMMARY:
+==5759==     in use at exit: 792 bytes in 33 blocks
+==5759==   total heap usage: 122 allocs, 89 frees, 7,000 bytes allocated
+==5759== 
+==5759== LEAK SUMMARY:
+==5759==    definitely lost: 552 bytes in 23 blocks
+==5759==    indirectly lost: 0 bytes in 0 blocks
+==5759==      possibly lost: 0 bytes in 0 blocks
+==5759==    still reachable: 240 bytes in 10 blocks
+==5759==         suppressed: 0 bytes in 0 blocks
+==5759== Rerun with --leak-check=full to see details of leaked memory
+==5759== 
+==5759== For counts of detected and suppressed errors, rerun with: -v
+==5759== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

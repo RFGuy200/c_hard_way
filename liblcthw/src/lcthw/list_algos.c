@@ -149,7 +149,7 @@ void bu_merge(List *list)
 	for( width = 1; width < list->count; width *= 2){
 		printf("width: %d\n", width);
 		for( i = 0; i < list->count; i += 2*width){
-			printf("i: %d\n", i);	
+			printf("i: %d\n", i);
 			bu_sort(list, temp, i, width);
 		}
 	}
@@ -161,13 +161,20 @@ void bu_sort(List *list, List *temp, int i, int width){
 	List *right = List_create();
 	ListNode *cur_left = NULL;
 	ListNode *cur_right = NULL;
+	ListNode *cur_list = list->first;
 	int counter = 0;
+	int left_stop = i + width - 1;
+	int right_stop = i + width * 2 - 1;
 
-	for(counter = i; counter < i+2*width; counter++)
-		printf("%d, ", counter);
+	for(counter = 0; counter < i+2*width; counter++){
+		cur_list = cur_list->next;
+		printf("counter: %d, l_stop: %d, r_stop: %d \n", counter, left_stop, right_stop);
+
+		}
 
 	printf("\n");
-	
+
+
 }	
 
 			
