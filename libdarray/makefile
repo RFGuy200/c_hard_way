@@ -9,7 +9,7 @@ OBJECTS=$(patsubst %.c,%.o,$(SOURCES))
 TEST_SRC=$(wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
-TARGET=build/libex29.a
+TARGET=build/libdarray.a
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 
 # The Target Build
@@ -33,7 +33,7 @@ build:
 # The Unit Tests
 TEST_DEPS=$(wildcard tests/*.h)
 $(TESTS): $(TEST_SRC) $(TEST_DEPS)
-	$(CC) $(CFLAGS) -o $@ $(TEST_SRC) $(LIBS) 
+	$(CC) $(CFLAGS) $(TEST_SRC) $(TARGET) -o $@ 
 
 .PHONY: tests
 tests: CFLAGS += $(TARGET)

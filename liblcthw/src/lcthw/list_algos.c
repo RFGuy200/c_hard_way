@@ -100,7 +100,7 @@ void merge_split(List *list)
 	}
 }
 
-void  merge_list(List *left, List *right)
+inline void  merge_list(List *left, List *right)
 {
 	assert(left && right && "Can't merge two empty lists");
 
@@ -177,18 +177,6 @@ void bu_merge(List *list)
 		}
 		if(already_sorted(list)){
 			printf("Bottom-up list was successfully sorted!\n");
-		}
-	}
-}  
-
-void bu_sort(List *list, int i, int width){
-
-	List *left = List_create();
-	List *right = List_create();
-	ListNode *cur_list = list->first;
-	int counter = 0;
-	int left_stop = i + width - 1;
-	int right_stop = i + width * 2 - 1;
 
 	for(counter = 0; counter < (i+2*width) && counter < list->count; counter++){
 	

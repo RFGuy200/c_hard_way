@@ -1,4 +1,6 @@
-DEBUG: tests/darray_tests.c:17:main 
+DEBUG: tests/darray_tests.c:38:main 
 --------Running: ./tests/darray_tests
-DEBUG: tests/darray_tests.c:12:all_tests 
+DEBUG: tests/darray_tests.c:32:all_tests 
 --------test_demo---------
+DEBUG: tests/darray_tests.c:33:all_tests 
+--------test_create---------
