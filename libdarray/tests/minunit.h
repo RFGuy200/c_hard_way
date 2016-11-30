@@ -6,6 +6,8 @@
 #include <dbg.h>
 #include <stdlib.h>
 
+int tests_run;
+
 #define mu_suite_start() char* message=NULL
 
 #define mu_assert(test,message) if(!(test)) {log_err(message); return *message;}
@@ -26,6 +28,6 @@
 	printf("Tests run: %d\n", tests_run);\
 	exit(result != 0);\
 }
-	int tests_run;
+
 
 #endif

@@ -1,4 +1,5 @@
 echo "Running Unit Tests"
+valgrind ./tests/*_tests > tests/valgrind.log 2>&1
 
 for i in tests/*_tests
 do
@@ -17,4 +18,5 @@ do
 done
 
 echo ""
+
 

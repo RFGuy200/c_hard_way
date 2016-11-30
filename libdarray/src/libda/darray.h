@@ -15,7 +15,7 @@ typedef struct Darray{
 } Darray;
 
 Darray* Darray_create(size_t element_size, size_t initial_max);
-/*
+
 
 void Darray_destroy(Darray* array);
 
@@ -30,7 +30,7 @@ int Darray_push(Darray* array, void *el);
 void Darray_pop(Darray* array);
 
 void Darray_clear_destroy(Darray* array);
-
+/*
 #define Darray_last(A) ((A)->contents[(A)->end-1])
 #define Darray_first(A) ((A)->contents[0])
 #define Darray_end(A) ((A)->end)
