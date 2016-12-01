@@ -27,10 +27,10 @@ int Darray_contract(Darray* array);
 
 int Darray_push(Darray* array, void *el);
 
-void Darray_pop(Darray* array);
+void *Darray_pop(Darray* array);
 
 void Darray_clear_destroy(Darray* array);
-/*
+
 #define Darray_last(A) ((A)->contents[(A)->end-1])
 #define Darray_first(A) ((A)->contents[0])
 #define Darray_end(A) ((A)->end)
@@ -41,7 +41,7 @@ inline static void Darray_set(Darray *array, int i, void *el){
 	check(i < array->max, "darray attempt to set past max");
 	if(i > array->end)
 		array->end = i;
-	array_contents[i] = el;
+	array->contents[i] = el;
 error:
 	return;
 }
@@ -70,6 +70,6 @@ error:
 }
 
 #define Darray_free(E) free((E))
-*/
+
 #endif
 

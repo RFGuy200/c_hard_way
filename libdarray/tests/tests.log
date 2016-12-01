@@ -1,8 +1,10 @@
-DEBUG: tests/darray_tests.c:54:main 
+DEBUG: tests/darray_tests.c:77:main 
 --------Running: ./tests/darray_tests
-DEBUG: tests/darray_tests.c:48:all_tests 
+DEBUG: tests/darray_tests.c:70:all_tests 
 --------test_create---------
-DEBUG: tests/darray_tests.c:49:all_tests 
+DEBUG: tests/darray_tests.c:71:all_tests 
 --------test_expand_contract---------
-DEBUG: tests/darray_tests.c:50:all_tests 
---------test_clear---------
+DEBUG: tests/darray_tests.c:72:all_tests 
+--------test_push_pop---------
+DEBUG: tests/darray_tests.c:73:all_tests 
+--------test_clear_destroy---------

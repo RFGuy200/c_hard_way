@@ -17,13 +17,6 @@ char test_create()
 	return NULL;
 }
 
-char test_clear()
-{
-	Darray_clear(array);
-
-	return NULL;
-}
-
 char test_expand_contract()
 {
 	int old_max = array->max;
@@ -39,7 +32,36 @@ char test_expand_contract()
 
 	return NULL;
 }
+
+char test_clear_destroy()
+{
+	Darray_clear_destroy(array);
+
+	return NULL;
+}
+
+char test_push_pop()
+{
+	int i = 0;
 	
+	for(i = 0; i < 1000; i++){
+		int *val = Darray_new(array);
+		*val = i * 333;
+		Darray_push(array, val);
+	}
+	
+	mu_assert(array->max == 1201, "Wrong size after push");
+
+	for(i = 999; i >= 0; i--){
+		int *val = Darray_pop(array);
+	mu_assert(val != NULL, "Shouldn't get NULL");
+	mu_assert(*val == i*333, "Wrong value");
+	Darray_free(val);
+	}
+
+	return NULL;
+
+}
 
 char *all_tests(){
 
@@ -47,7 +69,8 @@ char *all_tests(){
 
 	mu_run_test(test_create);
 	mu_run_test(test_expand_contract);
-	mu_run_test(test_clear);	
+	mu_run_test(test_push_pop);	
+	mu_run_test(test_clear_destroy);
 	return NULL;
 }
 

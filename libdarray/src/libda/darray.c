@@ -39,7 +39,6 @@ static inline int Darray_resize(Darray *array, size_t newsize)
 {
 	check(newsize > 0, "New array size must be > 0");
 	array->max = newsize;
-	printf("new size: %d\n", array->max);
 
 	void *contents = realloc( array->contents, array->max*sizeof(void *));
 	check_mem(contents);
@@ -70,4 +69,47 @@ int Darray_contract(Darray *array)
 		array->end;
 
 	return Darray_resize(array, new_size + 1);
+}
+
+void Darray_destroy(Darray* array)
+{
+	if(array){
+		if(array->contents)
+			free(array->contents);
+		free(array);
+	}
+}
+
+void Darray_clear_destroy(Darray *array)
+{
+	Darray_clear(array);
+	Darray_destroy(array);
+}
+
+int Darray_push(Darray * array, void *el)
+{
+	array->contents[array->end] = el;
+	array->end++;
+
+	if(Darray_end(array) >= Darray_max(array)){
+		return	Darray_expand(array);
+	}else{
+		return 0;
+	}
+}
+
+void *Darray_pop(Darray *array)
+{	
+	check(array->end -1 >= 0, "Attempt to pop from empty array");
+
+	void *el = Darray_remove(array, array->end -1);
+	array->end--;
+	
+	if(Darray_end(array) > (int)array->expand_rate &&\
+		Darray_end(array) % array->expand_rate)
+			Darray_contract(array);
+
+	return el;
+error:
+	return NULL;
 }
