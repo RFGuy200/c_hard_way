@@ -113,3 +113,20 @@ void *Darray_pop(Darray *array)
 error:
 	return NULL;
 }
+
+void  Darray_shift(Darray *array)
+{
+	check(array->end -1 >= 0, "Attempt to shift empty array");
+	
+	int i = 0;
+	
+	for(i = 0; i <= array->end -1; i++){
+		void *el = array->contents[i+1];
+		Darray_set(array, i, el);
+	}
+	Darray_pop(array);
+
+error:
+	return NULL;
+
+}

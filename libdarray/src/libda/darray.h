@@ -31,6 +31,8 @@ void *Darray_pop(Darray* array);
 
 void Darray_clear_destroy(Darray* array);
 
+void Darray_shift(Darray* array);
+
 #define Darray_last(A) ((A)->contents[(A)->end-1])
 #define Darray_first(A) ((A)->contents[0])
 #define Darray_end(A) ((A)->end)

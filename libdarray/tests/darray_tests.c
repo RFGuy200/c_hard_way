@@ -63,13 +63,43 @@ char test_push_pop()
 
 }
 
+char test_shift()
+{
+	int i = 0;
+
+	for(i = 0; i < 10; i++){
+		int *val = Darray_new(array);
+		*val = i;
+		Darray_push(array, val);
+	}
+	
+	for(i = 0; i < 10; i++){
+		int *val = array->contents[i];
+		printf("%d\n", *val);
+	}
+
+	int *el = Darray_new(array);
+	*el = 5;
+	Darray_set(array, 0, el);
+		printf("\n");
+	for(i = 0; i < 10; i++){
+		int *val = array->contents[i];
+		printf("%d\n", *val);
+	}
+	
+	return NULL;
+}
+
+
+
 char *all_tests(){
 
 	mu_suite_start();
 
 	mu_run_test(test_create);
 	mu_run_test(test_expand_contract);
-	mu_run_test(test_push_pop);	
+	mu_run_test(test_push_pop);
+	mu_run_test(test_shift);
 	mu_run_test(test_clear_destroy);
 	return NULL;
 }
