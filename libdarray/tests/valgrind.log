@@ -1,20 +1,56 @@
-==3941== Memcheck, a memory error detector
-==3941== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==3941== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==3941== Command: ./tests/darray_tests
-==3941== 
-DEBUG: tests/darray_tests.c:107:main 
+==2271== Memcheck, a memory error detector
+==2271== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2271== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2271== Command: ./tests/darray_tests
+==2271== 
+DEBUG: tests/darray_tests.c:105:main 
 --------Running: ./tests/darray_tests
-DEBUG: tests/darray_tests.c:99:all_tests 
+DEBUG: tests/darray_tests.c:97:all_tests 
 --------test_create---------
-DEBUG: tests/darray_tests.c:100:all_tests 
+DEBUG: tests/darray_tests.c:98:all_tests 
 --------test_expand_contract---------
-DEBUG: tests/darray_tests.c:101:all_tests 
+DEBUG: tests/darray_tests.c:99:all_tests 
 --------test_push_pop---------
-DEBUG: tests/darray_tests.c:102:all_tests 
+DEBUG: tests/darray_tests.c:100:all_tests 
 --------test_shift---------
-DEBUG: tests/darray_tests.c:103:all_tests 
+==2271== Invalid read of size 4
+==2271==    at 0x401539: printf (stdio2.h:104)
+==2271==    by 0x401539: test_shift (darray_tests.c:85)
+==2271==    by 0x40168D: all_tests (darray_tests.c:100)
+==2271==    by 0x400D8D: main (darray_tests.c:105)
+==2271==  Address 0x55a0b70 is 0 bytes inside a block of size 4 free'd
+==2271==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2271==    by 0x401503: test_shift (darray_tests.c:81)
+==2271==    by 0x40168D: all_tests (darray_tests.c:100)
+==2271==    by 0x400D8D: main (darray_tests.c:105)
+==2271==  Block was alloc'd at
+==2271==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2271==    by 0x4014B6: Darray_new (darray.h:69)
+==2271==    by 0x4014B6: test_shift (darray_tests.c:71)
+==2271==    by 0x40168D: all_tests (darray_tests.c:100)
+==2271==    by 0x400D8D: main (darray_tests.c:105)
+==2271== 
+DEBUG: tests/darray_tests.c:101:all_tests 
 --------test_clear_destroy---------
+==2271== Invalid free() / delete / delete[] / realloc()
+==2271==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2271==    by 0x4018B2: Darray_clear (darray.c:32)
+==2271==    by 0x401B28: Darray_clear_destroy (darray.c:85)
+==2271==    by 0x4016E1: test_clear_destroy (darray_tests.c:38)
+==2271==    by 0x4016E1: all_tests (darray_tests.c:101)
+==2271==    by 0x400D8D: main (darray_tests.c:105)
+==2271==  Address 0x55a0b70 is 0 bytes inside a block of size 4 free'd
+==2271==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2271==    by 0x401503: test_shift (darray_tests.c:81)
+==2271==    by 0x40168D: all_tests (darray_tests.c:100)
+==2271==    by 0x400D8D: main (darray_tests.c:105)
+==2271==  Block was alloc'd at
+==2271==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2271==    by 0x4014B6: Darray_new (darray.h:69)
+==2271==    by 0x4014B6: test_shift (darray_tests.c:71)
+==2271==    by 0x40168D: all_tests (darray_tests.c:100)
+==2271==    by 0x400D8D: main (darray_tests.c:105)
+==2271== 
 --------------------
 Running: ./tests/darray_tests
 0
@@ -28,7 +64,6 @@ Running: ./tests/darray_tests
 8
 9
 
-5
 1
 2
 3
@@ -40,18 +75,18 @@ Running: ./tests/darray_tests
 9
 ALL TESTS PASSED
 Tests run: 5
-==3941== 
-==3941== HEAP SUMMARY:
-==3941==     in use at exit: 4 bytes in 1 blocks
-==3941==   total heap usage: 1,717 allocs, 1,716 frees, 3,666,988 bytes allocated
-==3941== 
-==3941== LEAK SUMMARY:
-==3941==    definitely lost: 4 bytes in 1 blocks
-==3941==    indirectly lost: 0 bytes in 0 blocks
-==3941==      possibly lost: 0 bytes in 0 blocks
-==3941==    still reachable: 0 bytes in 0 blocks
-==3941==         suppressed: 0 bytes in 0 blocks
-==3941== Rerun with --leak-check=full to see details of leaked memory
-==3941== 
-==3941== For counts of detected and suppressed errors, rerun with: -v
-==3941== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2271== 
+==2271== HEAP SUMMARY:
+==2271==     in use at exit: 4 bytes in 1 blocks
+==2271==   total heap usage: 1,716 allocs, 1,716 frees, 3,666,984 bytes allocated
+==2271== 
+==2271== LEAK SUMMARY:
+==2271==    definitely lost: 4 bytes in 1 blocks
+==2271==    indirectly lost: 0 bytes in 0 blocks
+==2271==      possibly lost: 0 bytes in 0 blocks
+==2271==    still reachable: 0 bytes in 0 blocks
+==2271==         suppressed: 0 bytes in 0 blocks
+==2271== Rerun with --leak-check=full to see details of leaked memory
+==2271== 
+==2271== For counts of detected and suppressed errors, rerun with: -v
+==2271== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

@@ -78,11 +78,9 @@ char test_shift()
 		printf("%d\n", *val);
 	}
 
-	int *el = Darray_new(array);
-	*el = 5;
-	Darray_set(array, 0, el);
+	Darray_shift(array);
 		printf("\n");
-	for(i = 0; i < 10; i++){
+	for(i = 0; i < array->end; i++){
 		int *val = array->contents[i];
 		printf("%d\n", *val);
 	}
