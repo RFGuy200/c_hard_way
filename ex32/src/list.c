@@ -18,3 +18,26 @@ void List_destroy(List *list)
 		free(list->last);
 	free(list);
 }
+
+
+void List_push(List *list, void *value)
+{
+	assert( list != NULL && "Can't push if list is NULL");
+	
+	ListNode *new = calloc(1, sizeof(ListNode));
+	mem_check(new);
+	new->value = value;
+
+	if(list->count == 0){
+		list->count++;
+		list->first = new;
+		list->last = new;
+	}else{
+		list->last->next = new;
+		list->last = new;
+		list->count++;
+	}
+}
+
+
+	

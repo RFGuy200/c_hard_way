@@ -1,20 +1,8 @@
-DEBUG: tests/tests_tests.c:17:main 
+DEBUG: tests/tests_tests.c:58:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:12:all_tests 
---------test_demo---------
-DEBUG: tests/tests_tests.c:17:main 
---------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:12:all_tests 
---------test_demo---------
-DEBUG: tests/tests_tests.c:17:main 
---------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:12:all_tests 
---------test_demo---------
-DEBUG: tests/tests_tests.c:17:main 
---------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:12:all_tests 
---------test_demo---------
-DEBUG: tests/tests_tests.c:17:main 
---------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:12:all_tests 
---------test_demo---------
+DEBUG: tests/tests_tests.c:51:all_tests 
+--------test_create---------
+DEBUG: tests/tests_tests.c:52:all_tests 
+--------test_push---------
+DEBUG: tests/tests_tests.c:53:all_tests 
+--------test_destroy---------
