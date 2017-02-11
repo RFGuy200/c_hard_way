@@ -1,8 +1,14 @@
-DEBUG: tests/tests_tests.c:58:main 
+DEBUG: tests/tests_tests.c:108:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:51:all_tests 
+DEBUG: tests/tests_tests.c:98:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:52:all_tests 
+DEBUG: tests/tests_tests.c:99:all_tests 
 --------test_push---------
-DEBUG: tests/tests_tests.c:53:all_tests 
+DEBUG: tests/tests_tests.c:100:all_tests 
+--------test_pop---------
+DEBUG: tests/tests_tests.c:101:all_tests 
+--------test_unshift---------
+DEBUG: tests/tests_tests.c:102:all_tests 
+--------test_shift---------
+DEBUG: tests/tests_tests.c:103:all_tests 
 --------test_destroy---------

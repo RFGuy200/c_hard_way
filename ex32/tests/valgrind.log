@@ -1,32 +1,38 @@
-==20417== Memcheck, a memory error detector
-==20417== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==20417== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==20417== Command: ./tests/tests_tests
-==20417== 
-DEBUG: tests/tests_tests.c:58:main 
+==4073== Memcheck, a memory error detector
+==4073== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==4073== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==4073== Command: ./tests/tests_tests
+==4073== 
+DEBUG: tests/tests_tests.c:108:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:51:all_tests 
+DEBUG: tests/tests_tests.c:98:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:52:all_tests 
+DEBUG: tests/tests_tests.c:99:all_tests 
 --------test_push---------
-DEBUG: tests/tests_tests.c:53:all_tests 
+DEBUG: tests/tests_tests.c:100:all_tests 
+--------test_pop---------
+DEBUG: tests/tests_tests.c:101:all_tests 
+--------test_unshift---------
+DEBUG: tests/tests_tests.c:102:all_tests 
+--------test_shift---------
+DEBUG: tests/tests_tests.c:103:all_tests 
 --------test_destroy---------
 --------------------
 Running: ./tests/tests_tests
 ALL TESTS PASSED
-Tests run: 3
-==20417== 
-==20417== HEAP SUMMARY:
-==20417==     in use at exit: 48 bytes in 2 blocks
-==20417==   total heap usage: 5 allocs, 3 frees, 4,192 bytes allocated
-==20417== 
-==20417== LEAK SUMMARY:
-==20417==    definitely lost: 24 bytes in 1 blocks
-==20417==    indirectly lost: 24 bytes in 1 blocks
-==20417==      possibly lost: 0 bytes in 0 blocks
-==20417==    still reachable: 0 bytes in 0 blocks
-==20417==         suppressed: 0 bytes in 0 blocks
-==20417== Rerun with --leak-check=full to see details of leaked memory
-==20417== 
-==20417== For counts of detected and suppressed errors, rerun with: -v
-==20417== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Tests run: 6
+==4073== 
+==4073== HEAP SUMMARY:
+==4073==     in use at exit: 24 bytes in 1 blocks
+==4073==   total heap usage: 8 allocs, 7 frees, 4,264 bytes allocated
+==4073== 
+==4073== LEAK SUMMARY:
+==4073==    definitely lost: 24 bytes in 1 blocks
+==4073==    indirectly lost: 0 bytes in 0 blocks
+==4073==      possibly lost: 0 bytes in 0 blocks
+==4073==    still reachable: 0 bytes in 0 blocks
+==4073==         suppressed: 0 bytes in 0 blocks
+==4073== Rerun with --leak-check=full to see details of leaked memory
+==4073== 
+==4073== For counts of detected and suppressed errors, rerun with: -v
+==4073== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

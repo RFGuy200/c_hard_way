@@ -27,7 +27,7 @@ void List_clear_destroy (List *list);
 #define List_last(A) ((A)->last != NULL ? (A)->last->value ; NULL)
 
 void List_push (List *list, void *value);
-void List_pop (List *list, void *value);
+void List_pop (List *list);
 
 void List_unshift (List *list, void *value);
 void List_shift (List *list);
