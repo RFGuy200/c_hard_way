@@ -1,4 +1,4 @@
-CFLAGS=-g -O2 -Wall -Wextra -Isrc/lcthw -rdynamic $(OPTFLAGS)
+CFLAGS=-g -O2 -Wall -Wextra -Isrc/ -rdynamic -DNDEBUG $(OPTFLAGS)
 LIBS=-ldl $(OPTLIBS)
 PREFIX?=/usr/local
 CC= gcc
@@ -9,9 +9,8 @@ OBJECTS=$(patsubst %.c,%.o,$(SOURCES))
 TEST_SRC=$(wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
-TARGET=build/liblcthw.a
+TARGET=build/libgive_it_name.a
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
-TEST_TARGET=$(patsubst lib%.a,%.a,$(TARGET))
 
 # The Target Build
 all: $(TARGET) $(SO_TARGET) tests
@@ -34,10 +33,10 @@ build:
 # The Unit Tests
 TEST_DEPS=$(wildcard tests/*.h)
 $(TESTS): $(TEST_SRC) $(TEST_DEPS)
-	$(CC) $(CFLAGS) $(TEST_SRC) $(TARGET) -o $@  
+	$(CC) $(CFLAGS) $(TEST_SRC) $(TARGET) -o $@ 
 
 .PHONY: tests
-#tests: CFLAGS += $(TARGET)
+tests: CFLAGS += $(TARGET)
 tests: $(TESTS)
 	sh ./tests/runtests.sh
 
@@ -47,7 +46,6 @@ clean:
 	rm -f tests/tests.log 
 	find . -name "*.gc*" -exec rm {} \;
 	rm -rf `find . -name "*.dSYM" -print`
-	find . -name "*.log" -exec rm {} \;
 
 # The Install
 install: all
