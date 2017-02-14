@@ -11,15 +11,13 @@ void bubble_sort(List *list)
 {
 	int i = 0;
 	
-	for(i = 1; i < list->count - 1; i++){
+	for(i = 0; i < list->count - 1; i++){
 		LIST_FOREACH(list, first, next, cur){
-			if(cur->next->next == NULL){
-				break;
-			}else if(cmp_func(cur, cur->next)){
+			if(cur->prev && cmp_func(cur->prev, cur) > 0){
 				char *value = cur->value;
-				cur->value = cur->next->value;
-				cur->next->value = value;
+				cur->value = cur->prev->value;
+				cur->prev->value = value;
 			}
 		}
 	}			
-}
+}	

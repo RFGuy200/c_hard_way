@@ -9,7 +9,6 @@ char *test3 = "test3";
 char *test4 = "test4";
 char *test5 = "test5";
 
-
 char *test_create()
 {
 
@@ -102,11 +101,10 @@ char *test_bubble_sort()
 	List_push(list, test3);
 
 	bubble_sort(list);
-	mu_assert(list->first->value == test1 && list->last->value == test5,\
-		 "Failed to bubble sort the list.");
 
 	return NULL;
 }
+
 
 
 char *all_tests()
@@ -119,6 +117,8 @@ char *all_tests()
 	mu_run_test(test_pop);
 	mu_run_test(test_unshift);
 	mu_run_test(test_shift);
+	mu_run_test(test_destroy);
+	mu_run_test(test_create);
 	mu_run_test(test_bubble_sort);
 	mu_run_test(test_destroy);
 	

@@ -1,15 +1,20 @@
 DEBUG: tests/tests_tests.c:128:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:117:all_tests 
+DEBUG: tests/tests_tests.c:115:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:118:all_tests 
+DEBUG: tests/tests_tests.c:116:all_tests 
 --------test_push---------
-DEBUG: tests/tests_tests.c:119:all_tests 
+DEBUG: tests/tests_tests.c:117:all_tests 
 --------test_pop---------
-DEBUG: tests/tests_tests.c:120:all_tests 
+DEBUG: tests/tests_tests.c:118:all_tests 
 --------test_unshift---------
-DEBUG: tests/tests_tests.c:121:all_tests 
+DEBUG: tests/tests_tests.c:119:all_tests 
 --------test_shift---------
+DEBUG: tests/tests_tests.c:120:all_tests 
+--------test_destroy---------
+DEBUG: tests/tests_tests.c:121:all_tests 
+--------test_create---------
 DEBUG: tests/tests_tests.c:122:all_tests 
 --------test_bubble_sort---------
-[ERROR] (tests/tests_tests.c:106:test_bubble_sort errno: None) Failed to bubble sort the list.
+DEBUG: tests/tests_tests.c:123:all_tests 
+--------test_destroy---------
