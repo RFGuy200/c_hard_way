@@ -102,8 +102,25 @@ char *test_bubble_sort()
 
 	bubble_sort(list);
 
+	mu_assert(list->first->value == test1 && list->last->value == test5,\
+		 "Failed to bubble sort the list.");
+
 	return NULL;
 }
+
+char *test_merge()
+{
+	List_push(list, test5);
+	List_push(list, test1);
+	List_push(list, test4);
+	List_push(list, test2);
+	List_push(list, test3);
+
+	merge_sort(list);	
+
+	return NULL;
+}
+
 
 
 
@@ -120,6 +137,9 @@ char *all_tests()
 	mu_run_test(test_destroy);
 	mu_run_test(test_create);
 	mu_run_test(test_bubble_sort);
+	mu_run_test(test_destroy);
+	mu_run_test(test_create);
+	mu_run_test(test_merge);
 	mu_run_test(test_destroy);
 	
 	return NULL;

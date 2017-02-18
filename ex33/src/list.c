@@ -27,6 +27,7 @@ void List_push(List *list, void *value)
 	ListNode *new = calloc(1, sizeof(ListNode));
 	assert (new != NULL && "Can't create a Node.");
 	new->value = value;
+	ListNode *first = list->first;
 
 	if(list->count == 0){
 		list->count++;
@@ -36,6 +37,7 @@ void List_push(List *list, void *value)
 		new->prev = list->last;
 		list->last->next = new;
 		list->last = new;
+		list->first = first;
 		list->count++;
 	}
 
