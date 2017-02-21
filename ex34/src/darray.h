@@ -13,7 +13,7 @@ typedef struct DArray{
 	size_t element_size;
 	size_t expand_rate;
 	void **contents;
-}
+}DArray;
 
 DArray *DArray_create( size_t element_size, size_t initial_max);
 
@@ -25,9 +25,9 @@ int DArray_expand(DArray *array);
 
 int DArray_contract(DArray *array);
 
-int DArray_push(DArray *array);
+int DArray_push(DArray *array, void *el);
 
-void DArray_pop(*DArray *array);
+void DArray_pop(DArray *array);
 
 void DArray_clear_destroy(DArray *array);
 
@@ -41,7 +41,60 @@ void DArray_clear_destroy(DArray *array);
 
 #define DArray_max(A) ((A)->max)
 
-static inline void DArray_set(DArray *array, int i, void *el)
+static inline void *DArray_set(DArray *array, int i, void *el)
+{
+	check(i < array->max, "Attempt to set past max.");
+	if(i > array->end) 
+		array->end = i;
+	array->contents[i] = el;
 
+	return el;
+error:
+	return NULL;
+}
+
+static inline void *DArray_get( DArray *array, int i)
+{
+	check(i < array->max, "Attempt to get past max.");
+	return array->contents[i];
+error:
+	return NULL;
+}
+
+static inline void *DArray_remove( DArray *array, int i)
+{
+	check(i < array->max, "Attempt to remove past max.");
+	void *el = array->contents[i];
+	array->contents[i] = NULL;
+	return el;
+error:
+	return NULL;
+}	
+
+static inline void *DArray_new(DArray *array)
+{
+	check(array->element_size > 0, "Element size has to be > 0.");
+	return calloc(1, array->element_size);
+error:
+	return NULL;
+}
+
+static inline int DArray_resize(DArray *array, size_t new_size)
+{
+	assert(new_size > 0 && "new size must be >0.");
+
+	array->max = new_size;
+
+	void *contents = realloc(array->contents, sizeof(void*) * array->max);
+	check_mem(contents);
+
+	array->contents = contents;
+
+	return 0;
+error:
+	return -1;
+}
+
+#define DArray_free(A) free((A))
 
 #endif

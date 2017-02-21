@@ -1,0 +1,14 @@
+DEBUG: tests/tests_tests.c:102:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:91:all_tests 
+--------test_create---------
+DEBUG: tests/tests_tests.c:92:all_tests 
+--------test_create_new---------
+DEBUG: tests/tests_tests.c:93:all_tests 
+--------test_set---------
+DEBUG: tests/tests_tests.c:94:all_tests 
+--------test_remove---------
+DEBUG: tests/tests_tests.c:95:all_tests 
+--------test_expand_contract---------
+DEBUG: tests/tests_tests.c:96:all_tests 
+--------test_destroy---------
