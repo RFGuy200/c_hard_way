@@ -59,12 +59,12 @@ char *test_expand_contract()
 			 "Failed to expand to new array size during test.");
 
 	DArray_contract(array);
-	mu_assert(array->max ==  (int) array->expand_rate + 1,\
-			 "Failed to contract, max should stay at least expand_rate + 1.");	
+	mu_assert(array->max ==  (int) array->expand_rate,\
+			 "Failed to contract, max should stay at least expand_rate.");	
 
 	DArray_contract(array);
-	mu_assert(array->max ==  (int) array->expand_rate + 1,\
-			 "Failed to contract, max should stay at least expand_rate + 1.");	
+	mu_assert(array->max ==  (int) array->expand_rate,\
+			 "Failed to contract, max should stay at least expand_rate.");	
 	return NULL;
 }
 
@@ -84,6 +84,30 @@ char *test_remove()
 	return NULL;
 }
 
+char *test_push_pop()
+{
+	int i = 0;
+
+	for(i = 0; i < 1000; i++){
+		int *val = DArray_new(array);
+		*val = i * 333;
+		DArray_push(array, val);
+	}
+
+	mu_assert(array->max == 1200, "Wrong array size after push.");
+
+	for(i = 999; i >=0; i--){
+		int *val = DArray_pop(array);
+		mu_assert(val != NULL, "Should not get NULL after pop.");
+		mu_assert(*val == i * 333, "Wrong value after pop.");
+		DArray_free(val);
+	}
+
+	return NULL;
+}
+
+
+
 char *all_tests(){
 
 	mu_suite_start();
@@ -93,6 +117,7 @@ char *all_tests(){
 	mu_run_test(test_set);
 	mu_run_test(test_remove);
 	mu_run_test(test_expand_contract);
+	mu_run_test(test_push_pop);
 	mu_run_test(test_destroy);
 
 	

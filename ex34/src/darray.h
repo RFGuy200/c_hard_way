@@ -25,9 +25,9 @@ int DArray_expand(DArray *array);
 
 int DArray_contract(DArray *array);
 
-int DArray_push(DArray *array, void *el);
+void DArray_push(DArray *array, void *el);
 
-void DArray_pop(DArray *array);
+void *DArray_pop(DArray *array);
 
 void DArray_clear_destroy(DArray *array);
 
@@ -43,9 +43,9 @@ void DArray_clear_destroy(DArray *array);
 
 static inline void *DArray_set(DArray *array, int i, void *el)
 {
-	check(i < array->max, "Attempt to set past max.");
-	if(i > array->end) 
-		array->end = i;
+	check(i < array->max - 1, "Attempt to set past max.");
+	if(i > array->end - 1) 
+		array->end = i + 1;
 	array->contents[i] = el;
 
 	return el;
@@ -79,21 +79,7 @@ error:
 	return NULL;
 }
 
-static inline int DArray_resize(DArray *array, size_t new_size)
-{
-	assert(new_size > 0 && "new size must be >0.");
 
-	array->max = new_size;
-
-	void *contents = realloc(array->contents, sizeof(void*) * array->max);
-	check_mem(contents);
-
-	array->contents = contents;
-
-	return 0;
-error:
-	return -1;
-}
 
 #define DArray_free(A) free((A))
 

@@ -32,15 +32,32 @@ void DArray_destroy(DArray *array)
 	}
 }
 
+int DArray_resize(DArray *array, size_t new_size)
+{
+	assert(new_size > 0 && "new size must be >0.");
+
+	array->max = new_size;
+
+	void *contents = realloc(array->contents, sizeof(void*) * array->max);
+	check_mem(contents);
+
+	array->contents = contents;
+
+	return 0;
+error:
+	return -1;
+}
+
 int DArray_expand(DArray *array)
 {
-	int old_max = array->max;
+	size_t old_max = array->max;
 
-	check(DArray_resize(array, array->expand_rate + old_max) == 0,\
-		"Failed to expand array to nes size: %d.", \
-		(int) array->expand_rate + old_max);
+	int resize = DArray_resize(array, array->expand_rate + array->max);
 
-	memset(array->contents[old_max], 0, array->expand_rate);
+	check(resize == 0,"Failed to expand array to nes size: %d.", \
+		(int) array->expand_rate + (int) old_max);
+
+	memset(array->contents + old_max + 1, 0, array->expand_rate);
 	return 0;
 error:
 	return -1;
@@ -48,22 +65,31 @@ error:
 
 int DArray_contract(DArray *array)
 {
-	int new_size = array->end + 1  > (int) array->expand_rate ?\
-			 array->end + 1 : (int) array->expand_rate;
+	int new_size = array->end  > (int) array->expand_rate ?\
+			 array->end : (int) array->expand_rate;
 	return DArray_resize(array, new_size);
 }
 
-int DArray_push(DArray *array, void *el)
+void DArray_push(DArray *array, void *el)
 {
 	array->end++;
-	array->contents[end] = el;
+	
+	if(array->end >= array->max)
+		DArray_expand(array);
 
+	array->contents[array->end - 1] = el;
+}
 
-	if(DArray_end(array) >= DArray_max(array)){
-		return DArray_expand(array);
-	}else{
-		return 0;
-	}
+void *DArray_pop(DArray *array)
+{
+	check(array->end > 0, "Attempt to pop from empty array."); 
+
+	void *el = DArray_remove(array, array->end - 1);
+	array->end--;
+
+	return el;
+error:
+	return NULL;
 }
  
 		
