@@ -121,6 +121,20 @@ char *test_merge()
 	return NULL;
 }
 
+char *test_upside()
+{
+	List_push(list, test5);
+	List_push(list, test1);
+	List_push(list, test4);
+	List_push(list, test2);
+	List_push(list, test3);
+	upside_merge(list);
+
+	mu_assert(list->first->value == test1 && list->last->value == test5,\
+		 "Failed to bottom-up merge sort the list.");
+	
+	return NULL;
+}
 
 
 
@@ -140,6 +154,9 @@ char *all_tests()
 	mu_run_test(test_destroy);
 	mu_run_test(test_create);
 	mu_run_test(test_merge);
+	mu_run_test(test_destroy);
+	mu_run_test(test_create);
+	mu_run_test(test_upside);
 	mu_run_test(test_destroy);
 	
 	return NULL;

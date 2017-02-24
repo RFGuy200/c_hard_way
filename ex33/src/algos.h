@@ -10,4 +10,6 @@ void bubble_sort(List *list);
 void merge_sort(List *list);
 void merge(List *left, List *right);
 
+void upside_merge(List *list);
+
 #endif

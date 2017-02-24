@@ -107,3 +107,54 @@ void merge(List *left, List *right)
 	List_destroy(temp);
 		
 }	
+
+void upside_merge(List *list)
+{
+	int len = 1;
+	int i = 0;
+	List *left = List_create();
+	List *right = List_create();
+	left->first = list->first;
+	ListNode *cur = NULL;
+	int cur_node = 0;
+	
+	for(len = 1; len * 2 < list->count; len *=2){
+		cur_node = 0;
+		left->first = list->first;
+
+		while(list->count - cur_node > len * 2){
+			left->count = len;
+			right->count = len;
+
+			cur = left->first;
+			for(i = 1; i < left->count; i++)
+				cur = cur->next;
+			left->last = cur;
+			right->first = left->last->next;
+			cur = right->first;
+			for(i = 1; i < right->count; i++)
+				cur = cur->next;
+			right->last = cur;
+			merge(left, right);
+			left->first = right->last->next;
+			cur_node +=len * 2;
+		}
+	}
+
+	left->count = len;
+	right->count = list->count - len;
+	left->first = list->first;
+	cur = left->first;
+	for(i = 1; i < left->count; i++)
+		cur = cur->next;
+	left->last = cur;
+	right->first = left->last->next;
+	right->last = list->last;
+	merge(left, right);
+	free(left);
+	free(right);
+
+}	
+
+
+		
