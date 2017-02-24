@@ -86,11 +86,13 @@ void merge(List *left, List *right)
 			List_push(temp, cur_left->value);
 			cur_left = cur_left->next;
 			k++;
-		}else if( j == right->count && k < left->count){
+		}else if( j >= right->count && k <= left->count){
 			List_push(temp, cur_left->value);
+			cur_left = cur_left->next;
 			k++;
-		}else if( k == left->count && j < right->count){
+		}else if( k >= left->count && j <= right->count){
 			List_push(temp, cur_right->value);
+			cur_right = cur_right->next;
 			j++;
 		}
 	}

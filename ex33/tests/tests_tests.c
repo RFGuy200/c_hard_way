@@ -8,6 +8,10 @@ char *test2 = "test2";
 char *test3 = "test3";
 char *test4 = "test4";
 char *test5 = "test5";
+char *test6 = "test6";
+char *test7 = "test7";
+char *test8 = "test8";
+char *test9 = "test9";
 
 char *test_create()
 {
@@ -128,9 +132,13 @@ char *test_upside()
 	List_push(list, test4);
 	List_push(list, test2);
 	List_push(list, test3);
+	List_push(list, test6);
+	List_push(list, test9);
+	List_push(list, test8);
+	List_push(list, test7);
 	upside_merge(list);
 
-	mu_assert(list->first->value == test1 && list->last->value == test5,\
+	mu_assert(list->first->value == test1 && list->last->value == test9,\
 		 "Failed to bottom-up merge sort the list.");
 	
 	return NULL;
