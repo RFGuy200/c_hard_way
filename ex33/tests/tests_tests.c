@@ -1,6 +1,7 @@
 #include "minunit.h"
 #include <list.h>
 #include <algos.h>
+#include <time.h>
 
 List *list = NULL;
 char *test1 = "test1";
@@ -12,6 +13,8 @@ char *test6 = "test6";
 char *test7 = "test7";
 char *test8 = "test8";
 char *test9 = "test9";
+clock_t start_t, end_t, total_t;
+int i = 0;
 
 char *test_create()
 {
@@ -98,15 +101,24 @@ char *test_shift()
 
 char *test_bubble_sort()
 {
-	List_push(list, test5);
-	List_push(list, test1);
-	List_push(list, test4);
-	List_push(list, test2);
-	List_push(list, test3);
+	start_t = clock();
+	for(i = 0; i < 100; i++){
+		List_push(list, test5);
+		List_push(list, test1);
+		List_push(list, test4);
+		List_push(list, test2);
+		List_push(list, test3);
+		List_push(list, test6);
+		List_push(list, test9);
+		List_push(list, test8);
+		List_push(list, test7);
+		bubble_sort(list);
+	}
+	end_t = clock();
+	total_t =(end_t-start_t);
+	printf("Bubble sort total run time %d times: %ld\n", i, total_t);
 
-	bubble_sort(list);
-
-	mu_assert(list->first->value == test1 && list->last->value == test5,\
+	mu_assert(list->first->value == test1 && list->last->value == test9,\
 		 "Failed to bubble sort the list.");
 
 	return NULL;
@@ -114,32 +126,58 @@ char *test_bubble_sort()
 
 char *test_merge()
 {
-	List_push(list, test5);
-	List_push(list, test1);
-	List_push(list, test4);
-	List_push(list, test2);
-	List_push(list, test3);
+	start_t = clock();
+	for(i = 0; i < 100; i++){
+		List_push(list, test5);
+		List_push(list, test1);
+		List_push(list, test4);
+		List_push(list, test2);
+		List_push(list, test3);
+		List_push(list, test6);
+		List_push(list, test9);
+		List_push(list, test8);
+		List_push(list, test7);
+		merge_sort(list);	
+	}
+	end_t = clock();
+	total_t =(end_t-start_t);
+	printf("Merge sort total run time %d times: %ld\n", i, total_t);
 
-	merge_sort(list);	
+	mu_assert(list->first->value == test1 && list->last->value == test9,\
+		 "Failed to merge sort the list.");
 
 	return NULL;
 }
 
 char *test_upside()
 {
-	List_push(list, test5);
-	List_push(list, test1);
-	List_push(list, test4);
-	List_push(list, test2);
-	List_push(list, test3);
-	List_push(list, test6);
-	List_push(list, test9);
-	List_push(list, test8);
-	List_push(list, test7);
-	upside_merge(list);
+	start_t = clock();
+	for(i = 0; i < 100; i++){
+		List_push(list, test5);
+		List_push(list, test1);
+		List_push(list, test4);
+		List_push(list, test2);
+		List_push(list, test3);
+		List_push(list, test6);
+		List_push(list, test9);
+		List_push(list, test8);
+		List_push(list, test7);
+		upside_merge(list);
+	}
+	end_t = clock();
+	total_t =(end_t-start_t);
+	printf("Bottom-up merge sort total run time %d times: %ld\n", i, total_t);
 
 	mu_assert(list->first->value == test1 && list->last->value == test9,\
 		 "Failed to bottom-up merge sort the list.");
+	
+	ListNode *cur_list = list->first;
+	printf("Here is the last iteration:\n");
+	for(i = 0; i < list->count; i++){
+		printf("%s\n ", cur_list->value);
+		cur_list = cur_list->next;
+	}
+	printf("\n");
 	
 	return NULL;
 }

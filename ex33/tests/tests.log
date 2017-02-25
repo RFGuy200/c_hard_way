@@ -1,32 +1,32 @@
-DEBUG: tests/tests_tests.c:173:main 
+DEBUG: tests/tests_tests.c:211:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:154:all_tests 
+DEBUG: tests/tests_tests.c:192:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:155:all_tests 
+DEBUG: tests/tests_tests.c:193:all_tests 
 --------test_push---------
-DEBUG: tests/tests_tests.c:156:all_tests 
+DEBUG: tests/tests_tests.c:194:all_tests 
 --------test_pop---------
-DEBUG: tests/tests_tests.c:157:all_tests 
+DEBUG: tests/tests_tests.c:195:all_tests 
 --------test_unshift---------
-DEBUG: tests/tests_tests.c:158:all_tests 
+DEBUG: tests/tests_tests.c:196:all_tests 
 --------test_shift---------
-DEBUG: tests/tests_tests.c:159:all_tests 
+DEBUG: tests/tests_tests.c:197:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:160:all_tests 
+DEBUG: tests/tests_tests.c:198:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:161:all_tests 
+DEBUG: tests/tests_tests.c:199:all_tests 
 --------test_bubble_sort---------
-DEBUG: tests/tests_tests.c:162:all_tests 
+DEBUG: tests/tests_tests.c:200:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:163:all_tests 
+DEBUG: tests/tests_tests.c:201:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:164:all_tests 
+DEBUG: tests/tests_tests.c:202:all_tests 
 --------test_merge---------
-DEBUG: tests/tests_tests.c:165:all_tests 
+DEBUG: tests/tests_tests.c:203:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:166:all_tests 
+DEBUG: tests/tests_tests.c:204:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:167:all_tests 
+DEBUG: tests/tests_tests.c:205:all_tests 
 --------test_upside---------
-DEBUG: tests/tests_tests.c:168:all_tests 
+DEBUG: tests/tests_tests.c:206:all_tests 
 --------test_destroy---------

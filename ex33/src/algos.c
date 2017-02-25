@@ -77,7 +77,7 @@ void merge(List *left, List *right)
 
 	for(i = 0; i < count; i++){
 		if(j < right->count && k < left->count \
-			&& strcmp(cur_left->value, cur_right->value) > 0){
+			&& strcmp(cur_left->value, cur_right->value) >= 0){
 			List_push(temp,cur_right->value);
 			cur_right = cur_right->next;
 			j++;
@@ -141,6 +141,20 @@ void upside_merge(List *list)
 			left->first = right->last->next;
 			cur_node +=len * 2;
 		}
+
+		if(list->count - cur_node > len){
+			right->count = list->count - cur_node - len;
+			left->count = len;
+			right->last = list->last;
+			cur = left->first;
+			for(i = 1; i < left->count; i++)
+				cur = cur->next;
+			left->last = cur;
+			right->first = left->last->next;
+			merge(left, right);
+		}	
+
+			
 	}
 
 	left->count = len;
@@ -153,6 +167,9 @@ void upside_merge(List *list)
 	right->first = left->last->next;
 	right->last = list->last;
 	merge(left, right);
+
+
+		
 	free(left);
 	free(right);
 
