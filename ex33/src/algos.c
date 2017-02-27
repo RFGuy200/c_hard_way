@@ -175,5 +175,36 @@ void upside_merge(List *list)
 
 }	
 
+void insert_sort(List *list)
+{
 
-		
+	ListNode *cur_node = list->first->next;
+	ListNode *prev_node = cur_node->prev;
+	ListNode *new_cur = NULL;
+
+	while(cur_node != NULL){
+		prev_node = cur_node->prev;
+
+		if(cur_node != list->last){
+			new_cur = cur_node->next;
+		}else{
+			new_cur = NULL;
+		}
+
+		if(strcmp(cur_node->value, prev_node->value) < 0){
+			while(prev_node != NULL){
+				if(prev_node == list->first){
+					List_insert_before(list, prev_node, cur_node);
+					break;
+				}else if(strcmp(cur_node->value, prev_node->prev->value) >= 0){
+					List_insert_before(list, prev_node, cur_node);
+					break;
+				}else{
+					prev_node = prev_node->prev;
+				}
+			}
+		}
+			cur_node = new_cur;
+
+	}
+}		

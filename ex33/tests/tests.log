@@ -1,32 +1,38 @@
-DEBUG: tests/tests_tests.c:211:main 
+DEBUG: tests/tests_tests.c:246:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:192:all_tests 
+DEBUG: tests/tests_tests.c:224:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:193:all_tests 
+DEBUG: tests/tests_tests.c:225:all_tests 
 --------test_push---------
-DEBUG: tests/tests_tests.c:194:all_tests 
+DEBUG: tests/tests_tests.c:226:all_tests 
 --------test_pop---------
-DEBUG: tests/tests_tests.c:195:all_tests 
+DEBUG: tests/tests_tests.c:227:all_tests 
 --------test_unshift---------
-DEBUG: tests/tests_tests.c:196:all_tests 
+DEBUG: tests/tests_tests.c:228:all_tests 
 --------test_shift---------
-DEBUG: tests/tests_tests.c:197:all_tests 
+DEBUG: tests/tests_tests.c:229:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:198:all_tests 
+DEBUG: tests/tests_tests.c:230:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:199:all_tests 
+DEBUG: tests/tests_tests.c:231:all_tests 
 --------test_bubble_sort---------
-DEBUG: tests/tests_tests.c:200:all_tests 
+DEBUG: tests/tests_tests.c:232:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:201:all_tests 
+DEBUG: tests/tests_tests.c:233:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:202:all_tests 
+DEBUG: tests/tests_tests.c:234:all_tests 
 --------test_merge---------
-DEBUG: tests/tests_tests.c:203:all_tests 
+DEBUG: tests/tests_tests.c:235:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:204:all_tests 
+DEBUG: tests/tests_tests.c:236:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:205:all_tests 
+DEBUG: tests/tests_tests.c:237:all_tests 
 --------test_upside---------
-DEBUG: tests/tests_tests.c:206:all_tests 
+DEBUG: tests/tests_tests.c:238:all_tests 
+--------test_destroy---------
+DEBUG: tests/tests_tests.c:239:all_tests 
+--------test_create---------
+DEBUG: tests/tests_tests.c:240:all_tests 
+--------test_insert---------
+DEBUG: tests/tests_tests.c:241:all_tests 
 --------test_destroy---------

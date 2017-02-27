@@ -102,5 +102,43 @@ void List_shift(List *list)
 	}
 }
 
+void List_remove(List *list, ListNode *node)
+{
+	if(node == list->first){
+		List_shift(list);
+	}else if(node == list->last){
+		List_pop(list);
+	}else{
+		ListNode *prev = node->prev;
+		ListNode *next = node->next;
+		prev->next = node->next;
+		next->prev = node->prev;
+		list->count--;
+		free(node);
+	}
+}
+
+void List_insert_before(List *list, ListNode *before, ListNode *insert)
+{
+
+	if(before == list->first){
+		List_unshift(list, insert->value);
+		List_remove(list, insert);
+	}else if(insert ==  list->last){
+		list->last = list->last->prev;
+		insert->prev->next = NULL;
+		before->prev->next = insert;
+		insert->prev = before->prev;
+		insert->next = before;
+		before->prev = insert;
+	}else{ 
+		insert->prev->next = insert->next;
+		insert->next->prev = insert->prev;
+		before->prev->next = insert;
+		insert->prev = before->prev;
+		insert->next = before;
+		before->prev = insert;
+	}
+}
 
 	

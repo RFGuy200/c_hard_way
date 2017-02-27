@@ -12,4 +12,6 @@ void merge(List *left, List *right);
 
 void upside_merge(List *list);
 
+void insert_sort(List *list);
+
 #endif

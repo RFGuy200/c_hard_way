@@ -31,12 +31,12 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 src/algos.c
-badd +0 src/algos.h
-badd +0 src/list.h
-badd +0 src/list.c
-badd +0 tests/minunit.h
-badd +0 tests/tests_tests.c
+badd +1 src/algos.c
+badd +1 src/algos.h
+badd +1 src/list.h
+badd +1 src/list.c
+badd +1 tests/minunit.h
+badd +1 tests/tests_tests.c
 argglobal
 silent! argdel *
 argadd src/algos.c
@@ -116,7 +116,8 @@ setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
 setlocal modifiable
 setlocal nrformats=bin,octal,hex
-setlocal nonumber
+set number
+setlocal number
 setlocal numberwidth=4
 setlocal omnifunc=
 setlocal path=
@@ -155,12 +156,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 29) / 58)
+let s:l = 161 - ((18 * winheight(0) + 29) / 58)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+161
+normal! 022|
 tabedit src/algos.h
 set splitbelow splitright
 set nosplitbelow
@@ -275,12 +276,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 29) / 58)
+let s:l = 15 - ((14 * winheight(0) + 29) / 58)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+15
+normal! 029|
 tabedit src/list.c
 set splitbelow splitright
 set nosplitbelow
@@ -755,13 +756,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 133 - ((57 * winheight(0) + 29) / 58)
+let s:l = 206 - ((11 * winheight(0) + 29) / 58)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-133
-normal! 0
-tabnext 6
+206
+normal! 033|
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
