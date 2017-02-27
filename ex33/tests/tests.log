@@ -1,38 +1,43 @@
-DEBUG: tests/tests_tests.c:246:main 
+DEBUG: tests/tests_tests.c:271:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:224:all_tests 
+DEBUG: tests/tests_tests.c:246:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:225:all_tests 
+DEBUG: tests/tests_tests.c:247:all_tests 
 --------test_push---------
-DEBUG: tests/tests_tests.c:226:all_tests 
+DEBUG: tests/tests_tests.c:248:all_tests 
 --------test_pop---------
-DEBUG: tests/tests_tests.c:227:all_tests 
+DEBUG: tests/tests_tests.c:249:all_tests 
 --------test_unshift---------
-DEBUG: tests/tests_tests.c:228:all_tests 
+DEBUG: tests/tests_tests.c:250:all_tests 
 --------test_shift---------
-DEBUG: tests/tests_tests.c:229:all_tests 
+DEBUG: tests/tests_tests.c:251:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:230:all_tests 
+DEBUG: tests/tests_tests.c:252:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:231:all_tests 
+DEBUG: tests/tests_tests.c:253:all_tests 
 --------test_bubble_sort---------
-DEBUG: tests/tests_tests.c:232:all_tests 
+DEBUG: tests/tests_tests.c:254:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:233:all_tests 
+DEBUG: tests/tests_tests.c:255:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:234:all_tests 
+DEBUG: tests/tests_tests.c:256:all_tests 
 --------test_merge---------
-DEBUG: tests/tests_tests.c:235:all_tests 
+DEBUG: tests/tests_tests.c:257:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:236:all_tests 
+DEBUG: tests/tests_tests.c:258:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:237:all_tests 
+DEBUG: tests/tests_tests.c:259:all_tests 
 --------test_upside---------
-DEBUG: tests/tests_tests.c:238:all_tests 
+DEBUG: tests/tests_tests.c:260:all_tests 
 --------test_destroy---------
-DEBUG: tests/tests_tests.c:239:all_tests 
+DEBUG: tests/tests_tests.c:261:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:240:all_tests 
+DEBUG: tests/tests_tests.c:262:all_tests 
 --------test_insert---------
-DEBUG: tests/tests_tests.c:241:all_tests 
+DEBUG: tests/tests_tests.c:263:all_tests 
 --------test_destroy---------
+DEBUG: tests/tests_tests.c:264:all_tests 
+--------test_create---------
+DEBUG: tests/tests_tests.c:265:all_tests 
+--------test_shell---------
+[ERROR] (tests/tests_tests.c:234:test_shell errno: None) Failed to shell sort the list.

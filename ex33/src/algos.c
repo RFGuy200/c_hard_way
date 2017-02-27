@@ -208,3 +208,41 @@ void insert_sort(List *list)
 
 	}
 }		
+
+void shell_sort(List *list)
+{
+	int interval = 1;
+	List *temp = NULL;
+	int i = 0;
+	int j = 0;
+	ListNode *cur_node = NULL;
+	
+	while (interval < list->count/2){
+		interval = interval *3 +1;
+	}
+
+	while(interval > 0){
+		temp = List_create();
+		temp->first = list->first;
+
+		while (list->count - j >= interval){
+			for(i = 0, i < interval; i++){
+				cur_node = cur_node->next;
+				j++;
+			}
+			List_push(temp, cur_node->value);
+			
+		}
+
+		insert_sort(temp);		
+
+		while(i < list->count){
+			
+	
+		}
+		List_destroy(temp);
+		interval = (interval - 1)/3;
+	}
+
+
+}

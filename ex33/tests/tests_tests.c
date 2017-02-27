@@ -205,14 +205,36 @@ char *test_insert()
 	total_t =(end_t-start_t);
 	printf("Insert sort total run time %d times: %ld\n", i, total_t);
 
-	print_list(list);
-
 	mu_assert(list->first->value == test1 && list->last->value == test9,\
 		 "Failed to Insert sort the list.");
 	
 	return NULL;
 }
 
+char *test_shell()
+{
+		start_t = clock();
+	for(i = 0; i < 1; i++){
+		List_push(list, test5);
+		List_push(list, test1);
+		List_push(list, test4);
+		List_push(list, test2);
+		List_push(list, test3);
+		List_push(list, test6);
+		List_push(list, test9);
+		List_push(list, test8);
+		List_push(list, test7);
+		shell_sort(list);
+	}
+	end_t = clock();
+	total_t =(end_t-start_t);
+	printf("Shell sort total run time %d times: %ld\n", i, total_t);
+
+	mu_assert(list->first->value == test1 && list->last->value == test9,\
+		 "Failed to shell sort the list.");
+	
+	return NULL;
+}
 
 
 
@@ -238,6 +260,9 @@ char *all_tests()
 	mu_run_test(test_destroy);
 	mu_run_test(test_create);
 	mu_run_test(test_insert);
+	mu_run_test(test_destroy);
+	mu_run_test(test_create);
+	mu_run_test(test_shell);
 	mu_run_test(test_destroy);
 	
 	return NULL;
