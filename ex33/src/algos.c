@@ -213,36 +213,21 @@ void shell_sort(List *list)
 {
 	int interval = 1;
 	List *temp = NULL;
-	int i = 0;
-	int j = 0;
-	ListNode *cur_node = NULL;
+	int inner = 0;
+	ListNode *cur_first = list->first;
+	ListNode *cur_next = list->first;
 	
-	while (interval < list->count/2){
+	while (interval < list->count/3){
 		interval = interval *3 +1;
 	}
 
 	while(interval > 0){
-		temp = List_create();
-		temp->first = list->first;
-
-		while (list->count - j >= interval){
-			for(i = 0, i < interval; i++){
-				cur_node = cur_node->next;
-				j++;
-			}
-			List_push(temp, cur_node->value);
-			
-		}
-
-		insert_sort(temp);		
-
-		while(i < list->count){
-			
-	
-		}
-		List_destroy(temp);
+		while(inner < interval){
+			//insert here populate temp list function
+			insert_sort(temp);
+			//insert here writing temp to list loop
+			List_destroy(temp);	
 		interval = (interval - 1)/3;
+		}
 	}
-
-
 }

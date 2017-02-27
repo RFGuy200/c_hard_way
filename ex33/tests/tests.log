@@ -40,4 +40,4 @@ DEBUG: tests/tests_tests.c:264:all_tests
 --------test_create---------
 DEBUG: tests/tests_tests.c:265:all_tests 
 --------test_shell---------
-[ERROR] (tests/tests_tests.c:234:test_shell errno: None) Failed to shell sort the list.
+Segmentation fault (core dumped)
