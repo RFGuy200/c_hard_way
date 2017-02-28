@@ -14,6 +14,6 @@ void upside_merge(List *list);
 
 void insert_sort(List *list);
 
-void shell_sort(List *list);
+void shell_sort(int *array, int length);
 
 #endif

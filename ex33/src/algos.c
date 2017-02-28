@@ -209,25 +209,20 @@ void insert_sort(List *list)
 	}
 }		
 
-void shell_sort(List *list)
+void shell_sort(int *array, int length)
 {
 	int interval = 1;
-	List *temp = NULL;
-	int inner = 0;
-	ListNode *cur_first = list->first;
-	ListNode *cur_next = list->first;
+	int outer = 0;
 	
-	while (interval < list->count/3){
+	while (interval < length/3){
 		interval = interval *3 +1;
 	}
 
 	while(interval > 0){
-		while(inner < interval){
-			//insert here populate temp list function
-			insert_sort(temp);
-			//insert here writing temp to list loop
-			List_destroy(temp);	
-		interval = (interval - 1)/3;
+		for(outer = interval; outer < length; outer++){
+				
 		}
+		interval = (interval - 1)/3;
 	}
 }
+
