@@ -213,6 +213,8 @@ void shell_sort(int *array, int length)
 {
 	int interval = 1;
 	int outer = 0;
+	int inner = 0;
+	int value_to_insert = 0;
 	
 	while (interval < length/3){
 		interval = interval *3 +1;
@@ -220,7 +222,14 @@ void shell_sort(int *array, int length)
 
 	while(interval > 0){
 		for(outer = interval; outer < length; outer++){
-				
+			value_to_insert = array[outer];
+			inner = outer;
+			while(inner > interval - 1 &&\
+				 array[inner - interval] >= value_to_insert){
+				array[inner] = array[inner - interval];
+				inner = inner - interval;	
+			}
+			array[inner] = value_to_insert;
 		}
 		interval = (interval - 1)/3;
 	}

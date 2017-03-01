@@ -214,13 +214,19 @@ char *test_insert()
 char *test_shell()
 {
 		start_t = clock();
-	int *array = (int []){1,9,2,8,3,7,4,6,5};
+	int values[] = {1,9,2,8,3,7,4,6,5};
+	int *array = malloc(sizeof(values));
+
+	memcpy(array, values, sizeof(values));
+
+	shell_sort (array, sizeof(values)/sizeof(values[0]));
 
 	end_t = clock();
 	total_t =(end_t-start_t);
 
 	mu_assert( array[0] == 1 && array[8] == 9,\
 		 "Failed to shell sort the list.");
+	free(array);
 	
 	return NULL;
 }
