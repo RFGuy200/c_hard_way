@@ -1,5 +1,6 @@
 #include "minunit.h"
 #include <darray.h>
+#include <darray_algos.h>
 
 static DArray *array = NULL;
 static int __attribute__((unused)) *val1 = NULL;
