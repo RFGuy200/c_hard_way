@@ -37,7 +37,7 @@ $(TESTS): $(TEST_SRC) $(TEST_DEPS)
 	$(CC) $(CFLAGS) $(TEST_SRC) $(TARGET) -o $@ 
 
 .PHONY: tests
-tests: CFLAGS += $(TARGET)
+tests: CFLAGS += $(TARGET) $(COMMON_LIBS)
 tests: $(TESTS)
 	sh ./tests/runtests.sh
 

@@ -107,6 +107,69 @@ char *test_push_pop()
 	return NULL;
 }
 
+int test_cmp(char **a, char **b)
+{
+	return strcmp(*a, *b);
+}
+
+DArray *create_words()
+{
+	DArray *result = DArray_create(0, 5);
+	char *words[] = {"asdfasdf", "werwar", "12345", "asdfasdf", "oioj"};
+	int i = 0;
+
+	for(i = 0; i < 5; i++){
+		DArray_push(result, words[i]);
+	}
+	return result;
+}
+
+
+
+int is_sorted(DArray *array)
+{
+	int i = 0;
+
+	for(i = 0; i < DArray_count(array); i++){
+		if(strcmp(DArray_get(array, i), DArray_get(array, i+1)) > 0){
+			return 0;
+		}
+	}
+	return 1;	
+}
+
+
+char *run_sort_test(int (*func)(DArray*, DArray_compare), const char *name)
+{
+	DArray *words = create_words();
+	mu_assert(is_sorted(words), "WOrds should not be sorted");
+
+	debug("---Testing sorting algorithm %s:", name);
+	int rc = func(words, (DArray_compare) test_cmp);
+	mu_assert(rc == 0, "Sort failed.");
+	mu_assert(is_sorted(words), "Did not sort it");
+
+	DArray_destroy(words);
+
+	return NULL;
+}
+
+
+char *test_qsort()
+{
+	return run_sort_test(DArray_qsort, "quick sort");
+}
+
+char *test_heapsort()
+{
+	return run_sort_test(DArray_heapsort, "heap sort");
+}
+
+char *test_mergesort()
+{
+	return run_sort_test(DArray_mergesort, "merge sort");
+}
+
 
 
 char *all_tests(){

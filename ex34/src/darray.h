@@ -1,7 +1,7 @@
 #ifndef darray_h
 #define darray_h
 
-#include <stdlib.h>
+#include <bsd/stdlib.h>
 #include <assert.h>
 #include <dbg.h>
 
