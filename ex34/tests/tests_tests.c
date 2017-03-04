@@ -130,7 +130,7 @@ int is_sorted(DArray *array)
 {
 	int i = 0;
 
-	for(i = 0; i < DArray_count(array); i++){
+	for(i = 0; i < DArray_count(array) - 1; i++){
 		if(strcmp(DArray_get(array, i), DArray_get(array, i+1)) > 0){
 			return 0;
 		}
@@ -139,12 +139,12 @@ int is_sorted(DArray *array)
 }
 
 
-char *run_sort_test(int (*func)(DArray*, DArray_compare), const char *name)
+char *run_sort_test(int (*func)(DArray *, DArray_compare), const char *name)
 {
 	DArray *words = create_words();
-	mu_assert(is_sorted(words), "WOrds should not be sorted");
+	mu_assert(!is_sorted(words), "Words should not be sorted");
 
-	debug("---Testing sorting algorithm %s:", name);
+	debug("\n---Testing sorting algorithm %s:", name);
 	int rc = func(words, (DArray_compare) test_cmp);
 	mu_assert(rc == 0, "Sort failed.");
 	mu_assert(is_sorted(words), "Did not sort it");
@@ -183,6 +183,10 @@ char *all_tests(){
 	mu_run_test(test_expand_contract);
 	mu_run_test(test_push_pop);
 	mu_run_test(test_destroy);
+	mu_run_test(test_qsort);
+	mu_run_test(test_heapsort);
+	mu_run_test(test_mergesort);
+	
 
 	
 	return NULL;

@@ -1,8 +1,3 @@
-==4302== Memcheck, a memory error detector
-==4302== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==4302== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==4302== Command: ./tests/tests_tests
-==4302== 
 DEBUG: tests/tests_tests.c:195:main 
 --------Running: ./tests/tests_tests
 DEBUG: tests/tests_tests.c:179:all_tests 
@@ -31,16 +26,3 @@ DEBUG: tests/tests_tests.c:188:all_tests
 --------test_mergesort---------
 DEBUG: tests/tests_tests.c:147:run_sort_test 
 ---Testing sorting algorithm merge sort:
---------------------
-Running: ./tests/tests_tests
-ALL TESTS PASSED
-Tests run: 10
-==4302== 
-==4302== HEAP SUMMARY:
-==4302==     in use at exit: 0 bytes in 0 blocks
-==4302==   total heap usage: 1,022 allocs, 1,022 frees, 46,128 bytes allocated
-==4302== 
-==4302== All heap blocks were freed -- no leaks are possible
-==4302== 
-==4302== For counts of detected and suppressed errors, rerun with: -v
-==4302== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
