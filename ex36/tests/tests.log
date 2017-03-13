@@ -1,0 +1,6 @@
+DEBUG: tests/tests_tests.c:28:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:22:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:23:all_tests 
+--------test_bstr_create---------

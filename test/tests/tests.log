@@ -1,0 +1,8 @@
+DEBUG: tests/tests_tests.c:43:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:36:all_tests 
+--------test_bcreate---------
+DEBUG: tests/tests_tests.c:37:all_tests 
+--------test_blk2bstr---------
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------test_bdestroy---------

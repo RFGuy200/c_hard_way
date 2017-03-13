@@ -1,6 +1,6 @@
-CFLAGS=-g -O0 -Wall -Wextra -Isrc  -rdynamic  $(OPTFLAGS) 
+CFLAGS=-g -O2 -Wall -Wextra -Isrc  -rdynamic -DNDEBUG $(OPTFLAGS)
 LIBS=-ldl $(OPTLIBS)
-COMMON_LIBS=-lbsd -ldl $(OPTLIBS)
+COMMON_LIBS=-lbstrlib
 PREFIX?=/usr/local
 CC= gcc
 
@@ -16,9 +16,8 @@ SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 # The Target Build
 all: $(TARGET) $(SO_TARGET) tests
 
-dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS)
+dev: CFLAGS=-g -Wall -Isrc $(COMMON_LIBS) -Wall -Wextra $(OPTFLAGS)
 dev: all
-
 
 $(TARGET): CFLAGS += -fPIC
 $(TARGET): build $(OBJECTS)
@@ -35,9 +34,10 @@ build:
 # The Unit Tests
 TEST_DEPS=$(wildcard tests/*.h)
 $(TESTS): $(TEST_SRC) $(TEST_DEPS)
-	$(CC) $(CFLAGS) $(TEST_SRC) $(SO_TARGET) $(COMMON_LIBS) -o $@ 
+	$(CC) $(CFLAGS) $(TEST_SRC) $(TARGET) -o $@ 
 
 .PHONY: tests
+tests: CFLAGS += $(TARGET)
 tests: $(TESTS)
 	sh ./tests/runtests.sh
 
