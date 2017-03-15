@@ -4,6 +4,9 @@
 bstring my_str = NULL;
 bstring my_str_1 = NULL;
 bstring my_str_2 = NULL;
+struct bstrList *my_list = NULL;
+bstring fmt_str = NULL;
+
 
 char *test_bcreate()
 {
@@ -23,7 +26,8 @@ char *test_bdestroy()
 	i = bdestroy(my_str_2);
 	mu_assert(i == 0, "Error destroying bstring.");
 
-
+	i = bdestroy(fmt_str);
+	mu_assert(i == 0, "Error destroying bstring.");
 
 	return NULL;
 }
@@ -123,6 +127,33 @@ char *test_bfindreplace()
 	return NULL;
 }
 
+char *test_bsplit()
+{
+	bassigncstr(my_str, "Alexander Korishev\0");
+
+	my_list =  bsplit(my_str, ' ');
+	
+
+	return NULL;
+}
+
+char *test_bstrList_destroy()
+{
+	int i = bstrListDestroy(my_list);
+	mu_assert(i == 0, "failed to destroy bstrList.");
+
+	return NULL;
+}
+	
+char *test_bformat()
+{
+	fmt_str = bformat("first name: %s, last name: %s \0", "Alexander", "Kornishev");
+
+	return NULL;
+}
+
+	
+
 char *all_tests(){
 
 	mu_suite_start();
@@ -138,6 +169,9 @@ char *all_tests(){
 	mu_run_test(test_biseq);
 	mu_run_test(test_binstr);
 	mu_run_test(test_bfindreplace);
+	mu_run_test(test_bsplit);
+	mu_run_test(test_bstrList_destroy);
+	mu_run_test(test_bformat);
 	mu_run_test(test_bdestroy);
 	
 	return NULL;

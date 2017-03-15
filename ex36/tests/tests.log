@@ -1,26 +1,32 @@
-DEBUG: tests/tests_tests.c:146:main 
+DEBUG: tests/tests_tests.c:180:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:130:all_tests 
+DEBUG: tests/tests_tests.c:161:all_tests 
 --------test_bcreate---------
-DEBUG: tests/tests_tests.c:131:all_tests 
+DEBUG: tests/tests_tests.c:162:all_tests 
 --------test_blk2bstr---------
-DEBUG: tests/tests_tests.c:132:all_tests 
+DEBUG: tests/tests_tests.c:163:all_tests 
 --------test_bstrcpy---------
-DEBUG: tests/tests_tests.c:133:all_tests 
+DEBUG: tests/tests_tests.c:164:all_tests 
 --------test_bassign---------
-DEBUG: tests/tests_tests.c:134:all_tests 
+DEBUG: tests/tests_tests.c:165:all_tests 
 --------test_bassigncstr---------
-DEBUG: tests/tests_tests.c:135:all_tests 
+DEBUG: tests/tests_tests.c:166:all_tests 
 --------test_bassignblk---------
-DEBUG: tests/tests_tests.c:136:all_tests 
+DEBUG: tests/tests_tests.c:167:all_tests 
 --------test_bconcat---------
-DEBUG: tests/tests_tests.c:137:all_tests 
+DEBUG: tests/tests_tests.c:168:all_tests 
 --------test_bstrcmp---------
-DEBUG: tests/tests_tests.c:138:all_tests 
+DEBUG: tests/tests_tests.c:169:all_tests 
 --------test_biseq---------
-DEBUG: tests/tests_tests.c:139:all_tests 
+DEBUG: tests/tests_tests.c:170:all_tests 
 --------test_binstr---------
-DEBUG: tests/tests_tests.c:140:all_tests 
+DEBUG: tests/tests_tests.c:171:all_tests 
 --------test_bfindreplace---------
-DEBUG: tests/tests_tests.c:141:all_tests 
+DEBUG: tests/tests_tests.c:172:all_tests 
+--------test_bsplit---------
+DEBUG: tests/tests_tests.c:173:all_tests 
+--------test_bstrList_destroy---------
+DEBUG: tests/tests_tests.c:174:all_tests 
+--------test_bformat---------
+DEBUG: tests/tests_tests.c:175:all_tests 
 --------test_bdestroy---------
