@@ -152,6 +152,30 @@ char *test_bformat()
 	return NULL;
 }
 
+char *test_blength()
+{
+	bassigncstr(my_str, "Alexander\0");
+	mu_assert(blength(my_str) == 9, "bstring length should be 10.");
+
+	return NULL;
+}
+
+char *test_bdata()
+{
+	char *data = bdata(my_str);
+	mu_assert(strcmp(data,"Alexander\0") == 0, "data should be identical.");
+
+	return NULL;
+}
+
+char *test_bchar()
+{
+	char c = bchar(my_str, 0);
+	mu_assert(c == 'A', "bchar should return 'A'.");
+
+	return NULL;
+}
+
 	
 
 char *all_tests(){
@@ -172,6 +196,9 @@ char *all_tests(){
 	mu_run_test(test_bsplit);
 	mu_run_test(test_bstrList_destroy);
 	mu_run_test(test_bformat);
+	mu_run_test(test_blength);
+	mu_run_test(test_bdata);
+	mu_run_test(test_bchar);
 	mu_run_test(test_bdestroy);
 	
 	return NULL;

@@ -1,32 +1,38 @@
-DEBUG: tests/tests_tests.c:180:main 
+DEBUG: tests/tests_tests.c:207:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:161:all_tests 
+DEBUG: tests/tests_tests.c:185:all_tests 
 --------test_bcreate---------
-DEBUG: tests/tests_tests.c:162:all_tests 
+DEBUG: tests/tests_tests.c:186:all_tests 
 --------test_blk2bstr---------
-DEBUG: tests/tests_tests.c:163:all_tests 
+DEBUG: tests/tests_tests.c:187:all_tests 
 --------test_bstrcpy---------
-DEBUG: tests/tests_tests.c:164:all_tests 
+DEBUG: tests/tests_tests.c:188:all_tests 
 --------test_bassign---------
-DEBUG: tests/tests_tests.c:165:all_tests 
+DEBUG: tests/tests_tests.c:189:all_tests 
 --------test_bassigncstr---------
-DEBUG: tests/tests_tests.c:166:all_tests 
+DEBUG: tests/tests_tests.c:190:all_tests 
 --------test_bassignblk---------
-DEBUG: tests/tests_tests.c:167:all_tests 
+DEBUG: tests/tests_tests.c:191:all_tests 
 --------test_bconcat---------
-DEBUG: tests/tests_tests.c:168:all_tests 
+DEBUG: tests/tests_tests.c:192:all_tests 
 --------test_bstrcmp---------
-DEBUG: tests/tests_tests.c:169:all_tests 
+DEBUG: tests/tests_tests.c:193:all_tests 
 --------test_biseq---------
-DEBUG: tests/tests_tests.c:170:all_tests 
+DEBUG: tests/tests_tests.c:194:all_tests 
 --------test_binstr---------
-DEBUG: tests/tests_tests.c:171:all_tests 
+DEBUG: tests/tests_tests.c:195:all_tests 
 --------test_bfindreplace---------
-DEBUG: tests/tests_tests.c:172:all_tests 
+DEBUG: tests/tests_tests.c:196:all_tests 
 --------test_bsplit---------
-DEBUG: tests/tests_tests.c:173:all_tests 
+DEBUG: tests/tests_tests.c:197:all_tests 
 --------test_bstrList_destroy---------
-DEBUG: tests/tests_tests.c:174:all_tests 
+DEBUG: tests/tests_tests.c:198:all_tests 
 --------test_bformat---------
-DEBUG: tests/tests_tests.c:175:all_tests 
+DEBUG: tests/tests_tests.c:199:all_tests 
+--------test_blength---------
+DEBUG: tests/tests_tests.c:200:all_tests 
+--------test_bdata---------
+DEBUG: tests/tests_tests.c:201:all_tests 
+--------test_bchar---------
+DEBUG: tests/tests_tests.c:202:all_tests 
 --------test_bdestroy---------
