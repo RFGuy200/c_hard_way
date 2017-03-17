@@ -1,38 +1,42 @@
-DEBUG: tests/tests_tests.c:207:main 
+DEBUG: tests/tests_tests.c:235:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:185:all_tests 
+DEBUG: tests/tests_tests.c:211:all_tests 
 --------test_bcreate---------
-DEBUG: tests/tests_tests.c:186:all_tests 
+DEBUG: tests/tests_tests.c:212:all_tests 
 --------test_blk2bstr---------
-DEBUG: tests/tests_tests.c:187:all_tests 
+DEBUG: tests/tests_tests.c:213:all_tests 
 --------test_bstrcpy---------
-DEBUG: tests/tests_tests.c:188:all_tests 
+DEBUG: tests/tests_tests.c:214:all_tests 
 --------test_bassign---------
-DEBUG: tests/tests_tests.c:189:all_tests 
+DEBUG: tests/tests_tests.c:215:all_tests 
 --------test_bassigncstr---------
-DEBUG: tests/tests_tests.c:190:all_tests 
+DEBUG: tests/tests_tests.c:216:all_tests 
 --------test_bassignblk---------
-DEBUG: tests/tests_tests.c:191:all_tests 
+DEBUG: tests/tests_tests.c:217:all_tests 
 --------test_bconcat---------
-DEBUG: tests/tests_tests.c:192:all_tests 
+DEBUG: tests/tests_tests.c:218:all_tests 
 --------test_bstrcmp---------
-DEBUG: tests/tests_tests.c:193:all_tests 
+DEBUG: tests/tests_tests.c:219:all_tests 
 --------test_biseq---------
-DEBUG: tests/tests_tests.c:194:all_tests 
+DEBUG: tests/tests_tests.c:220:all_tests 
 --------test_binstr---------
-DEBUG: tests/tests_tests.c:195:all_tests 
+DEBUG: tests/tests_tests.c:221:all_tests 
 --------test_bfindreplace---------
-DEBUG: tests/tests_tests.c:196:all_tests 
+DEBUG: tests/tests_tests.c:222:all_tests 
 --------test_bsplit---------
-DEBUG: tests/tests_tests.c:197:all_tests 
+DEBUG: tests/tests_tests.c:223:all_tests 
 --------test_bstrList_destroy---------
-DEBUG: tests/tests_tests.c:198:all_tests 
+DEBUG: tests/tests_tests.c:224:all_tests 
 --------test_bformat---------
-DEBUG: tests/tests_tests.c:199:all_tests 
+DEBUG: tests/tests_tests.c:225:all_tests 
 --------test_blength---------
-DEBUG: tests/tests_tests.c:200:all_tests 
+DEBUG: tests/tests_tests.c:226:all_tests 
 --------test_bdata---------
-DEBUG: tests/tests_tests.c:201:all_tests 
+DEBUG: tests/tests_tests.c:227:all_tests 
 --------test_bchar---------
-DEBUG: tests/tests_tests.c:202:all_tests 
+DEBUG: tests/tests_tests.c:228:all_tests 
+--------test_bstr2cstr---------
+DEBUG: tests/tests_tests.c:229:all_tests 
+--------test_bsetstr---------
+DEBUG: tests/tests_tests.c:230:all_tests 
 --------test_bdestroy---------

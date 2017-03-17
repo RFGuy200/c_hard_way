@@ -1,5 +1,6 @@
 #include "minunit.h"
 #include <test.h>
+#include <string.h>
 
 bstring my_str = NULL;
 bstring my_str_1 = NULL;
@@ -8,7 +9,7 @@ struct bstrList *my_list = NULL;
 bstring fmt_str = NULL;
 
 
-char *test_bcreate()
+char *test_bfromcstr()
 {
 	my_str = bfromcstr("this is a test str\0");
 
@@ -176,13 +177,38 @@ char *test_bchar()
 	return NULL;
 }
 
+char *test_bstr2cstr()
+{
+	bassigncstr(my_str_1, "Alexander\0");
+	bconcat(my_str, my_str_1);
+
+	char *c = bstr2cstr(my_str,' ' );
+	mu_assert(strcmp(c, "AlexanderAlexander") == 0,\
+			 "bstrcstr should return string");
+
+	return NULL;
+}
+
+char *test_bsetstr()
+{
+	bassigncstr(my_str, "Alexander");
+	bassigncstr(my_str_1, "Kornishev");
+
+	bsetstr(my_str, blength(my_str) + 1, my_str_1, ' ');
+	char *data = bdata(my_str);
+	mu_assert(strcmp(data, "Alexander Kornishev") == 0,\
+			"my_str should be Alexander Kornishev after bsetstr.");
+
+	return NULL;
+}
+
 	
 
 char *all_tests(){
 
 	mu_suite_start();
 
-	mu_run_test(test_bcreate);
+	mu_run_test(test_bfromcstr);
 	mu_run_test(test_blk2bstr);
 	mu_run_test(test_bstrcpy);
 	mu_run_test(test_bassign);
@@ -199,6 +225,8 @@ char *all_tests(){
 	mu_run_test(test_blength);
 	mu_run_test(test_bdata);
 	mu_run_test(test_bchar);
+	mu_run_test(test_bstr2cstr);
+	mu_run_test(test_bsetstr);
 	mu_run_test(test_bdestroy);
 	
 	return NULL;
