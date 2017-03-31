@@ -3,6 +3,7 @@
 
 #include <string.h>
 #include <list.h>
+#include <dbg.h>
 
 int cmp_func(ListNode *node1, ListNode *node2);
 void bubble_sort(List *list);
@@ -15,5 +16,7 @@ void upside_merge(List *list);
 void insert_sort(List *list);
 
 void shell_sort(int *array, int length);
+
+void List_reverse(List *list);
 
 #endif

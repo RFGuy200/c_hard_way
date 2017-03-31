@@ -235,3 +235,41 @@ void shell_sort(int *array, int length)
 	}
 }
 
+int list_reverse(List *list)
+{
+	check(list != NULL, "Can't reverse empty list.");
+	ListNode *temp = NULL;
+	int i = 0;
+	ListNode *cur = list->first;
+	
+	for(i = 0; i < list->count; i++){
+		if(cur->next){
+			temp = cur->next;
+		}else{
+			temp = NULL;
+		}
+
+		if(cur->prev){
+			cur->next = cur->prev;
+		}else{
+			cur->next = NULL;
+		}
+
+		if(temp){
+			cur->prev = temp;
+		}else{
+			cur->prev = NULL;
+		}
+		
+		if(cur->prev)
+			cur = cur->prev;
+	} 
+	
+	list->last = list->first;
+	list->first = cur;
+
+	return 0;	
+
+error:
+	return -1;
+}

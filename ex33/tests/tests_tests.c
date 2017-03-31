@@ -180,7 +180,7 @@ void print_list(List *list)
 
 	printf("Here is the last iteration after sorting:\n");
 	for(i = 0; i < list->count; i++){
-		printf("%s\n ", cur_list->value);
+		printf("%s\n", cur_list->value);
 		cur_list = cur_list->next;
 	}
 	printf("\n");
@@ -231,6 +231,22 @@ char *test_shell()
 	return NULL;
 }
 
+char *test_list_reverse()
+{
+	List_push(list, test1);
+	List_push(list, test2);
+	List_push(list, test3);
+	List_push(list, test4);
+	List_push(list, test5);
+
+	list_reverse(list);	
+
+	print_list(list);
+
+	return NULL;
+}
+		
+
 
 
 char *all_tests()
@@ -257,6 +273,9 @@ char *all_tests()
 	mu_run_test(test_insert);
 	mu_run_test(test_destroy);
 	mu_run_test(test_shell);
+	mu_run_test(test_create);
+	mu_run_test(test_list_reverse);
+	mu_run_test(test_destroy);
 
 	
 	return NULL;
