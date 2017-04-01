@@ -1,0 +1,14 @@
+DEBUG: tests/tests_tests.c:83:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:73:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:74:all_tests 
+--------test_create---------
+DEBUG: tests/tests_tests.c:75:all_tests 
+--------test_push---------
+DEBUG: tests/tests_tests.c:76:all_tests 
+--------test_pop---------
+DEBUG: tests/tests_tests.c:77:all_tests 
+--------test_destroy---------
+DEBUG: tests/tests_tests.c:78:all_tests 
+--------test_api---------
