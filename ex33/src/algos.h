@@ -17,6 +17,6 @@ void insert_sort(List *list);
 
 void shell_sort(int *array, int length);
 
-void List_reverse(List *list);
+int list_reverse(List *list);
 
 #endif

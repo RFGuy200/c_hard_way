@@ -243,30 +243,15 @@ int list_reverse(List *list)
 	ListNode *cur = list->first;
 	
 	for(i = 0; i < list->count; i++){
-		if(cur->next){
 			temp = cur->next;
-		}else{
-			temp = NULL;
-		}
-
-		if(cur->prev){
 			cur->next = cur->prev;
-		}else{
-			cur->next = NULL;
-		}
-
-		if(temp){
 			cur->prev = temp;
-		}else{
-			cur->prev = NULL;
-		}
-		
-		if(cur->prev)
 			cur = cur->prev;
 	} 
 	
+	temp = list->last;	
 	list->last = list->first;
-	list->first = cur;
+	list->first = temp;
 
 	return 0;	
 
