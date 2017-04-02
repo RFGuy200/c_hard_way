@@ -17,10 +17,7 @@ error:
 void destroy_fn(stack* stack)
 {
 	check(stack, "Can't destroy empty stack.");
-
-	
-	if(stack->data)
-		free(stack->data);
+	free(stack->data);
 	free(stack);
 
 error: 
@@ -50,4 +47,65 @@ int pop_fn(stack *stack)
 error:
 	return -1;
 }
+
+StackList* List_create()
+{
+	StackList *new = malloc(sizeof(StackList));
+	check_mem(new);
+	new->count = 0;
+	new->top = NULL;
+
+	return new;
+
+error:
+	return NULL;
+}
+
+void List_destroy(StackList *list)
+{
+	check(list, "Can't destroy NULL list.");
+	ListNode *cur = NULL;
+
+	while(list->top){
+		cur = list->top->next;
+		free(list->top);
+		list->top = cur;
+	}
+	
+	free(list);
+
+error:
+	return;
+}
+
+void List_push(StackList *stack, int value)
+{
+	ListNode *new_node = malloc(sizeof(ListNode));
+	check_mem(new_node);
+
+	new_node->value = value;
+	new_node->next = stack->top;
+	stack->top = new_node;
+	stack->count++;
+error:
+	return;
+}
+
+int List_pop(StackList *stack)
+{
+	check(stack->top != NULL, "Can't pop empty stack.");
+
+	int value = stack->top->value;
+	ListNode *cur = stack->top;
+	stack->top = stack->top->next;
+	free(cur);
+	stack->count--;
+
+	return value;
+	
+error:
+	return -1;
+}
 		
+	
+
