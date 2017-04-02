@@ -1,0 +1,20 @@
+DEBUG: tests/tests_tests.c:162:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:148:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:149:all_tests 
+--------test_create---------
+DEBUG: tests/tests_tests.c:150:all_tests 
+--------test_push---------
+DEBUG: tests/tests_tests.c:151:all_tests 
+--------test_pop---------
+DEBUG: tests/tests_tests.c:152:all_tests 
+--------test_destroy---------
+DEBUG: tests/tests_tests.c:153:all_tests 
+--------test_api---------
+DEBUG: tests/tests_tests.c:154:all_tests 
+--------test_List_create---------
+DEBUG: tests/tests_tests.c:157:all_tests 
+--------test_List_destroy---------
+DEBUG: tests/tests_tests.c:158:all_tests 
+--------test_balance---------
