@@ -1,6 +1,10 @@
-DEBUG: tests/tests_tests.c:31:main 
+DEBUG: tests/tests_tests.c:61:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:25:all_tests 
+DEBUG: tests/tests_tests.c:52:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:26:all_tests 
+DEBUG: tests/tests_tests.c:53:all_tests 
+--------test_push---------
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------test_pop---------
+DEBUG: tests/tests_tests.c:55:all_tests 
 --------test_destroy---------

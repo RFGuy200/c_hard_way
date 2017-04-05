@@ -26,3 +26,48 @@ void Que_destroy(que *que)
 error:
 	exit(-1);
 }
+
+void Que_push(que* que, int value)
+{
+	check(que != NULL, "Que is NULL, can't push.");
+
+	if(que->front == -1){
+		que->front++;
+		que->tail++;
+		que->data[que->front] = value;
+	}else{
+		int i = que->tail + 1;
+		if(i > MAX_SIZE){
+			printf("\nQue ran out of space.\n");
+			return;
+		}
+		for(;i > 0; i--){
+			que->data[i] = que->data[i-1];
+		}
+		que->data[que->front] = value;
+		que->tail++;
+	}
+	return;
+
+error:
+	exit(-1);
+}
+
+int Que_pop(que *que)
+{
+	check(que->front || que->tail != -1, "Can't pop empty que.");
+
+	int value = que->data[que->tail];
+	que->data[que->tail] = 0;
+	if(que->tail == que->front) {
+		que->front = -1;
+		que->tail = -1;
+	}else{
+		que->tail--;
+	}
+
+	return value;
+
+error:
+	return -1;
+}
