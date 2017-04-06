@@ -36,16 +36,14 @@ void Que_push(que* que, int value)
 		que->tail++;
 		que->data[que->front] = value;
 	}else{
-		int i = que->tail + 1;
-		if(i > MAX_SIZE){
+		int i = (que->tail + 1) % MAX_SIZE;
+		if(i == que->front){
 			printf("\nQue ran out of space.\n");
 			return;
+		}else{
+			que->data[i] = value;
+			que->tail = i;
 		}
-		for(;i > 0; i--){
-			que->data[i] = que->data[i-1];
-		}
-		que->data[que->front] = value;
-		que->tail++;
 	}
 	return;
 
@@ -57,13 +55,13 @@ int Que_pop(que *que)
 {
 	check(que->front || que->tail != -1, "Can't pop empty que.");
 
-	int value = que->data[que->tail];
-	que->data[que->tail] = 0;
+	int value = que->data[que->front];
+	que->data[que->front] = 0;
 	if(que->tail == que->front) {
 		que->front = -1;
 		que->tail = -1;
 	}else{
-		que->tail--;
+		que->front = (que->front +1) % MAX_SIZE;
 	}
 
 	return value;

@@ -23,11 +23,11 @@ char *test_push()
 	mu_assert(my_que->front == 0 && my_que->tail == 0 && my_que->data[0] == 1,\
 		"First number in que should be 1.");
 	Que_push(my_que, 2);
-	mu_assert(my_que->front == 0 && my_que->tail == 1 && my_que->data[0] == 2,\
-		"First number in que should be 1.");
+	mu_assert(my_que->front == 0 && my_que->tail == 1 && my_que->data[1] == 2,\
+		"Second number in que should be 2.");
 	Que_push(my_que, 3);
-	mu_assert(my_que->front == 0 && my_que->tail == 2 && my_que->data[0] == 3,\
-		"First number in que should be 1.");
+	mu_assert(my_que->front == 0 && my_que->tail == 2 && my_que->data[2] == 3,\
+		"Third number in que should be 3.");
 
 	return NULL;
 }
