@@ -1,0 +1,6 @@
+DEBUG: tests/tests_tests.c:29:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:23:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_Node_create---------
