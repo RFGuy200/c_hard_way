@@ -12,6 +12,7 @@ typedef struct BstNode{
 
 typedef struct BstTree{
 	BstNode *root;
+	int number;
 }BstTree;
 
 BstNode* Create_node(int value);
