@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <dbg.h>
+#include <assert.h>
 
 typedef struct BstNode{
 	int value;
@@ -18,9 +19,11 @@ typedef struct BstTree{
 BstNode* Create_node(int value);
 BstTree* Create_tree(int *array, int len);
 void Destroy_tree(BstTree *tree);
+void Destroy_nodes(BstNode *node);
 
+BstNode* Search_node(BstTree *tree, int value);
 void Insert_node(BstTree *tree, int value);
-int Remove_node(BstTree *tree, int value);
+void Remove_node(BstTree *tree, int value);
 int Find(BstTree *tree, int value);
 
 #endif

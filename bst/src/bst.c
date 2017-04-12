@@ -61,4 +61,56 @@ error:
 
 }
 
+void Destroy_nodes(BstNode *node)
+{
+	if(node == NULL)
+		return;
+	
+	if(node->left != NULL){
+		 Destroy_nodes(node->left);
+	}
+	
+	if(node->right != NULL){
+		Destroy_nodes(node->right);
+	}
+		free(node);
+}
+
+
+	
+
+void Destroy_tree(BstTree *tree)
+{
+	assert(tree != NULL && "Tree pointer should not be NULL.");
+
+	Destroy_nodes(tree->root);
+	free(tree);
+}
+
+BstNode* Search_node(BstTree *tree, int value)
+{
+	assert(tree != NULL && "Can't search empty tree.");
+
+	BstNode *cur = tree->root;
+
+	while(cur != NULL){
+		if(cur->value == value){
+			break;	
+		}else if(value > cur->value){
+			cur = cur->right;
+		}else{
+			cur = cur->left;
+		}
+	}
+	return cur;
+}
+			
+
+
+void Remove_node(BstTree *tree, int value)
+{
+	Search_node(tree, value);
+}
+
+
 
