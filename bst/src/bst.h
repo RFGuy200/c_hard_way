@@ -25,5 +25,7 @@ BstNode* Search_node(BstTree *tree, int value);
 void Insert_node(BstTree *tree, int value);
 void Remove_node(BstTree *tree, int value);
 int Find(BstTree *tree, int value);
+BstNode* find_delete_node(BstNode *root, int value);
+BstNode* find_min(BstNode *root);
 
 #endif

@@ -104,13 +104,56 @@ BstNode* Search_node(BstTree *tree, int value)
 	}
 	return cur;
 }
-			
 
+BstNode* find_min(BstNode *root)
+{
+	BstNode *min = NULL;
+
+	return min;
+}
+
+BstNode* find_delete_node(BstNode *root, int value)
+{
+	BstNode *temp = NULL;
+	
+	if(root == NULL)
+		return NULL;
+	if(value > root->value){
+		 root->right = find_delete_node(root->right, value);
+	}else if(value <root->value){
+		root->left = find_delete_node(root->left, value);
+	}else{
+		if(root->left == NULL && root->right == NULL){
+			free(root);
+			return NULL;
+		}else if(root->left){
+			temp = root;
+			root = root->left;
+			free(temp);
+		}else if(root->right){
+			temp = root;
+			root = root->right;
+			free(temp);
+		}else{
+			temp = root;
+			root = find_min(root);
+			root->left = temp->left;
+			root->right = temp->right;
+			free(temp);
+		}
+	}
+
+	return root;
+}
+
+	
 
 void Remove_node(BstTree *tree, int value)
 {
-	Search_node(tree, value);
+	find_delete_node(tree->root, value);
+		
 }
+
 
 
 
