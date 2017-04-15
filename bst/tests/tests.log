@@ -1,8 +1,10 @@
-DEBUG: tests/tests_tests.c:51:main 
+DEBUG: tests/tests_tests.c:66:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:44:all_tests 
+DEBUG: tests/tests_tests.c:58:all_tests 
 --------test_create_tree---------
-DEBUG: tests/tests_tests.c:45:all_tests 
+DEBUG: tests/tests_tests.c:59:all_tests 
 --------test_search_node---------
-DEBUG: tests/tests_tests.c:46:all_tests 
+DEBUG: tests/tests_tests.c:60:all_tests 
+--------test_remove_node---------
+DEBUG: tests/tests_tests.c:61:all_tests 
 --------test_destroy_tree---------

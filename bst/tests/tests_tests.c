@@ -35,6 +35,20 @@ char *test_search_node()
 
 	return NULL;
 }
+
+char *test_remove_node()
+{
+	int *array_1= (int[]){5, 7, 1, 9, 2, 8, 3, 10, 4, 6};	
+	BstTree *my_tree_1 = Create_tree(array_1, 10);
+
+	mu_assert(my_tree_1->root->right->value == 7, "Before remove should be 7.");
+	
+	Remove_node(my_tree_1, 7);
+
+	mu_assert(my_tree_1->root->right->value == 8, "After remove should be 8.");
+
+	return NULL;
+}
 	
 
 char *all_tests(){
@@ -43,6 +57,7 @@ char *all_tests(){
 
 	mu_run_test(test_create_tree);
 	mu_run_test(test_search_node);
+	mu_run_test(test_remove_node);
 	mu_run_test(test_destroy_tree);
 	
 	return NULL;

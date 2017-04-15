@@ -107,9 +107,11 @@ BstNode* Search_node(BstTree *tree, int value)
 
 BstNode* find_min(BstNode *root)
 {
-	BstNode *min = NULL;
-
-	return min;
+	if(root->left == NULL){
+		return root;
+	}else{
+		find_min(root->left);
+	}
 }
 
 BstNode* find_delete_node(BstNode *root, int value)
@@ -126,17 +128,17 @@ BstNode* find_delete_node(BstNode *root, int value)
 		if(root->left == NULL && root->right == NULL){
 			free(root);
 			return NULL;
-		}else if(root->left){
+		}else if(root->right == NULL){
 			temp = root;
 			root = root->left;
 			free(temp);
-		}else if(root->right){
+		}else if(root->left == NULL){
 			temp = root;
 			root = root->right;
 			free(temp);
 		}else{
 			temp = root;
-			root = find_min(root);
+			root = find_min(root->right);
 			root->left = temp->left;
 			root->right = temp->right;
 			free(temp);
