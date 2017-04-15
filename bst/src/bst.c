@@ -61,6 +61,35 @@ error:
 
 }
 
+void Insert_node(BstTree *tree, int value)
+{
+		BstNode *temp = Create_node(value);
+		check_mem(temp);
+
+		BstNode *cur = tree->root;
+
+		while(1){
+			if(cur->value >= temp->value && cur->left == NULL){
+					cur->left = temp;
+					tree->number++;
+					break;
+			}else if(cur->value < temp->value && cur->right == NULL){
+					cur->right = temp;
+					tree->number++;
+					break;
+			}else if(cur->value < temp->value && cur->right){
+				cur = cur->right;
+				continue;
+			}else{
+				cur = cur->left;
+				continue;
+			}
+		}
+error:
+	return;
+
+}
+
 void Destroy_nodes(BstNode *node)
 {
 	if(node == NULL)
@@ -109,6 +138,10 @@ BstNode* find_min(BstNode *root)
 {
 	if(root->left == NULL){
 		return root;
+	}else if(root->left->left == NULL){
+		BstNode *temp = root->left;
+		root->left = NULL;
+		return temp;
 	}else{
 		find_min(root->left);
 	}
