@@ -248,22 +248,51 @@ void Print_tree(BstTree *tree)
 	Print_postorder(tree->root);
 }
 
-void Bst_check(BstNode *root)
+int find_min_check(BstNode *root)
 {
-	if(root->left != NULL){
-		if( root->left->value < root->value){
-		Bst_check(root->left);
-		}else{
-		printf("This is not a BST.\n");
-		}
+	if(root->left == NULL){
+		return root->value;
+	}else{
+		find_min_check(root->left);
+	}
+}
+
+int find_max_check(BstNode *root)
+{
+	if(root->right == NULL){
+		return root->value;
+	}else{
+		find_max_check(root->right);
+	}
+}
+
+int  Bst_check(BstNode *root)
+{
+	int min = 1;
+	int max = 1;
+	int right_sub = 1;
+	int left_sub = 1;
+
+	if(root->right){
+		min = find_min_check(root->right) > root->value;
 	}
 
-	if(root->right != NULL){
-		if( root->right->value > root->value){
-		Bst_check(root->right);
-		}else{
-		printf("This is not a BST.\n");
-		}
+	if(root->left){
+		max = find_max_check(root->left) < root->value;
+	}
+
+	if(root->right){
+		right_sub = Bst_check(root->right);
+	}
+
+	if(root->left){
+		left_sub = Bst_check(root->left);
+	}
+
+	if(min && max && right_sub && left_sub){
+		return 1;
+	}else{
+		return 0;
 	}
 }
 

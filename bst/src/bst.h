@@ -32,6 +32,9 @@ int Tree_height(BstTree *tree);
 void Print_tree(BstTree *tree);
 void Print_preorder(BstNode *root);
 void Print_inorder(BstNode *root);
-void Bst_check(BstNode *root);
+int Bst_check(BstNode *root);
 void Bst_confirm(BstTree *tree);
+int find_min_check(BstNode *root);
+int find_max_check(BstNode *root);
+
 #endif

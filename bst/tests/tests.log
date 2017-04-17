@@ -10,8 +10,6 @@ DEBUG: tests/tests_tests.c:96:all_tests
 --------test_insert_node---------
 DEBUG: tests/tests_tests.c:97:all_tests 
 --------test_tree_height---------
-DEBUG: tests/tests_tests.c:98:all_tests 
---------test_print_tree---------
 DEBUG: tests/tests_tests.c:99:all_tests 
 --------test_bst---------
 DEBUG: tests/tests_tests.c:100:all_tests 

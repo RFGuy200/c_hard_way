@@ -95,7 +95,7 @@ char *all_tests(){
 	mu_run_test(test_remove_node);
 	mu_run_test(test_insert_node);
 	mu_run_test(test_tree_height);
-	mu_run_test(test_print_tree);
+	//mu_run_test(test_print_tree);
 	mu_run_test(test_bst);
 	mu_run_test(test_destroy_tree);
 	
