@@ -1,12 +1,18 @@
-DEBUG: tests/tests_tests.c:77:main 
+DEBUG: tests/tests_tests.c:105:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:68:all_tests 
+DEBUG: tests/tests_tests.c:93:all_tests 
 --------test_create_tree---------
-DEBUG: tests/tests_tests.c:69:all_tests 
+DEBUG: tests/tests_tests.c:94:all_tests 
 --------test_search_node---------
-DEBUG: tests/tests_tests.c:70:all_tests 
+DEBUG: tests/tests_tests.c:95:all_tests 
 --------test_remove_node---------
-DEBUG: tests/tests_tests.c:71:all_tests 
+DEBUG: tests/tests_tests.c:96:all_tests 
 --------test_insert_node---------
-DEBUG: tests/tests_tests.c:72:all_tests 
+DEBUG: tests/tests_tests.c:97:all_tests 
+--------test_tree_height---------
+DEBUG: tests/tests_tests.c:98:all_tests 
+--------test_print_tree---------
+DEBUG: tests/tests_tests.c:99:all_tests 
+--------test_bst---------
+DEBUG: tests/tests_tests.c:100:all_tests 
 --------test_destroy_tree---------

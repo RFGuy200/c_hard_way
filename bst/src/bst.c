@@ -189,6 +189,91 @@ void Remove_node(BstTree *tree, int value)
 		
 }
 
+int Find_height(BstNode *root)
+{
+	if(root == NULL){
+		return -1;
+	}else{
+		int lefth = Find_height(root->left);
+		int righth = Find_height(root->right);
+
+		if(lefth > righth)
+			return lefth + 1;
+		else{
+			return righth + 1;
+		}
+	}
+}
+
+int Tree_height(BstTree *tree)
+{
+	int height = Find_height(tree->root);
+	
+	return height;
+}
+
+void Print_preorder(BstNode *root)
+{
+	if(root == NULL)
+		return;
+	printf("\n%d", root->value);
+	Print_preorder(root->left);
+	Print_preorder(root->right);
+}
+
+
+void Print_inorder(BstNode *root)
+{
+	if(root == NULL)
+		return;
+	Print_inorder(root->left);
+	printf("\n%d", root->value);
+	Print_inorder(root->right);
+}
+
+
+void Print_postorder(BstNode *root)
+{
+	if(root == NULL)
+		return;
+	Print_postorder(root->left);
+	Print_postorder(root->right);
+	printf("\n%d", root->value);
+}
+
+void Print_tree(BstTree *tree)
+{
+	Print_preorder(tree->root);
+	Print_inorder(tree->root);
+	Print_postorder(tree->root);
+}
+
+void Bst_check(BstNode *root)
+{
+	if(root->left != NULL){
+		if( root->left->value < root->value){
+		Bst_check(root->left);
+		}else{
+		printf("This is not a BST.\n");
+		}
+	}
+
+	if(root->right != NULL){
+		if( root->right->value > root->value){
+		Bst_check(root->right);
+		}else{
+		printf("This is not a BST.\n");
+		}
+	}
+}
+
+void Bst_confirm(BstTree *tree)
+{
+	Bst_check(tree->root);
+}
+	
+
+
 
 
 

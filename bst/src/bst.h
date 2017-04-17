@@ -27,5 +27,11 @@ void Remove_node(BstTree *tree, int value);
 int Find(BstTree *tree, int value);
 BstNode* find_delete_node(BstNode *root, int value);
 BstNode* find_min(BstNode *root);
-
+int Find_height(BstNode *root);
+int Tree_height(BstTree *tree);
+void Print_tree(BstTree *tree);
+void Print_preorder(BstNode *root);
+void Print_inorder(BstNode *root);
+void Bst_check(BstNode *root);
+void Bst_confirm(BstTree *tree);
 #endif

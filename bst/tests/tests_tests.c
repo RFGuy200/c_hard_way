@@ -59,6 +59,31 @@ char *test_insert_node()
 
 	return NULL;
 }
+
+char *test_tree_height()
+{
+	int height = Tree_height(my_tree_1);
+
+	printf("\nTree hight = %d\n", height);
+
+	return NULL;
+}
+
+char *test_print_tree()
+{
+	printf("All tree node values:");
+	Print_tree(my_tree_1);
+	printf("\n");
+
+	return NULL;
+}
+
+char *test_bst()
+{
+	Bst_confirm(my_tree_1);
+
+	return NULL;
+}
 	
 
 char *all_tests(){
@@ -69,6 +94,9 @@ char *all_tests(){
 	mu_run_test(test_search_node);
 	mu_run_test(test_remove_node);
 	mu_run_test(test_insert_node);
+	mu_run_test(test_tree_height);
+	mu_run_test(test_print_tree);
+	mu_run_test(test_bst);
 	mu_run_test(test_destroy_tree);
 	
 	return NULL;
