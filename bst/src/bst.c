@@ -121,9 +121,11 @@ BstNode* Search_node(BstTree *tree, int value)
 	assert(tree != NULL && "Can't search empty tree.");
 
 	BstNode *cur = tree->root;
+	BstNode *found = NULL;
 
 	while(cur != NULL){
 		if(cur->value == value){
+			found = cur;
 			break;	
 		}else if(value > cur->value){
 			cur = cur->right;
@@ -131,7 +133,7 @@ BstNode* Search_node(BstTree *tree, int value)
 			cur = cur->left;
 		}
 	}
-	return cur;
+	return found;
 }
 
 BstNode* find_min(BstNode *root)
@@ -300,9 +302,58 @@ void Bst_confirm(BstTree *tree)
 {
 	Bst_check(tree->root);
 }
+
+int Find_succ(BstTree *tree, int value)
+{
+	BstNode* cur = Search_node(tree, value);
+	check(cur != NULL, "Value not found.");
+
+	if(cur->right){
+		return find_min_check(cur->right); 
+	}
 	
+	BstNode *temp = tree->root;
+	BstNode *succ = tree->root;
 
+	while(temp != cur){
+		if(cur->value < temp->value){
+			succ = temp;
+			temp = temp->left;
+		}else{
+			temp = temp->right;
+		}
+	}
+	return succ->value;	
 
+error:
+	exit(EXIT_FAILURE);
+}
 
+int Find_pred(BstTree *tree, int value)
+{
+	BstNode *cur = Search_node(tree, value);
+
+	check(cur != NULL, "Value not found.");
+
+	if(cur->left){
+		return find_max_check(cur->left);
+	}
+
+	BstNode *temp = tree->root;
+	BstNode *succ = tree->root;
+
+	while(temp != cur){
+		if(cur->value > temp->value){
+			succ = temp;
+			temp = temp->right;
+		}else{
+			temp = temp->left;
+		}
+	}
+	return succ->value;
+
+error:
+	exit(EXIT_FAILURE);
+}
 
 

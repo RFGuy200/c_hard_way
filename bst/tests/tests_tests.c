@@ -84,6 +84,22 @@ char *test_bst()
 
 	return NULL;
 }
+
+char *test_successor()
+{
+	int successor = Find_succ(my_tree_1, 5);
+	mu_assert(successor == 6, "Successor for 5 should be 6.");
+
+	return NULL;
+}
+
+char *test_pred()
+{
+	int pred = Find_pred(my_tree_1, 5);
+	mu_assert(pred == 4, "Pred should be 4.");
+
+	return NULL;
+}
 	
 
 char *all_tests(){
@@ -97,6 +113,8 @@ char *all_tests(){
 	mu_run_test(test_tree_height);
 	//mu_run_test(test_print_tree);
 	mu_run_test(test_bst);
+	mu_run_test(test_successor);
+	mu_run_test(test_pred);
 	mu_run_test(test_destroy_tree);
 	
 	return NULL;

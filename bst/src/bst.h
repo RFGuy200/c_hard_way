@@ -36,5 +36,7 @@ int Bst_check(BstNode *root);
 void Bst_confirm(BstTree *tree);
 int find_min_check(BstNode *root);
 int find_max_check(BstNode *root);
+int Find_succ(BstTree *tree, int value);
+int Find_pred(BstTree *tree, int value);
 
 #endif
