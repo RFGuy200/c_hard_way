@@ -1,0 +1,8 @@
+DEBUG: tests/tests_tests.c:43:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:36:all_tests 
+--------test_create---------
+DEBUG: tests/tests_tests.c:37:all_tests 
+--------test_push---------
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------test_destroy---------
