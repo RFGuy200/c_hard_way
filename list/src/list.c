@@ -54,25 +54,18 @@ void List_reverse( List *list)
 	if(list->count < 2)
 		return;
 
-	ListNode *low = list->first;
-	ListNode *high = list->last;
-	void *temp = NULL;
-	ListNode *cur = low;
+	ListNode *cur = list->first;
+	ListNode *next = cur->next;
+	cur->next = NULL;
+	ListNode *temp = NULL;
 
-	while(low != high){
-		temp = high->data;
-		high->data = low->data;
-		low->data = temp;
-		low = low->next;
-
-		if(low == high)
-			return;
-
-		cur = low;
-		while(cur->next != high){
-			cur = cur->next;
-		}
-		
-		high = cur;
+	while(next != NULL){
+		temp = next->next;
+		next->next = cur;
+		cur = next;
+		next = temp;
 	}
+
+	list->last = list->first;
+	list->first = cur;
 }
