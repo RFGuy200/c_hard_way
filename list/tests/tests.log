@@ -1,8 +1,10 @@
-DEBUG: tests/tests_tests.c:43:main 
+DEBUG: tests/tests_tests.c:71:main 
 --------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:36:all_tests 
+DEBUG: tests/tests_tests.c:63:all_tests 
 --------test_create---------
-DEBUG: tests/tests_tests.c:37:all_tests 
+DEBUG: tests/tests_tests.c:64:all_tests 
 --------test_push---------
-DEBUG: tests/tests_tests.c:38:all_tests 
+DEBUG: tests/tests_tests.c:65:all_tests 
+--------test_reverse---------
+DEBUG: tests/tests_tests.c:66:all_tests 
 --------test_destroy---------

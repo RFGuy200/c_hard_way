@@ -49,4 +49,30 @@ void List_push(List *list, void *value)
 	list->count++;	
 }
 
-	
+void List_reverse( List *list)
+{
+	if(list->count < 2)
+		return;
+
+	ListNode *low = list->first;
+	ListNode *high = list->last;
+	void *temp = NULL;
+	ListNode *cur = low;
+
+	while(low != high){
+		temp = high->data;
+		high->data = low->data;
+		low->data = temp;
+		low = low->next;
+
+		if(low == high)
+			return;
+
+		cur = low;
+		while(cur->next != high){
+			cur = cur->next;
+		}
+		
+		high = cur;
+	}
+}
