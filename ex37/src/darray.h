@@ -52,7 +52,7 @@ static inline void* Darray_get(Darray *array, int i){
 	check(i < array->end, "darray attempts to get past max");
 	return	array->contents[i];
 error:
-	return;
+	return NULL;
 }
 
 static inline void* Darray_remove(Darray *array, int i){
@@ -61,14 +61,14 @@ static inline void* Darray_remove(Darray *array, int i){
 	array->contents[i] = NULL;
 	return el;
 error:
-	return;
+	return NULL;
 }
 	
 static inline void* Darray_new(Darray *array){
 	check(array->element_size > 0, "Can't use Darray_new on 0 size darray");
 	return calloc(1, array->element_size);
 error:
-	return;
+	return NULL;
 }
 
 #define Darray_free(E) free((E))

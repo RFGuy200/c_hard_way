@@ -63,7 +63,6 @@ char *test_unshift()
 {
 	List_unshift(list, test1);
 	mu_assert(list->first->value == test1 &&\
-		list->count == 1, "Failed to unshift the list.");
 		
 	List_unshift(list, test2);
 	mu_assert(list->first->value == test2 &&\
