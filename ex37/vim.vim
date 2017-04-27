@@ -23,6 +23,7 @@ set printoptions=paper:letter
 set ruler
 set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim74,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set tabstop=4
 set window=50
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
@@ -32,12 +33,12 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 src/hashmap.h
-badd +0 src/hashmap.c
-badd +0 makefile
-badd +0 src/darray.c
-badd +0 src/darray.h
-badd +0 src/mashmap.c
+badd +1 src/hashmap.h
+badd +1 src/hashmap.c
+badd +1 makefile
+badd +1 src/darray.c
+badd +1 src/darray.h
+badd +1 src/mashmap.c
 argglobal
 silent! argdel *
 argadd src/hashmap.h
@@ -145,7 +146,7 @@ setlocal synmaxcol=3000
 if &syntax != 'cpp'
 setlocal syntax=cpp
 endif
-setlocal tabstop=8
+setlocal tabstop=4
 setlocal tagcase=
 setlocal tags=
 setlocal textwidth=0
@@ -157,12 +158,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((16 * winheight(0) + 24) / 49)
+let s:l = 18 - ((16 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 18
-normal! 027|
+normal! 028|
 tabedit src/hashmap.c
 set splitbelow splitright
 set nosplitbelow
@@ -266,7 +267,7 @@ setlocal synmaxcol=3000
 if &syntax != 'c'
 setlocal syntax=c
 endif
-setlocal tabstop=8
+setlocal tabstop=4
 setlocal tagcase=
 setlocal tags=
 setlocal textwidth=0
@@ -278,11 +279,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 24) / 49)
+let s:l = 24 - ((21 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+24
 normal! 0
 tabedit src/darray.c
 set splitbelow splitright
@@ -387,7 +388,7 @@ setlocal synmaxcol=3000
 if &syntax != 'c'
 setlocal syntax=c
 endif
-setlocal tabstop=8
+setlocal tabstop=4
 setlocal tagcase=
 setlocal tags=
 setlocal textwidth=0
@@ -399,12 +400,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 49 - ((48 * winheight(0) + 24) / 49)
+let s:l = 49 - ((46 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 49
-normal! 06|
+normal! 0
 tabedit src/darray.h
 set splitbelow splitright
 set nosplitbelow
@@ -508,7 +509,7 @@ setlocal synmaxcol=3000
 if &syntax != 'cpp'
 setlocal syntax=cpp
 endif
-setlocal tabstop=8
+setlocal tabstop=4
 setlocal tagcase=
 setlocal tags=
 setlocal textwidth=0
@@ -520,13 +521,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 72 - ((39 * winheight(0) + 24) / 49)
+let s:l = 72 - ((44 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 72
 normal! 0
-tabnext 1
+tabnext 4
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

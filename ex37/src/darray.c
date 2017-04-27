@@ -1,12 +1,12 @@
 #include "darray.h"
 #include <assert.h>
 
-Darray* Darray_create(size_t element_size, size_t initial_max)
+DArray* DArray_create(size_t element_size, size_t initial_max)
 {
 	check(element_size > 0 && initial_max > 0, "USAGE: element size and initial_max have to\
 		be more than 0");
-	Darray *array = NULL; 
-	array = malloc(sizeof(Darray));
+	DArray *array = NULL; 
+	array = malloc(sizeof(DArray));
 	check_mem(array);
 	array->max = initial_max;
 
@@ -22,7 +22,7 @@ error:
 	return NULL;
 }
 
-void Darray_clear(Darray *array)
+void DArray_clear(DArray *array)
 {
 	int i = 0;
 	if(array->element_size > 0){
@@ -34,7 +34,7 @@ void Darray_clear(Darray *array)
 	}
 }
 
-static inline int Darray_resize(Darray *array, size_t newsize)
+static inline int DArray_resize(DArray *array, size_t newsize)
 {
 	check(newsize > 0, "New array size must be > 0");
 	array->max = newsize;
@@ -49,10 +49,10 @@ error:
 	return -1;
 }
 
-int Darray_expand(Darray *array)
+int DArray_expand(DArray *array)
 {
 	size_t old_max = array->max;
-	check(Darray_resize(array, array->max + array->expand_rate) == 0, "Failed to expand array\
+	check(DArray_resize(array, array->max + array->expand_rate) == 0, "Failed to expand array\
 		to a new size: %d", (int)array->max + (int)array->expand_rate);
 
 	memset(array->contents + old_max, 0, array->expand_rate + 1);
@@ -62,15 +62,15 @@ error:
 	return -1;
 }
 
-int Darray_contract(Darray *array)
+int DArray_contract(DArray *array)
 {
 	int new_size = array->end < (int)array->expand_rate ? (int)array->expand_rate:\
 		array->end;
 
-	return Darray_resize(array, new_size + 1);
+	return DArray_resize(array, new_size + 1);
 }
 
-void Darray_destroy(Darray* array)
+void DArray_destroy(DArray* array)
 {
 	if(array){
 		if(array->contents)
@@ -79,53 +79,53 @@ void Darray_destroy(Darray* array)
 	}
 }
 
-void Darray_clear_destroy(Darray *array)
+void DArray_clear_destroy(DArray *array)
 {
-	Darray_clear(array);
-	Darray_destroy(array);
+	DArray_clear(array);
+	DArray_destroy(array);
 }
 
-int Darray_push(Darray * array, void *el)
+int DArray_push(DArray * array, void *el)
 {
 	array->contents[array->end] = el;
 	array->end++;
 
-	if(Darray_end(array) >= Darray_max(array)){
-		return	Darray_expand(array);
+	if(DArray_end(array) >= DArray_max(array)){
+		return	DArray_expand(array);
 	}else{
 		return 0;
 	}
 }
 
-void *Darray_pop(Darray *array)
+void *DArray_pop(DArray *array)
 {	
 	check(array->end -1 >= 0, "Attempt to pop from empty array");
 
-	void *el = Darray_remove(array, array->end -1);
+	void *el = DArray_remove(array, array->end -1);
 	array->end--;
 	
-	if(Darray_end(array) > (int)array->expand_rate &&\
-		Darray_end(array) % array->expand_rate)
-			Darray_contract(array);
+	if(DArray_end(array) > (int)array->expand_rate &&\
+		DArray_end(array) % array->expand_rate)
+			DArray_contract(array);
 
 	return el;
 error:
 	return NULL;
 }
 
-void  Darray_shift(Darray *array)
+void  DArray_shift(DArray *array)
 {
 	check(array->end -1 >= 0, "Attempt to shift empty array");
 	
 	int i = 0;
 
 	for(i = 0; i < array->end -1; i++){
-		int *el = Darray_new(array);
+		int *el = DArray_new(array);
 		el = array->contents[i+1];
-		Darray_set(array, i, el);
+		DArray_set(array, i, el);
 	}
 	
-	int *val = Darray_pop(array);
+	int *val = DArray_pop(array);
 	free(val);
 error:
 	return;
