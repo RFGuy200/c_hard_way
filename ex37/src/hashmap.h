@@ -28,9 +28,9 @@ void Hashmap_destroy(Hashmap *map);
 
 int Hashmap_set(Hashmap *map, void *key, void *data);
 
-void Hashmap_get(Hashmap *map, void *key);
+void* Hashmap_get(Hashmap *map, void *key);
 int Hashmap_traverse(Hashmap *map, Hashmap_traverse_cb traverse_cb);
-void Hashmap_delete(Hashmap *map, void *key);
+void* Hashmap_delete(Hashmap *map, void *key);
 
 #endif
 

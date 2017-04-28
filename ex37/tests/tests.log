@@ -1,4 +1,4 @@
-DEBUG: tests/tests_tests.c:17:main 
---------Running: ./tests/tests_tests
-DEBUG: tests/tests_tests.c:12:all_tests 
+DEBUG: tests/hashmap_tests.c:38:main 
+--------Running: ./tests/hashmap_tests
+DEBUG: tests/hashmap_tests.c:33:all_tests 
 --------test_demo---------
