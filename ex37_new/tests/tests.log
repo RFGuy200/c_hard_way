@@ -1,0 +1,394 @@
+DEBUG: tests/tests_tests.c:18:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:13:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:18:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:13:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:18:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:13:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:26:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:21:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:26:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:21:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:26:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:21:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:26:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:21:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:27:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:21:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:22:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:30:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:30:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:30:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:30:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:30:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:30:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:30:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:30:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:30:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:24:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------testBfromCstr---------
+[ERROR] (tests/tests_tests.c:15:testBfromCstr errno: None) bfromcstr function does not work
+DEBUG: tests/tests_tests.c:31:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:26:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:31:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:26:all_tests 
+--------testBfromCstr---------
+[ERROR] (tests/tests_tests.c:16:testBfromCstr errno: None) bfromcstr function does not work
+DEBUG: tests/tests_tests.c:31:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:25:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:26:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:32:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:26:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:27:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:32:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:26:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:27:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:44:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:44:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:44:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:44:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:45:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:40:all_tests 
+--------testBdestroy---------
+DEBUG: tests/tests_tests.c:45:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:40:all_tests 
+--------testBdestroy---------
+[ERROR] (tests/tests_tests.c:29:testBdestroy errno: None) bdestroy function did not work
+DEBUG: tests/tests_tests.c:46:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:40:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:41:all_tests 
+--------testBdestroy---------
+[ERROR] (tests/tests_tests.c:30:testBdestroy errno: None) bdestroy function did not work
+DEBUG: tests/tests_tests.c:46:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:40:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:41:all_tests 
+--------testBdestroy---------
+DEBUG: tests/tests_tests.c:44:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:37:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------testBstrcpy---------
+[ERROR] (tests/tests_tests.c:28:testBstrcpy errno: None) bstring one is not equal to bstring two.
+DEBUG: tests/tests_tests.c:44:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:37:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:38:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:39:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:57:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:49:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:50:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:51:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:52:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:57:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:49:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:50:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:51:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:52:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:66:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:58:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:59:all_tests 
+--------testBfromCstr---------
+ls: cannot access '/usr/local/argument': No such file or directory
+DEBUG: tests/tests_tests.c:60:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:61:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:66:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:58:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:59:all_tests 
+--------testBfromCstr---------
+Segmentation fault (core dumped)
+DEBUG: tests/tests_tests.c:66:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:58:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:59:all_tests 
+--------testBfromCstr---------
+ls: cannot access '/usr/local/argument': No such file or directory
+DEBUG: tests/tests_tests.c:60:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:61:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:62:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:57:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:61:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:53:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:61:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:53:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:61:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:53:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:63:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:57:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:58:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:63:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:57:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:58:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:63:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:57:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:58:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:63:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:57:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:58:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:62:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:57:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:62:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:57:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:62:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:57:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:62:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:57:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:61:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:53:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:54:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:55:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:56:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:69:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:61:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:62:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:63:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:64:all_tests 
+--------testBstrassign---------
+DEBUG: tests/tests_tests.c:69:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:61:all_tests 
+--------test_demo---------
+DEBUG: tests/tests_tests.c:62:all_tests 
+--------testBfromCstr---------
+DEBUG: tests/tests_tests.c:63:all_tests 
+--------testBstrcpy---------
+DEBUG: tests/tests_tests.c:64:all_tests 
+--------testBstrassign---------

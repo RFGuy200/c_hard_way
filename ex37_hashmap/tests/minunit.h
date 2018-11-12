@@ -3,7 +3,7 @@
 #define _minunit_h
 
 #include <stdio.h>
-#include "dbg.h"
+#include <dbg.h>
 #include <stdlib.h>
 
 #define mu_suite_start() char* message=NULL
@@ -12,7 +12,8 @@
 
 #define mu_run_test(test) debug("\n--------%s---------", #test); message=test(); tests_run++; if(message) return message;
 
-#define RUN_TESTS(name) int main(int argc, char *argv[]){\
+#define RUN_TESTS(name) int main(int __attribute__((unused)) argc, char *argv[])\
+{\
 	argc = 1;\
 	debug("\n--------Running: %s", argv[0]);\
 	printf("--------------------\nRunning: %s\n", argv[0]);\
@@ -26,6 +27,6 @@
 	printf("Tests run: %d\n", tests_run);\
 	exit(result != 0);\
 }
-	int tests_run;
+	int tests_run = 0;
 
 #endif

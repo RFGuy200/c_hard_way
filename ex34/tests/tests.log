@@ -26,3 +26,59 @@ DEBUG: tests/tests_tests.c:188:all_tests
 --------test_mergesort---------
 DEBUG: tests/tests_tests.c:147:run_sort_test 
 ---Testing sorting algorithm merge sort:
+DEBUG: tests/tests_tests.c:195:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:179:all_tests 
+--------test_create---------
+DEBUG: tests/tests_tests.c:180:all_tests 
+--------test_create_new---------
+DEBUG: tests/tests_tests.c:181:all_tests 
+--------test_set---------
+DEBUG: tests/tests_tests.c:182:all_tests 
+--------test_remove---------
+DEBUG: tests/tests_tests.c:183:all_tests 
+--------test_expand_contract---------
+DEBUG: tests/tests_tests.c:184:all_tests 
+--------test_push_pop---------
+DEBUG: tests/tests_tests.c:185:all_tests 
+--------test_destroy---------
+DEBUG: tests/tests_tests.c:186:all_tests 
+--------test_qsort---------
+DEBUG: tests/tests_tests.c:147:run_sort_test 
+---Testing sorting algorithm quick sort:
+DEBUG: tests/tests_tests.c:187:all_tests 
+--------test_heapsort---------
+DEBUG: tests/tests_tests.c:147:run_sort_test 
+---Testing sorting algorithm heap sort:
+DEBUG: tests/tests_tests.c:188:all_tests 
+--------test_mergesort---------
+DEBUG: tests/tests_tests.c:147:run_sort_test 
+---Testing sorting algorithm merge sort:
+DEBUG: tests/tests_tests.c:195:main 
+--------Running: ./tests/tests_tests
+DEBUG: tests/tests_tests.c:179:all_tests 
+--------test_create---------
+DEBUG: tests/tests_tests.c:180:all_tests 
+--------test_create_new---------
+DEBUG: tests/tests_tests.c:181:all_tests 
+--------test_set---------
+DEBUG: tests/tests_tests.c:182:all_tests 
+--------test_remove---------
+DEBUG: tests/tests_tests.c:183:all_tests 
+--------test_expand_contract---------
+DEBUG: tests/tests_tests.c:184:all_tests 
+--------test_push_pop---------
+DEBUG: tests/tests_tests.c:185:all_tests 
+--------test_destroy---------
+DEBUG: tests/tests_tests.c:186:all_tests 
+--------test_qsort---------
+DEBUG: tests/tests_tests.c:147:run_sort_test 
+---Testing sorting algorithm quick sort:
+DEBUG: tests/tests_tests.c:187:all_tests 
+--------test_heapsort---------
+DEBUG: tests/tests_tests.c:147:run_sort_test 
+---Testing sorting algorithm heap sort:
+DEBUG: tests/tests_tests.c:188:all_tests 
+--------test_mergesort---------
+DEBUG: tests/tests_tests.c:147:run_sort_test 
+---Testing sorting algorithm merge sort:

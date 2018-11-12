@@ -1,3 +1,7 @@
+#This is my Uint Tests script
+
+#!/bin/bash
+
 echo "Running Unit Tests"
 valgrind ./tests/*_tests > tests/valgrind.log 2>&1
 

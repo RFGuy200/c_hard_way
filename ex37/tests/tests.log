@@ -2,3 +2,7 @@ DEBUG: tests/hashmap_tests.c:38:main
 --------Running: ./tests/hashmap_tests
 DEBUG: tests/hashmap_tests.c:33:all_tests 
 --------test_demo---------
+DEBUG: tests/hashmap_tests.c:38:main 
+--------Running: ./tests/hashmap_tests
+DEBUG: tests/hashmap_tests.c:33:all_tests 
+--------test_demo---------
